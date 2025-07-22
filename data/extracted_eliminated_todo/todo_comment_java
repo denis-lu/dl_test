@@ -1,0 +1,3313 @@
+todo auto - generated catch block
+todo remove me
+todo auto - generated catch block
+todo remove me
+todo to be fixed
+todo remove it
+todo . png ) ;
+todo auto - generated catch block
+todo make it lazy
+todo not tested yet
+todo auto - generated method stub
+todo auto - generated method stub
+todo auto - generated method stub
+todo auto - generated method stub
+todo log an error
+todo log an error
+todo set up the log format
+todo seems it ' s not necessary - - >
+todo this may be optimized in next step .
+todo and fixme only in the comments .
+todo check error reason if open wal
+todo finish test case
+todo check can not exceed max_worker_id
+todo assert more
+todo add more assertions for actual value
+todo avoid accessing database here , consider using ` org . apache . shardingsphere . proxy . backend . text . data . databasebackendhandler `
+todo finish assert
+todo convert to static key , or use hashmap
+todo support mode & transaction combination
+todo seems curatorzookeeperrepository will cause get wrong value from cache , comment it for now . it depend on unit test cases ordering .
+todo consider refactoring tests which changed field ' s modifiers - - >
+todo consider refactoring tests which changed field ' s modifiers - - >
+todo consider refactoring tests which changed field ' s modifiers - - >
+todo need to be redesigned :
+todo add display of overwrite after metadata save overwrite .
+todo find in reversed order
+todo add error msg
+todo need to disable slave data source api support
+todo remove calcite ' s parser , use shardingsphere parser instead .
+todo use digital instead of zero
+todo and fixme only in the comments .
+todo remove isempty judge after localdistmetadatapersistrepository finished
+todo use spi with pluggable
+todo analytical optimization yml
+todo fix test case
+todo process exception
+todo load global schema from reg center
+todo load global schema from reg center
+todo load global schema from reg center
+todo consider about order for new put items
+todo optimize sqlstatementschemaholder
+todo lock on the same jvm
+todo : add more conditions to evaluate whether to submit this process task or not
+todo load auto generated from database meta data
+todo add update assertions
+todo use reflection to assert attributes of governancefacade
+todo consider what severity to use
+todo # 9615 fix me ! indexoutofboundsexception - - >
+todo improve the implement way
+todo should remove set default shardingsphere schema after parser can recognize all dal broadcast sql .
+todo h2 , mariadb , postgresql , sqlserver , sql92 database getschema
+todo h2 , mariadb , postgresql , sqlserver , sql92 decorate table name pattern
+todo setmaintenanceintervalmilliseconds
+todo investigate whether missing call close method
+todo ref # 7014
+todo decouple masterslave rule
+todo rename variable name , avoid name as tmp
+todo subquery in from support not use alias
+todo subquery in from support not use alias
+todo check if return null
+todo check if return null
+todo check if return null
+todo ) . shardingsphere originated from dangdang and developed in jd digital technology , becoming the first apache distributed database middleware project .
+todo check all meta data in once
+todo assert start
+todo assert start
+todo assert start
+todo remove it when oracle fix for column names extract
+todo : because of assistedquerycolumns , we need to consider the ddl of encrypt module . now jpa examples can not run well .
+todo : detect checksum length
+todo simplify from tables
+todo filter encrypt rule
+todo old parser has problem with here , should remove this after remove all old parser
+todo should use encryptrule , to be refactored
+todo panjuan : spilt encryptrule and encryptorengine , cannot pass encryptorengine to parse module
+todo do not assert table token and index , will assert table segment in future
+todo need read applicationid & transactionservicegroup from config file .
+todo need investigte , uescape cannot work
+todo self - join has problem , table name maybe use alias
+todo panjuan : spilt encryptrule and encryptorengine , cannot pass encryptorengine to parse module
+todo hongjun throw exeption when alter
+todo : panjuan the following tests need more sql parsing of insert value tokens
+todo requiredargsconstructor for test only , should remove later
+todo remove statement cache need to do research in future
+todo switch transaction type will not effect running transaction now , need to remove this logic .
+todo and fixme only in the comments .
+todo move to a suitable package
+todo consider about instead of datasourceservice . getdisabledslaveshardingschema ( event . getkey ( ) ) from event . getkey ( )
+todo : panjuan gets correct parsing result and supports this syntax
+todo extract condition
+todo just config proxy . transaction . enable here , in future ( 3 . 1 . 0 )
+todo : yonglun investigate why null here
+todo : zhaojun do not send tcl to backend , send when local transaction ready
+todo : jiaqi force off use nio for backend , this feature is not complete yet
+todo : jiaqi only use jdbc need connect db via jdbc , netty style should use sql packet to get metadata
+todo : jiaqi only use jdbc need connect db via jdbc , netty style should use sql packet to get metadata
+todo : jiaqi only use jdbc need connect db via jdbc , netty style should use sql packet to get metadata
+todo to be removed
+todo zhaojun : generic data source properties , can use mysql only for now
+todo zhaojun : generic data source properties , can use mysql only for now
+todo add get type in orchestrationfacade & configservice
+todo return schema unicast handler
+todo parse generator context for insert set - - >
+todo to be removed - - >
+todo assert
+todo to be discuss
+todo yonglun : decimals forever zero
+todo : yonglun mysqlfrontendhandler line num , trigger here
+todo : yonglun try to use wait notify
+todo : yonglun mysqlfrontendhandler line num , trigger here
+todo : panjuan add default datasource
+todo : yonglun consider about insert multiple values
+todo original datasourcemetadata do not remove ?
+todo : yonglun thread not safe ?
+todo drop
+todo iterator - > token lexerengine
+todo why not new here ?
+todo use common database type
+todo confirm here , maybe can remove
+todo why set twice ?
+todo use spi to detect transaction listener
+todo database maybe existed
+todo table maybe existed
+todo ignore new test engine , because it is not completed yet , will continue to do it in num . 0 . 0 . m2
+todo add teardown for temporary , will remove when original integrate test removed .
+todo ignore new test engine , because it is not completed yet , will continue to do it in num . 0 . 0 . m2
+todo remove
+todo ;
+todo contrast cache
+todo : num - 4 - 12
+todo need to check
+todo add update : : support
+todo fix offset and row count
+todo should remove , use mockito to replace this method
+todo and fixme only .
+todo and fixme only .
+todo and fixme only .
+todo )
+todo : which tools are tested , at least one version of that tool . )
+todo init data source in startup
+todo fix this - - >
+todo fix this - - >
+todo simplify
+todo to be discussed later
+todo to be discuss
+todo move to orchestration
+todo move to orchestration
+todo should not be null , for parsing only
+todo fix bindingtables
+todo fix bindingtables
+todo should config from sharding prop
+todo verify sql - - >
+todo verify sql - - >
+todo verify sql - - >
+todo verify sql - - >
+todo verify sql - - >
+todo subquery
+todo : we should check and see if all individual pixels are replaced . if they are , the
+todo ( b / 73882030 ) : this case gets triggered when it shouldn ' t . with this assertion it causes
+todo : this can probably be combined with argb_8888 , it ' s separate only because we haven ' t
+todo ( # 2730 ) : remove this after updating to the latest support library .
+todo ( # 2738 ) : re - enable these when we find a fix .
+todo : switch to build . version_codes . lollipop_mr1 when apps have updated target api levels .
+todo : use this in library / build . gradle .
+todo : this is set both during reading the header and while decoding frames . . .
+todo : we should probably just use genericanimationoptions instead .
+todo : contribute cancel modifications to volley and remove this class .
+todo : call cancel on the client when this method is called on a background thread . see # 257
+todo : re - enable background thumbnail fetching .
+todo : remove this when robolectric num . 4 is released .
+todo : remove this when robolectric num . 4 is released .
+todo : this is a violation of the api because it requires that you call mark ( ) once per call to reset ( ) .
+todo : there isn ' t much point in caching these . . .
+todo : this needs to be batched to include code from gif_decoder .
+todo : use { @ link view # settag ( int , object ) } when we can do so and still create
+todo : do a better job in refreshing only the needed element
+todo : do a better job in refreshing only the needed element
+todo : copy bp . prefs to prefs
+todo : check for start_sync not supported , call startpolling ( )
+todo need to be smarter here since kde people ain ' t gonna like that gtk .
+todo : understand why it doesn ' t work
+todo : add support for " a " , " a . b " , " a . b . c " formats
+todo : add support for " a " , " a . b " , " a . b . c " formats
+todo : add support for " a " , " a . b " , " a . b . c " formats
+todo " cut " and " copy " should really only be enabled
+todo : refactor this mess . . .
+todo auto - generated method stub
+todo : set correct value for different cpus
+todo find next should only be enabled after a
+todo : do a proper version compare . look also http : / / semver . org /
+todo : the first distribution file may be removed after extraction ?
+todo : to be checked
+todo * / }
+todo : a more robust restart
+todo : do it in a more efficient way
+todo : do it in a more efficient way
+todo : do it in a more efficient way
+todo : do it in a more efficient way
+todo . txt " property = " revision " >
+todo to be implemented
+todo add dns wifi spi function to resolve dns * /
+todo : should really use the wdt here
+todo : should not be hardcoded
+todo : allow chip select pin to be supplied ?
+todo : actually return something useful .
+todo : reduce method calling by storing cache size as a class member
+todo : make this configurable or remove this variable
+todo : pretty confident this should be s / storedblock / block below ,
+todo : pretty confident this should be s / storedblock / block below ,
+todo : is it a bug to return true ?
+todo : there can be containers in open state which were never
+todo > " ) ;
+todo : add implementation to update node attribute once yarn - 3409 merged .
+todo : need to remove the code to create the new raftclient instance
+todo : for now , just create the file to save the term index ,
+todo : hdds - 1156 " )
+todo : hdds - 1156 " )
+todo : uncomment this with hdds - 134 to avoid npe
+todo : init cgroups
+todo : remove this profile to generate html5 docs when we stop supporting jdk8 - - >
+todo , this duplicated to client of distributed shell , should cleanup
+todo : add metrics and populate it .
+todo this may hang on linux
+todo fail the application on the failed transition * /
+todo fail the application on the failed transition * /
+todo fix dns lookup over tcp
+todo : this is very flaky , re - enable it later . see hdfs - 12417 .
+todo : enables dfsnetworktopology by default after more stress
+todo : uncomment once hadoop - 13222 is in
+todo : uncomment once hadoop - 13222 " s3a . mkdirs ( ) to delete empty fake parent directories "
+todo : if we have created an empty file at / foo / bar and we then call
+todo : the condition : containerid . getid ( ) = = num to determine an am container
+todo : remove this after the issue is fixed .
+todo add a timeout . state . stopped check ?
+todo this can be more efficient
+todo explore a better way than sleeping for a while ( yarn - 4929 )
+todo : unfortunately this fails - - should be improved .
+todo : update the enough rack logic for striped blocks
+todo print striped blocks
+todo fail ? already translated several times . . .
+todo fail ? already translated several times . . .
+todo num datanode exception will not be retried by dfs client , fix
+todo jdk7 switch
+todo : why pick first app dir . the same in lce why not random ?
+todo pass in hdfs : / / host : port ( hdfs - 6490 )
+todo : need to replace the memoryapplicationtimelinestore . class with the
+todo sandyt remove this hejfkdsl
+todo : debug
+todo : update storage ids
+todo : after yarn - 2 is committed , we should call containerresource . getcpus ( )
+todo : use a resource to work around bugs . today nm doesn ' t create local
+todo throw an exception if the task isn ' t registered .
+todo : audit log
+todo : audit log
+todo : the test is failing due to the change in hadoop - 7360 .
+todo : this should be namespace - scoped
+todo : move it to datanodeid once datanodeid is not stored in fsimage
+todo : move it to datanodeid once datanodeid is not stored in fsimage
+todo : should use createparents to control intermediate dir creation
+todo ( ha ) : the following causes some problems for ha :
+todo : this really should be a - nl option
+todo : saw an npe here - maybe if the two bpos register at
+todo auto - generated method stub
+todo auto - generated method stub
+todo get rid of this once jobid has it ' s own comparator
+todo : synchronization problems ! !
+todo : commands should implement a - f to enable this
+todo proper task registered as source - generating ?
+todo fix this or rely on the integration tests ?
+todo : https : / / github . com / williamfiset / algorithms / issues / 5
+todo ( williamfiset ) : fix this test . there ' s an extra empty string .
+todo ( william ) : check if n is too large
+todo ( will ) : copy from previous animation notes
+todo : justification why formula works .
+todo : this should be the realm of effective subject
+todo # 90213 update this only after we check that this health status indicates a problem .
+todo # 90213 will change the expected status to green .
+todo : investigate need for encode / decode to prevent hashcode test failures
+todo : when this issue is fixed , remove this method and set the parent method back to final
+todo do this .
+todo awaitsfix https : / / github . com / elastic / elasticsearch / issues / 89325
+todo : it would be awesome if we could translate these starts and ends to byte positions , if we could performance would be
+todo : switch to kahan summation ?
+todo : we shouldn ' t use the generic thread pool here as we already execute this from the generic pool .
+todo once a fixed version has been released , adjust the condition above to match .
+todo : shouldn ' t this skip , not parse ?
+todo : change the warning expectation to be always once # 82837 is fixed
+todo & & randomness . get ( ) . nextint ( 100 ) = = num * / ) {
+todo : sort order is wrong here . probably this is caused by the encoding of unsigned_long
+todo : sort order is wrong here . probably this is caused by the encoding of unsigned_long
+todo : v_7_16_1
+todo : v_7_16_1
+todo : change on backport
+todo : change version on backport
+todo missing update types
+todo : update to num . 16 after backporting
+todo : remove kibana privileges from ml backend roles in num . 0 . 0 this role also grants kibana privileges related to ml .
+todo : remove kibana privileges from ml backend roles in num . 0 . 0 this role also grants kibana privileges related to ml .
+todo : expose getters on knnvectorquery and assert more here
+todo : add more assertions once lucene - 10178 is implemented
+todo : remove after backport
+todo : v_7_16_0
+todo : v_7_16_0
+todo : v_7_14_0
+todo : v_7_14_0
+todo : change after backport
+todo : change after backport
+todo : update after backport
+todo : update after backport
+todo : update after backport
+todo temporary version skip while we wait for backport to num . x of search_after properties
+todo : add oldnodesclient once pr is backported to num . x
+todo : we should maybe rewrite this with the flexible query parser which matches the same syntax with more freedom .
+todo : remove anchor after https : / / github . com / elastic / kibana / pull / 112597 is
+todo : use v_7_16_0 once pr is backported to num . x
+todo : use v_7_16_0 once pr is backported to num . x
+todo : replace with num . 15 . 99 once pr is backported to num . 16
+todo : replace with num . 15 . 99 once pr is backported to num . 16
+todo : replace with num . 15 . 99 once pr is backported to num . 16
+todo : replace with num . 15 . 99 once pr is backported to num . 16
+todo : use v_7_16_0 once pr is backported to num . x
+todo : use v_7_16_0 once pr is backported to num . x
+todo : adjust version after backport
+todo : change after backport
+todo fix after backport
+todo : remove once https : / / github . com / nebula - plugins / gradle - ospackage - plugin / pull / 402 got merged and released
+todo fix after backport
+todo fix after backport
+todo : num . 15
+todo : num . 15
+todo : num . 15
+todo port buildmetadata to use provider api
+todo : we should , instead , hold a " bytes reserved " of how large we anticipate this shard will be , e . g . for a shard
+todo : remove once # 75099 is back ported to num . x
+todo : change after backport
+todo : move the searchable snapshot settings into x - pack
+todo : remove the next one after backporting https : / / github . com / elastic / elasticsearch / pull / 73828
+todo : the ml_info mute can be removed from master once the ml_standard tokenizer is in num . x
+todo : change to v_7_14_0 on backport
+todo : until we implement the retry mechanism for point in times ( i . e . , replace an unavailable shard with an equivalent copy ) ,
+todo adjust to num . 13 . 0
+todo : crashes with assertions enabled in lucene
+todo : version . v_7_13_0 ;
+todo : v_7_13_0
+todo : v_7_13_0
+todo : update version after backport
+todo change after backport
+todo : version . v_7_13_0 ;
+todo : wrap error - prone " free form "
+todo adapt version after backport )
+todo adapt bwc version after backport
+todo adapt bwc version after backport
+todo : the transform dest
+todo : v_7_13_0
+todo : v_7_13_0
+todo adjust version after backport
+todo after backport , can hard - code this to false .
+todo revisit
+todo adjust after backport
+todo change after backport
+todo : remove " - i " once https : / / github . com / elastic / elasticsearch / issues / 68973 is resolved
+todo : remove after { @ link fieldcapabilitiesaction } handles search runtime mappings .
+todo : v_7_12_0
+todo : v_7_12_0
+todo : v_7_12_0
+todo : v_7_12_0
+todo : v_7_12_0
+todo : v_7_12_0
+todo : remove the num . 0 . 0 version check after the code reaches num . x as well
+todo reenable these assertions after we understand why some times there are rows with
+todo : v_7_12_0
+todo : v_7_12_0
+todo this is always false ?
+todo num . 11 . 0
+todo num . 11 . 0
+todo : num . 10 . 99
+todo this should be removed once strict parsing is implemented https : / / github . com / elastic / elasticsearch / issues / 63080
+todo version is loaded from docvalues , not stored fields , so why are we checking
+todo : enable automatic deleting of data streams
+todo revisit this when this issue is addressed in lucene
+todo this exists so that we can run painless in unit tests which we
+todo tbd can we just execute the get request and let it fail if the
+todo : evaluate if we actually need ping channels ?
+todo copy to and multi_fields should not be supported , parametrized field mapper needs to be adapted
+todo : change to num . 10 after backport
+todo : change to num . 10 after backport
+todo perhaps pad out seasonal to a power of num and use a mask instead of modulo ?
+todo script and runtime_type can be updated : what happens to the currently running queries when they get updated ?
+todo : change after backport
+todo : change after backport
+todo : remove the task exclusions once dependencies are set correctly and these don ' t run for windows or buldiung the deb on windows is fixed
+todo : cache the acceptedglobalvalues per aggregation definition .
+todo : we should have a way to express true zero applications
+todo bwc for v_7_9_0
+todo bwc for v_7_9_0
+todo make v_7_9_0
+todo once auto date histo is plugged into the valuessource refactoring use the date values source
+todo : searchandreduce incorrectly returns null for empty aggs
+todo : searchandreduce incorrectly returns null for empty aggs
+todo : should index fields be aggregatable ? what even is an indexfield ?
+todo change this after backport
+todo change in backport
+todo change in backport
+todo change in backport
+todo : remove busy assert in num . x + once this race is fixed
+todo reboot the leader and verify that the same block is applied when it restarts
+todo : needs proper term bumping
+todo remove this once # 35644 is fixed
+todo : update on backport
+todo v_7_7_0
+todo : update this once backported
+todo : v_7_7_0
+todo : v_7_7_0
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update this in / after backport of https : / / github . com / elastic / elasticsearch / pull / 53248
+todo : update after backporting
+todo fix for backport of https : / / github . com / elastic / elasticsearch / pull / 52547
+todo fix for backport of https : / / github . com / elastic / elasticsearch / pull / 52547
+todo fix for backport of https : / / github . com / elastic / elasticsearch / pull / 52547
+todo fix for backport https : / / github . com / elastic / elasticsearch / pull / 52547
+todo fix for backport of https : / / github . com / elastic / elasticsearch / pull / 52547
+todo fix for backport of https : / / github . com / elastic / elasticsearch / pull / 52547
+todo deprecate ?
+todo should we deprecate this version ?
+todo update version on backport
+todo update version on backport
+todo : make it num . 6 . 99 after backport
+todo : fix api to work with sets rather than lists since we need to convert to sets
+todo here we should just use bytesizevalue # writeto and same for de - serialization in the constructor while we technically could serialize this with value . writeto ( . . . ) , that would
+todo : change to num . 6 after backport
+todo : change to num . 6 after backport
+todo here we should just use timevalue # writeto and same for de - serialization in the constructor , we lose information this way while we technically could serialize this would out . writetimevalue ( . . . ) , that would
+todo https : / / github . com / elastic / elasticsearch / issues / 38556
+todo https : / / github . com / elastic / elasticsearch / issues / 38556
+todo : check translog trimming functionality once rollback is implemented in lucene ( es trimming is done )
+todo change to num . 7 . 0 on backport
+todo change to num . 7 . 0 on backport
+todo : num . 6 . 99
+todo : num . 6 . 99
+todo : num _7_0
+todo "
+todo "
+todo change this after backport
+todo : remove this once we ' ve updated to gradle num . 1
+todo : change to num . 3 in backport "
+todo : change to num . 3 in backport "
+todo : change to num . 6 in backport "
+todo "
+todo "
+todo "
+todo " >
+todo " >
+todo " >
+todo " >
+todo " >
+todo " >
+todo : change to num . 6 after backport
+todo : reenable once gradle supports java num or later !
+todo : provide a proper fix for : https : / / github . com / elastic / elasticsearch / issues / 48900
+todo remove in num . 0
+todo : no support un jjbb ?
+todo link
+todo latlonpointinpolygon is package private , need a closeto check on the query
+todo : remove this property lookup once ci is switched to use an explicit task for the sample tests
+todo remove once jvm . options are added to test system properties
+todo : add policy validation
+todo : change version in backport
+todo : change version in backport
+todo : change version in backport
+todo : change version in backport
+todo : just remove altitude for now . we need to add normalization later
+todo : remove before release and just continue if the controller is not in the standard place
+todo : remove this method before release
+todo : remove this when we understand why _cat / indices sometimes returns a num
+todo : remove when the cause of https : / / github . com / elastic / elasticsearch / issues / 45652 is understood
+todo : remove this when we understand why _cat / indices sometimes returns a num
+todo : remove these once https : / / github . com / elastic / elasticsearch / issues / 46091 is fixed
+todo the aggregation produces a sparse response but in the
+todo : s / v_8_0_0 / v_7_4_0 when change has been backported
+todo : s / v_8_0_0 / v_7_4_0 when change has been backported
+todo change this after backport
+todo change this after backport
+todo change this after backport
+todo change this after backport
+todo : change to v_7_4_0 after backport
+todo : change to v_7_4_0 after backport
+todo remove in num . 0 ! !
+todo : when resolving the above awaitsfix , just delete this override . method is only overriden to apply the annotation .
+todo : revisit this when we figure out where this goes
+todo : this seems bogus , the only way to get an ioexception here is from a corrupt or tampered
+todo : the time stored in snapshot doesn ' t include cleanup time .
+todo : change to num . 2 . 99 after backport
+todo : change to num . 2 . 99 after backport
+todo change version expectation after backport v8 - > v7 . 2 . 1
+todo change this after backport
+todo update to first released version
+todo : remove this check after backporting to num . x
+todo : always fail the engine in the last case , as this creates gaps in the history
+todo [ pcs ] update after backport
+todo set this to the earliest version this is backported to
+todo : update this test when policy runner is ready
+todo : https : / / github . com / elastic / elasticsearch / issues / 38556
+todo change this after backport
+todo fix version after backport
+todo : remove this for num . 0 , this exists to allow the doc examples in num . x to continue using the defaults
+todo change after backport
+todo change after backport
+todo : remove use of this jar as soon as possible ! ! ! !
+todo : this must change to num . 0 . 0 after bundling java has been backported
+todo : stop using languageidentifier . . .
+todo : migrate to points
+todo change to num . 0 . 99 after backport
+todo " ,
+todo adjust to num . 0 . 99 after merging to num . x
+todo : link to arm plugin when ready
+todo : remove type
+todo : use immutablefollowparameters ( streaminput ) constructor
+todo : use super . writeto ( )
+todo : to be changed once target version has been defined
+todo change the version to v_7_1_0 on backporting
+todo - we can fall back to a wait for cluster state update but i ' m keeping the logic the same for now
+todo change to v6_6 after backport
+todo change to v6_6 after backport
+todo ( jaymode ) change to v6_6_0 on backport !
+todo : this is commented out while lee looks into the failures
+todo move to the num _7_0 branch once backported to num . x
+todo move to the num _7_0 branch once backported to num . x
+todo move to the num _7_0 branch once backported to num . x
+todo : update after backport
+todo : update after backport
+todo update version to num . 7 . 0 after backport
+todo update version to num . 7 . 0 after backport
+todo update version to num . 7 . 0 after backport
+todo drop settings from ctor
+todo : re - enable when we switch back to bm25similarity
+todo remove this when one of the other tests is fixed
+todo update version after backport
+todo update version after backport
+todo update version after backport
+todo rename and update version after backport
+todo : enable this for zen2 once lag - detection is implemented
+todo move this check to nodeenvironment , because it ' s related to all types of metadata
+todo update version once backported
+todo update version once backported
+todo rename method and adapt versions after backport
+todo rename method and adapt versions after backport
+todo be more careful about avoiding multiple active peer objects for each address
+todo : can we avoid calculate numdocs by using segmentreader # getsegmentinfo with lucene - 8458 ?
+todo change this after backport
+todo change after backport
+todo : reenable verify
+todo : remove on num . 0
+todo change this after backport
+todo change this after backport
+todo move this to esresttestcase
+todo revisit tls1 . 2 pinning when tls1 . 3 is fully supported
+todo revisit tls1 . 2 pinning when tls1 . 3 is fully supported
+todo : move this test . . . it doesn ' t need to be by itself
+todo : fix this through some api or something , that ' s wrong
+todo ( simonw ) : can all these classes go into org . elasticsearch . ingest ?
+todo ( talevy ) : issue with generics . this test should fail , " int " is of type list < integer >
+todo : remove this method once gets in : https : / / github . com / elastic / elasticsearch / issues / 16019
+todo scriptplugin needs to change this to pass precommit ?
+todo change to v_6_5_0 after backport
+todo change to v_6_5_0 after backport
+todo change this after backport
+todo change this after backport
+todo : remove scriptdocvaluesmissingv6behaviourtests in num . 0
+todo ]
+todo ]
+todo : change to num _4_0 after backport
+todo : change to num _4_0 after backport
+todo potential improvements
+todo we ' d like to be able to optionally parse millis here i think . . . .
+todo why does the test fail without this ? relaoding isseu with the new approach ? make sure to write a unit test !
+todo : change to num . 3 after backport
+todo : change to num . 3 after backport
+todo : change to num . 3 after backport
+todo : change to num . 3 . 99 after backport to num . 4
+todo : figure out how to deal best with dynamic mapping updates from the leader side :
+todo : change to num . 3 after backport
+todo : change to num . 3 after backport
+todo : remove the if branch when master is bumped to num . 0 . 0
+todo : remove the if branch when master is bumped to num . 0 . 0
+todo update on backport . will become num
+todo update on backport . will become num as new node won ' t
+todo update on backport . will become num
+todo ] test [ setup : server_metrics_openjob ]
+todo : re - enable after backport of https : / / github . com / elastic / elasticsearch / pull / 28556
+todo : remove this jar once xpack extensions have been removed
+todo remove this once we are ready to merge sql down
+todo : remove this hack when client and threadpool are added to :
+todo : enable this once we have tests all integration tests live in qa modules
+todo : figure out how to use xpackmodule for this
+todo remove after backport
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : enable this once we have tests
+todo : skip if modification of s3 key is before last write to local zip file ?
+todo : change to num . 2 . 0 after backporting
+todo : change to num . 2 . 0 after backporting
+todo : re - enable after https : / / github . com / elastic / elasticsearch / pull / 27881 is backported
+todo : temporarily disable nio as it does not work with intellij testrunner
+todo : ? "
+todo : ? "
+todo : ? "
+todo : ? "
+todo remove this entire class when prebuilttokenizers no longer needs it . . . . .
+todo remove this once we are ready to merge sql down
+todo before merging sql we need to fiddle with this to make sure it is right
+todo : this isn ' t the nicest way to check this
+todo num seem wrong to hard code for non - numbers see https : / / github . com / elastic / x - pack - elasticsearch / issues / 3085
+todo ] test [ setup : server_metrics_job ]
+todo ] test [ setup : server_metrics_openjob ]
+todo ] test [ setup : server_metrics_startdf ]
+todo : we need to distinguish those commits and skip them in calculating the minimum required translog generation .
+todo : set to v_6_1_0 after backporting
+todo : set to v_6_1_0 after backporting
+todo : set to v_6_1_0 after backporting
+todo : set to v_6_1_0 after backporting
+todo : set to v_6_1_0 after backporting
+todo : set to v_6_1_0 after backporting
+todo check for failed reset and return different error
+todo : remove when type autodetection in jdbc csv is fixed
+todo ] test [ setup : server_metrics_job ]
+todo : figure out a way to test autobox caching properly from methods such as integer . valueof ( int ) ;
+todo : uncomment when there is a released version with : https : / / github . com / elastic / elasticsearch / pull / 25456
+todo : uncomment when there is a released version with : https : / / github . com / elastic / elasticsearch / pull / 25456
+todo : change this to num . 1 . 0 after backporting
+todo : change this to num . 1 . 0 after backporting
+todo eventually this should be num . 0 . but it is num . 0 temporarily for bwc
+todo eventually this should be num . 0 . but it is num . 0 temporarily for bwc
+todo : remove . marvel - * handling in num . 0
+todo should be backported to num . 1 . 0
+todo should be backported to num . 1 . 0
+todo should be backported to num . 1 . 0
+todo should be backported to num . 1 . 0
+todo should be backported to num . 1 )
+todo should be backported to num . 1 )
+todo once the serialization fix is in here , we can check for concrete fields if the run against a num . x or a num . x node
+todo ]
+todo we should be able to run this against any node , once the bwc serialization issues are fixed
+todo remove this again , as the upgrade api should take care of this
+todo we should be able to run this against any node , once the bwc serialization issues are fixed
+todo : why ? is it just a bad default somewhere ? or is it some bs around ' but the client ' garbage < - - my guess
+todo : ? "
+todo this bwc layer can be removed once this is back - ported to num . 3
+todo : add link to aggregations topic when it is available .
+todo this is almost certainly going to fail on num . 4 when we release num . 5 . 0
+todo : fix the template to use a single type
+todo : do not create multiple types
+todo version should be num . 4 . 99 after backport ( # 24517 )
+todo it may make sense to move gettype to the aggregation interface given that we are duplicating it in both implementations
+todo : either randomize , or make this settable with sysprop
+todo : uncomment this
+todo : remove this leniency ! ! is it needed anymore ?
+todo : revisit this when upgrading to gradle num . 14 + , see javadoc comment above
+todo move commonfields out of internalaggregation
+todo we may want to un - deprecate this entry constructor if we are going to use it extensively , which i think we are
+todo : do not use such a restrictive ephemeral port range
+todo : do not use such a restrictive ephemeral port range
+todo : don ' t use a hardcoded version here , introspect it from version . java
+todo : generate this , by introspecting version . java for last previous minor
+todo : could send the message for indexing instead of or as well as logging it
+todo : remove when netty num . 1 . 5 is upgraded to netty num . 1 . 6 including https : / / github . com / netty / netty / pull / 5778
+todo - review
+todo norelease more robust handling of failures ?
+todo : also chgrp to vagrant once sles and opensuse have vagrant group . . .
+todo : ( norelease ) : fix the assertion tripping in internal engine for
+todo : ( norelease ) : fix the assertion tripping in internal engine for
+todo update to onorafter after backporting
+todo update to
+todo update to onorafter after backporting
+todo update to onorafter after backporting
+todo update to onorafter after backporting
+todo update to onorafter after backporting
+todo : this can be reduced once elasticsearch is automatically starting the controller process -
+todo change to onorafter once backported to num . x
+todo change to onorafter once backported to num . x
+todo : remove when netty num . 1 . 6 is upgraded to netty num . 1 . 7 including https : / / github . com / netty / netty / pull / 6068
+todo do we need a static whitelist like in re
+todo think of a better std exception for this
+todo dm : fix me
+todo dm : fix me
+todo dm : fix me
+todo : do this in num . 0
+todo make selection smarter : aliases can still contain any character and remote indices should have the precedence all the time .
+todo we need to fix this for bwc tests to make sure we get a node that all shards can allocate on
+todo : fix that
+todo : fix that
+todo this could be the reason why the metric roundtrip tests failed
+todo is there a way to enforce this ?
+todo : why does the target file sometimes already exist ? simon says : i think , this can happen if you fail a shard and
+todo this should maybe move to some registry on startup
+todo switch this to throwing an exception ?
+todo should we set some timeout and retry options ?
+todo we can almost certainly save time by lazily evaluating the body
+todo remove this when nothing implements it
+todo : transitive dependencies of jmh . add them here explicitly for the time being and find out why they are not included implicitly . dependencies of jmh
+todo is it possible to make this o ( 1 ) ? ( rotate is o ( n ) )
+todo remove this line once https : / / github . com / policeman - tools / forbidden - apis / issues / 103 gets solved
+todo remove this line once https : / / github . com / policeman - tools / forbidden - apis / issues / 103 gets solved
+todo compiling from num . 8 with target num . 7 and source num . 7 is best effort , not enough to ensure we are java num compatible
+todo compiling from num . 8 with target num . 7 and source num . 7 is best effort , not enough to ensure we are java num compatible
+todo re - enable once our own jars are properly filtered out
+todo this could potentially be using _cat / nodes which wouldn ' t require jackson as a dependency , but we ' d have bw comp problems with num . x
+todo : arrays
+todo once we got rid of the client in the test framework we should use a version variable here
+todo : document this hack
+todo : why strings . splitstringtoarray instead of string . split ?
+todo : why strings . splitstringtoarray instead of string . split ?
+todo : why strings . splitstringtoarray instead of string . split ?
+todo : remove our explicit conversions and feed more type information for args / return value ,
+todo : move common ide configuration to a common file to include
+todo this is weird : default_zero_terms_query is a public static final field , so this can have only one value .
+todo : remove this
+todo remove this when nothing implements it
+todo remove this in favor of registerquery and merge innerregisterqueryparser into registerquery
+todo : handle name being an absolute path
+todo : fix multi node so it doesn ' t use hardcoded prots
+todo : shouldn ' t this create a default object mapper builder ?
+todo should this throw an exception rather than silently ignore a parameter that is not used ?
+todo : rename this once we ' ve switched to gradle !
+todo : fix
+todo should this be version . current ?
+todo change the following back to be final , https : / / github . com / elastic / elasticsearch / issues / 16097
+todo ( simonw ) : wow what is the reason for having yet another threadpool ? i really think we should just use
+todo this abstraction could be removed once ingest - core is part of es core ?
+todo ( 2 . 0 upgrade ) : move back to bytesreference instead of dealing with the array directly
+todo : clean that up
+todo : remove this , its because gradle does not bring in plugin - metadata for lang - groovy
+todo : fix this once modules are not allowed to be installed with bin / plugin . . .
+todo remove this dirty fix for # 15168
+todo : replace with jdk num native java . util . function . predicate
+todo : replace with jdk num native java . util . function . predicate
+todo : we should not rely on any core class , so we should have custom map extract value logic :
+todo remove the following pole hack when lucene - 6846 lands
+todo ( talevy ) : write it ! binder ( ) . bind ( pipelinesimulateservice . class ) . aseagersingleton ( ) ;
+todo currently we disable licensing on tribe node . remove this once es core supports merging cluster
+todo addprocessor ( dateprocessor . type , dateprocessor . builder . factory . class ) ;
+todo : make this work for multi node !
+todo : similar for intellij
+todo ( talevy ) : support elements of lists
+todo remove when this will be fixed in tika . see https : / / issues . apache . org / jira / browse / tika - 1548
+todo : re - enable unit tests once they work
+todo remove this suppression once we get rid of the cachebuilder and friends
+todo : why force a refresh here . . . ?
+todo : look into this )
+todo : we can enable mocking of these when we need them later :
+todo ( tlrx ) : move status as a calculated getter in license class then remove this method
+todo , for some more safety , add back some of the old jps logic
+todo : needsscores
+todo : verify bundles here
+todo : remove this and the xslt when junit4 is fixed - - >
+todo : remove this and the xslt when junit4 is fixed - - >
+todo : remove this and the xslt when junit4 is fixed - - >
+todo : pluginmanager is really broken here ! ! ! ! correct the file permissions - - >
+todo : we need to fix plugins to not include duplicate e . g . lucene - core jars ,
+todo : after https : / / github . com / elastic / elasticsearch / pull / 12006 use elasicsearchexception with addheader ( expired_feature_header , feature )
+todo : upgrade lucene to num . 12 so we dont have to worry about
+todo : create simple securemock wrapper and only grant to that .
+todo : can we somehow only do this for pre - 2 . 0 cluster state ?
+todo : we should be consistent about whether upper - case is allowed ( it is always allowed for bytesizevalue , but here only for
+todo : this guy isn ' t ready for mock filesystems yet
+todo : maybe log something if it fails ?
+todo handle " edge policy "
+todo : nuke this after a while , its for latest randomizedtesting - - >
+todo : remove me when https : / / issues . apache . org / jira / browse / lucene - 6406 is fixed
+todo num . 4 . 5 - > num . 6 is lucene num . 10 . 4 we need the constant here
+todo hack to get around threadpool issue
+todo this doesn ' t seem to work for
+todo : what is the proper way to wait for new replicas to recover ?
+todo change this to a constant once we update the snapshot
+todo : increase number of times we kill the elected master .
+todo ( # 8512 ) : this should be a set , not a list . currently if a document has two positions that have
+todo parser should fail if poly is not composed of an array of linearrings
+todo : how can we put the version selected in the repeat test output ?
+todo : : add features of the license to be deleted
+todo removing the second one results in fails , need to verify the differences , maybe per jvm ?
+todo disabled for now
+todo : move these to ctr
+todo remove in num . 4 . 0 . see # 75 https : / / github . com / elasticsearch / elasticsearch - mapper - attachments / issues / 75
+todo enable me , once the snapshot includes test jars - - >
+todo , if we miss on node by uid , we should have an option to lookup based on address ?
+todo deprecated form . will be removed in num . 3
+todo we need equivalence tests with match query here
+todo : change it to search_phase , but this would imply allocating the aggregators in the query
+todo lucene monitor this will change in lucene num . 0
+todo get_source endpoint shouldn ' t be present in the rest spec for the get api
+todo this test causes hangs , blocking on the action get when fetching the shape for some reason
+todo : create util for tostring ( )
+todo : have util for tostring ( )
+todo : do we want to upgrade this to the indicesservice level
+todo randomize and reduce execution time
+todo : bleskes : move back to combined
+todo would be nice to pick the reuse start based on the analyzer . . .
+todo : needed ?
+todo : body specification missing " ' % >
+todo : ? "
+todo : ? "
+todo : ? "
+todo : ? "
+todo : ? "
+todo : ? "
+todo : seek !
+todo get the content and test
+todo : lucene num , i think once someones changes codec , it should be reflected immediately we want to flush in this case , so the new codec will be reflected right away . . .
+todo expose some cache aspects like expiration and max size
+todo : lucene num upgrade : we need to expose filter strategy
+todo lucene num . 0 won ' t need this , since live docs are " and ' ed " while scoring
+todo : we can parse the
+todo : https : / / issues . apache . org / jira / browse / tika - 870 , once tika num . 2 is out , we don ' t need this class anymore
+todo : we might want to normalize longitude as we did in latlng . . .
+todo : we might want to normalize longitude as we did in latlng . . .
+todo : we might want to normalize longitude as we did in latlng . . .
+todo : we might want to normalize longitude as we did in latlng . . .
+todo decompress without doing an extra copy !
+todo : check if couchdb support now attachment filter : https : / / issues . apache . org / jira / browse / couchdb - 1263
+todo : check if couchdb support now attachment filter : https : / / issues . apache . org / jira / browse / couchdb - 1263
+todo we need to also handle a case where all shards per replication group are unassigned , in that case , we ignore until we
+todo , should we just return it as binary and not auto convert it ?
+todo , should we just return it as binary and not auto convert it ?
+todo make this configurable
+todo , need to mark this node as failed . . . the fault detection will detect it as failed as well
+todo lucene monitor : once num . 1 is out , no need for this class anymore , use chartermattribute lucene monitor : once num . 1 is out , no need for this class anymore , use chartermattribute
+todo lucene monitor : once num . 1 is released use it instead lucene monitor : once num . 1 is released use it instead
+todo add different parameters to the query
+todo " ) ) ;
+todo ? ? ? ? ? ? ? ? ? ?
+todo : clear waiters ?
+todo this should only be done if : ks . iskeyentry ( alias )
+todo regex
+todo : this test probably doesn ' t make sense since it sets hostnameverification
+todo : setting the host here does not work yet
+todo " ,
+todo : use httpconnection for this i think it should be used for stream reset ( rather than exceptionhandler )
+todo : check we are on executefromio
+todo - what about exceptions in the getnow methods where no exception handler can be provided ? ?
+todo - what about exceptions in the getnow methods where no exception handler can be provided ? ?
+todo - allow vert . x to be configured on the command line :
+todo : remove this once we have a way to wait for listen to complete
+todo - why is this necessary ? ? ?
+todo : fix me
+todo ( ulfjack ) : fsync temp here before we rename it to avoid data loss in the case of machine
+todo ( tjgq ) : try to make this a directory to match reality . i ' m not sure what might break .
+todo ( b / 179944632 ) : remove this flag when all repos work with this = true +
+todo ( b / 254866025 ) : use a java helper to call nestedset . issingleton
+todo : check directory content on the local fs to support mixed tree .
+todo ( b / 179944632 ) : remove this flag when all repos work with this = true +
+todo ( b / 179944632 ) : set this and - - incompatible_config_setting_private_default_visibility
+todo ( https : / / github . com / bazelbuild / continuous - integration / issues / 578 ) : remove this
+todo ( https : / / github . com / bazelbuild / continuous - integration / issues / 578 ) :
+todo ( b / 173020239 ) : determine why stopbranch ( ) can be called when cancellingbranch is
+todo : the default toolchain always uses xcode ' s clang , but sets the compiler name to the generic
+todo ( tjgq ) : this should fail to build .
+todo ( pcloudy ) : disable opt build due to https : / / github . com / bazelbuild / bazel / issues / 16225
+todo ( pcloudy ) : disable opt build due to https : / / github . com / bazelbuild / bazel / issues / 16225
+todo ( bazel - team ) make these visibility : public when the interface is stable .
+todo ( # 15427 ) : should use expect_log_once here when the issue is fixed .
+todo ( b / 198254254 ) : add default computed value once it is available in the api .
+todo ( https : / / github . com / bazelbuild / bazel / issues / 14727 ) : evaluate whether this can be
+todo ( b / 213551463 ) remove once unused
+todo ( b / 213551463 ) remove once unused
+todo ( b / 113797843 ) : gowrapccinfo is not written in starlark because several native rules use it .
+todo ( b / 226226799 ) : set this back to true once
+todo ( cushon ) : delete this shim after the next error prone update
+todo ( b / 232128775 ) : re - enable once aspect toolchain merging is fixed .
+todo ( b / 232128775 ) : re - enable once aspect toolchain merging is fixed .
+todo ( b / 232128775 ) : re - enable once aspect toolchain merging is fixed .
+todo ( pcloudy ) : the following should be removed after fixing https : / / github . com / bazelbuild / bazel / issues / 14279
+todo ( elenairina ) :
+todo ( ulfjack ) : this can result in an infinite loop if there ' s a dependency cycle .
+todo ( b / 113797843 ) : not written in starlark because of gocompilationhelper .
+todo ( b / 200024947 ) : this method will eventually need to take a repo mapping too .
+todo ( b / 113797843 ) : not written in starlark because of gocompilationhelper .
+todo : update java_versions_coverage on the next java_tools release .
+todo ( b / 131760365 ) : this is a hack , since the starlark apis don ' t have
+todo ( bazel - team ) : ( 2011 ) make this
+todo ( cmita ) : improve this situation so this early - exit isn ' t required .
+todo ( b / 218308694 ) : throw catastrophic exceptions .
+todo ( b / 63092114 ) : mark as @ deprecated .
+todo ( adonovan ) : when we have flat frames , pass in the locals array here instead of
+todo ( adonovan ) : move to sole use in js_common . provider ( transpilation_mapping = . . . ) .
+todo ( b / 209701268 ) : reimplement blaze - on - skyframe skyfunctions that would benefit from this
+todo ( bazel - team ) : the following is o ( n ^ 2 ) on the number of elements on the package path due
+todo ( ilist ) allowed_public_imports , disallow_services
+todo ( b / 180572694 ) : modify the apple split transition to split the - - apple_platforms out into a
+todo ( b / 166268889 ) : remove when resolved . actionexecutionvalues are ending up with
+todo ( shahan ) : replace unsafe with varhandle once it ' s available .
+todo ( b / 175215425 ) : make prefetch_and_retain_old_deps the only behavior .
+todo ( jhorvitz ) : only configfeatureflagconfiguration needs them - consider an annotation .
+todo ( aiuto ) : change to optiondocumentationcategory . starlark_semantics ,
+todo ( ilist ) : remove once bazel version on rbe is > num . 0 . 0
+todo ( cmita ) : implement as part of https : / / github . com / bazelbuild / bazel / issues / 12696
+todo ( b / 195130137 ) : move these calls to somewhere common .
+todo ( b / 123922036 ) : this is a bug . should be ' filestatevaluefromancestors ' .
+todo ( # 8685 ) : remove this special - case handling as part of making the proper shebang a
+todo ( b / 111090089 ) : delete once java_common . compile ( enable_annotation_processing ) is
+todo ( b / 111090089 ) : delete once java_common . compile ( enable_annotation_processing ) is available
+todo ( brandjon ) : bufferslice causes us to allocate a string for the raw text on every token ,
+todo ( adonovan ) : reject unreasonably large n .
+todo ( b / 149551585 ) : clean up rc files and remove this option .
+todo ( wyv ) : currently we expand the " unexpanded " keys one by one . we should try to expand them
+todo ( b / 142520065 ) : remove .
+todo ( b / 63112347 ) : remove all references to this flag and delete it .
+todo ( b / 186167747 ) : deprecate and remove append and overridable flag in
+todo ( tmsriram ) : checking for " llvm " does not handle all the cases . this
+todo ( b / 34450149 ) : remove when no longer flaky
+todo ( brandjon ) : ensure we haven ' t forgotten any package - zip items ,
+todo ( jcater ) : throw starlark . errorf instead of returning none .
+todo ( b / 177233238 ) : this should also document applicable_licenses and transitive_configs .
+todo ( b / 183140185 ) : all callers should pass a detailedexitcode . by passing just the plain
+todo ( b / 159096411 ) : remove once supports_header_parsing is removed from the cc_toolchain rule .
+todo ( b / 137881511 ) : old name should be removed after num - 01 - 01 , or whenever is
+todo ( b / 129637690 ) : the runtime shouldn ' t be resolved in the host config
+todo ( b / 149926109 ) : currently all callers call with shouldadd = true as a temporary workaround
+todo ( https : / / github . com / bazelbuild / bazel / issues / 8986 ) : build this dynamically
+todo ( hlopko ) : add redhat - like worker on the ci ( # 9392 )
+todo ( adonovan ) : add more tests of load .
+todo ( bencodes ) this test should assert against a num . 2 . 2 after proguard is switched over
+todo ( bencodes ) this test should assert against a num . 2 . 2 after proguard is switched over
+todo ( b / 170643206 ) : use this reason for ooms after updating consumers . the build tool ran out of memory and crashed .
+todo ( tanzhengwei ) : remove flags from query when this becomes the default .
+todo ( b / 175294870 ) : remove after diagnosing the bug .
+todo ( cushon ) : consider if / when we should increment this ?
+todo ( adonovan ) : make this ' def or lambda ' when we have lambda .
+todo ( b / 171140578 ) : remove default value and set to mandatory after it is set on
+todo in starlarkrulecontext # resolvecommand ) , this will lead to
+todo ( adonovan ) : use long x long operations even if one or both
+todo ( adonovan ) : opt : use putifabsent to avoid hashing twice .
+todo ( ilist ) : reenable after jacocoagent is patched
+todo ( ilist ) : reenable after proguard is patched
+todo ( cushon ) : disallow combining launcher = jdk_launcher_label with create_executable = 0
+todo ( adonovan ) : parse a compound statement , like the python and
+todo ( adonovan ) : opt : exploit x + ( ) = = x ; y + ( ) = = y .
+todo ( cushon ) : migrate to extclasspath and delete
+todo ( cushon ) : migrate to extclasspath and delete
+todo ( b / 169793789 ) : remove once blaze no longer passes the flag
+todo ( b / 159359614 ) : enable .
+todo ( b / 169793789 ) : remove once blaze no longer passes the flag
+todo ( bazel - team ) : migrate these test cases back to string_misc . sky .
+todo ( b / 169793789 ) : remove once blaze no longer passes the flag
+todo ( cparsons ) : falling back to the default c + + compiler builtin include
+todo ( adonovan ) : eliminate allowreturnnones . given that we convert
+todo ( adonovan ) : fix docgen .
+todo ( adonovan ) : don ' t allow expectations to match static errors ;
+todo ( adonovan ) : eliminate once copybara is updated .
+todo ( pcloudy ) : remove this after upgrading grpc to num . 26 . 0
+todo ( b / 167277482 ) : delete when internal references are cleaned up .
+todo ( b / 167277482 ) : delete num - 34 when internal references are cleaned up .
+todo ( b / 121134880 ) : update error message when starlark build configurations is ready .
+todo ( b / 162809183 ) : we ' re getting an impossible crash . manually check every key against
+todo ( b / 161479826 ) : address this in a less hacky manner .
+todo ( bazel - team ) : add private headers to the provider when we have module maps to enforce
+todo ( michajlo ) : see how usefully mnemonic actually winds up being for debugging , we may
+todo ( adonovan ) : opt : combine loops
+todo ( adonovan ) : opt : combine loops
+todo ( adonovan ) : " + % d more " is shorter and better suits listexpression .
+todo ( adonovan ) : rename to nodeprintertest .
+todo ( bazel - team ) : rename this metadata extension to something meaningful .
+todo ( juliexxia ) : link to exec_group method docs when they get released in bazel .
+todo ( juliexxia ) : beef up this description when we actually hook up to something "
+todo ( juliexxia ) ; uncomment or remove based on resolution of b / 152637857
+todo ( adonovan ) : make this a static error .
+todo ( b / 36228287 ) : delete this once the migration to - xepdisableallchecks is complete
+todo ( b / 36228287 ) : delete this once the migration to - xepdisableallchecks is complete
+todo ( janakr ) : intern deserialized instances .
+todo ( b / 145253507 ) : exclude objc module maps from check , due to bad interaction with
+todo ( adonovan ) : the fromjava call here is suspicious and inconsistent .
+todo ( ulfjack ) : flip this flag for improved performance .
+todo ( cushon ) : it would be nice to make this mandatory and stop adding files to build too
+todo ( buchgr ) : enforce that all children in a tree artifact are either remote or local
+todo ( katre ) : this exists only to allow incremental migration from spawnactioncontextmaps .
+todo ( laszlocsomor ) : delete " / / third_party / py / gflags : srcs " after
+todo ( jhorvitz ) : this unnecessarily calls getfastdigest even though we know the digest .
+todo ( jhorvitz ) : we can skip this for action template expansion artifacts .
+todo ( b / 110087561 ) : remove when crosstool file is not loaded anymore
+todo ( b / 78555988 ) : allow call sites to specialize detailedexitcode
+todo ( b / 78555988 ) : allow call sites to specialize detailedexitcode
+todo ( b / 142520065 ) : remove .
+todo ( b / 142520065 ) : remove .
+todo ( bazel - team ) : document or remove .
+todo ( b / 142232950 ) investigate the potential additional load on gc .
+todo ( b / 142232950 ) investigate the potential additional load on gc .
+todo ( 138456686 ) : handle failures with higher resolution
+todo ( b / 144304047 ) : remove these extra byte code instructions once the preceding consecutive
+todo ( jingwen ) : version this when the page is in a versioned docset . - - >
+todo ( adonovan ) : throw this away when we build a cpu profiler .
+todo : the debian netty - all . jar is empty , fix it then enable the following
+todo ( b / 119712048 ) : check performance impact of additional retries .
+todo ( cushon ) : this is locale - dependent
+todo ( glorioso ) : this post - filtering shouldn ' t be needed except that the bazel dependency
+todo ( adonovan ) : rename to just " callable " , since it ' s unambiguous .
+todo ( b / 153670299 ) : change to containsexactly once we clarify external repo symlink semantics .
+todo ( b / 153670299 ) : change to containsexactly once we clarify external repo symlink semantics .
+todo ( b / 153486382 ) : use per - method adapter class instead .
+todo ( b / 151742236 ) : check non - default { @ link execgroup } toolchains as well .
+todo ( adonovan ) : use @ bazel_tools / / tools / jdk : jni when released
+todo ( # 7899 ) : remove once we flip the flag default .
+todo ( # 3536 ) : this test is failing on windows , probably due to line breaks . fix it !
+todo ( katre ) : remove this when dependers are updated .
+todo ( katre ) : clean up dependencies and remove .
+todo ( katre ) : remove this when all dependencies are updated .
+todo ( schmitt ) : pretty sure the " spawn - log " commandline identifier is never used as there is
+todo ( katre ) : remove this when all packages that depend on : type are updated .
+todo ( b / 67651960 ) : fix or justify disabling .
+todo ( b / 150220877 ) : avoid trying to recreate a dir that already exists .
+todo ( b / 151095783 ) : disabled because underlying code doesn ' t respect system line separator .
+todo ( laszlocsomor ) : check if " 16 . 0 " also has this registry key , after vs num is released .
+todo ( yannic ) : remove when
+todo ( yannic ) : set to ` @ com_google_protobuf / / : javalite_toolchain ` when
+todo ( bazel - team ) : refactor flag links from the user manual to the command line reference to have a single source of truth for flag explanations .
+todo ( bazel - team ) : throw an ioexception here and let packagefunction wrap that into a
+todo ( b / 149114743 ) : delete once blaze stops accessing this in tests
+todo ( # 7260 ) : remove this test once this flag is flipped
+todo ( philwo ) : enable again after fixing windows workers .
+todo ( aldersondrive ) : try to find the executable by inspecting the path . otherwise , try to find the executable by searching the path .
+todo ( b / 130186610 ) : to be implemented . will not manage the symlinks . * /
+todo ( pcloudy ) : re - enable this test after bazel num . 29 . 0 is released .
+todo ( adonovan ) : replace this with a dedicated badexpression node . it ' s tempting to define a dedicated badexpression type ,
+todo ( bazel - team ) : enable this for java num when vanillajavabuilder supports - - sourcepath .
+todo ( bazel - team ) : enable this for java num when vanillajavabuilder supports - - sourcepath .
+todo ( b / 69917891 ) : remove these methods once checkbuilddeps no longer depends on them .
+todo ( b / 74258184 ) : how can this path already exist ?
+todo ( adonovan ) : show starlark ( not java ) stack .
+todo ( b / 37444705 ) : remove this logic and always call useparameterfile once the bug is fixed
+todo ( bcsf ) : in a subsequent cl this will be changed to allow_shrink_resources
+todo ( bcsf ) : in a subsequent cl this will be changed to throwonshrinkresources ( ) including
+todo ( b / 26297204 ) : does this actually do anything ?
+todo ( bcsf ) : in a subsequent cl this will be changed to allow_shrink_resources
+todo ( bcsf ) : in a subsequent cl this will be changed to throwonshrinkresources ( ) including
+todo ( https : / / github . com / bazelbuild / bazel / issues / 7260 ) : remove this and the flag .
+todo ( bazel - team ) : remove python_version = " py2 " while fixing https : / / github . com / bazelbuild / bazel / issues / 10127 .
+todo ( bazel - team ) : remove python_version = " py2 " while fixing https : / / github . com / bazelbuild / bazel / issues / 10127 .
+todo ( bazel - team ) : remove python_version = " py2 " while fixing https : / / github . com / bazelbuild / bazel / issues / 10127 .
+todo ( bazel - team ) : remove python_version = " py2 " while fixing https : / / github . com / bazelbuild / bazel / issues / 10127 .
+todo ( bazel - team ) : remove python_version = " py2 " while fixing https : / / github . com / bazelbuild / bazel / issues / 10127 .
+todo ( bazel - team ) : remove python_version = " py2 " while fixing https : / / github . com / bazelbuild / bazel / issues / 10127 .
+todo ( bazel - team ) : remove python_version = " py2 " while fixing https : / / github . com / bazelbuild / bazel / issues / 10127 .
+todo ( https : / / github . com / bazelbuild / bazel / issues / 10068 ) : remove once
+todo ( bazel - team ) : the location of this function is ad - hoc . arguably , the conversion
+todo ( laszlocsomor ) : use the runfiles library after
+todo ( adonovan ) : lock down , after removing last use in skyframe serialization .
+todo ( adonovan ) : lock down , after removing last use in skyframe serialization .
+todo ( 8996 ) : update url to point to rules_python ' s docs instead of the bazel site .
+todo ( cparsons ) : improve documentation with an example once this feature is
+todo ( jmmv ) : this is adapted from worker . java . should probably replace both with a new variant
+todo ( b / 141204955 ) : update this to no_collapse .
+todo ( cparsons ) : improve documentation with an example once this feature is
+todo ( bazel - team ) : implement common build settings rules and providers for simple
+todo ( adonovan ) : migrate frontend classes to : syntax as we break dependencies .
+todo ( elenairina ) : remove this and its usage in lcov_merger . note it requires syncing
+todo ( adonovan ) : rename to debugger ; don ' t presume the implementation is a server .
+todo ( bcsf ) : implement an allowlist before activating globally . num ) not on allowlist exempting from compatibleforresourcenameobfuscation
+todo ( adonovan ) : eliminate this temporary function ; make all callers use buildfileast . parse .
+todo ( adonovan ) : delete once copybara is updated , sep num .
+todo ( adonovan ) : factor the list . add ( ) calls , in this function .
+todo ( mstaib ) : replace with futures . getdone when bazel uses guava num . 0
+todo ( b / 37355380 ) : this test is disabled due to remoteworker not supporting
+todo ( b / 69972303 ) : don ' t allow server mode if there ' s a server ?
+todo ( https : / / github . com / bazelbuild / bazel / issues / 7773 ) : update to get the
+todo ( kmb ) : could generalize to configure interfaces that should be assumed preinstalled
+todo ( olaola ) : inline small stdout / stderr here .
+todo ( olaola ) : inline small stdout / stderr here .
+todo ( twerth ) : remove after blaze is released with cl / 248143034 .
+todo ( cparsons ) : remove optional positional arg parsing .
+todo ( laszlocsomor ) : use the fopen and related file handling api
+todo ( b / 131100868 ) : re - enable this test .
+todo ( jingwen ) : we can remove the incompatible change flag only when the depot migration is
+todo ( b / 79206210 ) : can ' t log this before setdebuglog is called , since the
+todo ( b / 134586996 ) : toadd should be added as a transitive member , but this causes breakages .
+todo ( b / 76195763 ) : remove once blaze with cl / 189769259 is released and crosstools are
+todo ( b / 76195763 ) : remove once blaze with cl / 189769259 is released and crosstools are
+todo ( bazel - team ) : using getsimplename here is sub - optimal , but we don ' t have anything
+todo ( iirina ) : re - enable after # 7952 was released .
+todo ( bazel - team ) : this can ' t create the link action for a cc_binary yet .
+todo ( jhorvitz ) : are callers doing this intentionally ?
+todo ( cparsons ) : resolve and finalize the transition ( ) api . the transition implementation
+todo ( juliexxia ) : special - case label - typed build settings so they return the providers of the
+todo ( juliexxia ) : link to in - build testing documentation when it is available .
+todo ( steinman ) : change this to include subclasses , and clean up places where we ' re iterating
+todo ( b / 113358321 ) : remove once # 7670 is finished .
+todo ( iirina ) : re - enable this after # 8378 is merged .
+todo ( # 7843 ) : integration tests for failure to find python / wrong version
+todo ( iirina ) : remove this target after # 8311 is completley merged .
+todo ( iirina ) : remove this target after # 8311 is completley merged .
+todo ( b / 64576392 ) : remove this attribute .
+todo ( b / 37617303 ) : make test ui - independent
+todo ( b / 37617303 ) : make test ui - independent
+todo ( b / 37617303 ) : make test ui - independent
+todo ( b / 37617303 ) : make test ui - independent
+todo ( http : / / b / 131411178 ) : replace with the execution platform .
+todo ( http : / / b / 131411178 ) : replace with the execution platform .
+todo ( b / 129045294 ) : remove once toolchain - transitions are implemented .
+todo ( twerth ) : support gzip compressed profiles .
+todo ( b / 119813262 ) : move this method to abstractaction .
+todo ( b / 129599328 ) : fix or justify disabling
+todo ( b / 129599328 ) : fix or justify disabling
+todo ( twerth ) : migrate to @ remotejdk when https : / / github . com / bazelbuild / bazel / pull / 6216 is merged .
+todo ( lpino ) : consider making the wait value configurable .
+todo ( juliexxia ) : use an enum for " inputs " / " outputs " here and elsewhere in starlark transitions .
+todo ( juliexxia ) : change this method to setstarlarkoptions
+todo ( b / 124030770 ) : please do not use this feature without contacting the c + + rules team at
+todo ( b / 123999008 ) : should copying defaultinfo be necessary ?
+todo ( https : / / github . com / bazelbuild / bazel / issues / 7814 ) : move composingtransition here and make
+todo ( b / 30038239 ) : migrate to / / tools / jdk : no_launcher and delete
+todo ( djasper ) : this should be num
+todo ( # 6316 ) : move this target to the remote java tools archive .
+todo ( # 7696 ) : remove this target after third_party / changes are merged .
+todo ( bazel - team ) : document this * /
+todo ( bazel - team ) should this be printed to stderr ? if so , it should use
+todo ( nharmata ) : consider using this when - - track_incremental_state = false .
+todo ( ulfjack ) : this causes information loss about omitted and injected outputs . also
+todo ( cushon ) : consolidate this with the branch below once javaruntimeinfo . files is released
+todo ( b / 124505961 ) : this test hangs with a thread blocked in cdl . await .
+todo ( bazel - team ) : consider not delegating missing globs during glob prefetching - a
+todo ( b / 122482627 ) : implement toolcahin resolution for java
+todo ( b / 122482627 ) : implement toolcahin resolution for java
+todo ( bazel - team ) : verify that message replay is fast and works in failure
+todo ( janakr ) : use transitive data here .
+todo ( nharmata ) : audit the rest of the codebase to determine if we should be calling this method
+todo ( jmmv ) : this can be incredibly slow . either fix sandboxfs or do it in the background .
+todo ( cushon ) : consolidate with select in / / third_party : turbine_direct .
+todo ( juliexxia ) : use @ param . enableonlywithflag for this .
+todo ( b / 73586397 ) : insert downcasts if necessary
+todo ( b / 73586397 ) : make this work for other kinds of bridges in core library interfaces
+todo ( bazel - team ) : rework the control - flow here so that we ' re not actually throwing this
+todo ( b / 19539699 ) : discovered deps aren ' t necessarily in inputdepkeys . they ' re discovered
+todo ( mschaller ) : support special / tree artifact types
+todo ( juliexxia ) : this isn ' t actually where this module would be used .
+todo ( rbraunstein ) : if a source is a member of a genrule and a cc_library don ' t
+todo ( ulfjack ) : remove this method .
+todo ( b / 115361150 ) : see if even less data can be retained . specifically , we shouldn ' t need to
+todo ( b / 62143697 ) : remove this check once all rules are using the crosstool support .
+todo ( jhorvitz ) : make this check stricter ( = = nonhermetic ) after callers are migrated .
+todo ( pcloudy ) : need this for windowssubprocesstest . java .
+todo ( @ rongjiecomputer ) : update copts to handle windows and add
+todo ( rongjiecomputer ) remove this file if it is still unused when the
+todo ( b / 72764586 ) : cleanup once we can properly skip input discovery for shared actions
+todo ( kush ) : get rid of this hack by making the outputsymlinks available in the fileset
+todo ( twerth ) : allow users to include action command lines .
+todo ( twerth ) : add option to only optionally include the command line .
+todo ( b / 64384912 ) : remove once c + + platforms are in use .
+todo ( ulfjack ) : only upload files that aren ' t in the cas yet ?
+todo ( mstaib ) : enable test after deprecation warnings work in bazel
+todo ( gregce ) : with " global configurations " we cannot tie a configuration creation failure
+todo ( b / 109764197 ) : remove this check to accept variable - length hashes .
+todo ( b / 112134205 ) : re - enable after asm update
+todo ( andreeabican ) : add type string .
+todo ( andreeabican ) : add type string .
+todo ( djasper ) : do we really need the source files ?
+todo ( b / 111289526 ) : remove cclinkinginfo provider from cc_binary as soon as the flag
+todo ( bazel - team ) : once this is released , migrate the only place in the depot to use
+todo ( djasper ) : we are getting discovered or transitive modules through the action ' s inputs
+todo ( blaze - team ) : remove this once all build environments are setting sdkroot
+todo ( cparsons ) : this field should work with structfield = true .
+todo ( b / 72803478 ) : remove once existing crosstools have been migrated
+todo ( lberki ) : remove this once java_toolchain_alias and java_runtime_alias are
+todo : resolve position of - x , and ' not x ' in grammar : operand or unaryexpr ?
+todo ( cparsons ) : evaluate load statements recursively .
+todo ( b / 68065069 ) : use singlejar_local except in remote execution
+todo ( b / 79239052 ) : replace by / / environment . gettoolslabel ( java_toolchain_label )
+todo ( lberki ) : remove this once cc_toolchain_alias is in a bazel release
+todo ( laurentlb ) : to be removed once call - sites have been updated
+todo ( buchgr ) : this test is so flaky that it fails three times in a row on bazel ci .
+todo ( plf ) : try to pull out cccompilationcontext building out of this class .
+todo ( ccalvarin ) do we really need the dots ? they ' re num years old , and
+todo ( bazel - team ) : zip is non - deterministic because of file timestamp ,
+todo ( felly ) : support file deletion .
+todo ( pcloudy ) : remove this after no longer need to debug
+todo ( aehlig ) : pretty print
+todo ( bazel - team ) : remove the need for this special transformation . we can probably do this by
+todo ( cnsun ) : remove this flag .
+todo ( bazel - team ) : remove after all callers updated .
+todo ( aehlig ) : filter out remaining attributes that cannot be set in a
+todo ( blaze - team ) : consider caching this traversal .
+todo ( laurentlb ) : use streams ?
+todo ( ulfjack ) : use existing shellescaper instead .
+todo ( b / 69547565 ) : remove call to shouldincludezipperintoolchain
+todo ( b / 64384912 ) : remove in favor of overload with isllvmcompiler .
+todo ( cparsons ) : migrate this api from the bazel - specific implementation .
+todo ( b / 78520435 ) : why is this using non - transitive runtime jars ?
+todo ( # 4502 related cleanup ) this should be an anonymous namespace .
+todo ( jsharpe ) : reenable once bazel num . 12 is used on ci .
+todo ( nharmata ) : this should only be for the ttv - land dtc ( i . e . only follow ttv - > ttv edges ) .
+todo ( bazel - team ) : we currently have undocumented methods on undocumented data
+todo ( cushon ) : require an explicit bootclasspath the bootclasspath may legitimately be empty if - - release is being used .
+todo ( cushon ) : override the javac in the jdk .
+todo ( b / 75273057 ) : remove flaky tag when the test is no longer flaky .
+todo ( b / 72379900 ) : remove the legacy part of this code
+todo ( cushon ) : remove the extra whitespace at the end , and fix local_repository_test_jdk8
+todo ( b / 72498697 ) : remove this flag
+todo ( danielwh ) : much better support for detecting failures . actually parse the log .
+todo ( nharmata ) : this is a hacky cast done so as to not break copybara . remove this .
+todo ( bazel - team ) : clean this up .
+todo ( bazel - team ) : builder still makes unnecessary copies of inputs , outputs and args .
+todo ( bazel - team ) : builder still makes unnecessary copies of inputs , outputs and args .
+todo ( juliexxia ) : remove this test once b / 71905538 is fixed .
+todo ( cushon ) : toimmutablelist
+todo ( laszlocsomor ) : remove the following ` # if num ` block after i or
+todo ( b / 70984583 ) : remove when no longer flaky
+todo ( b / 35097211 ) : remove this once the new testing rules are released .
+todo ( katre ) : add execution platforms .
+todo ( laszlocsomor ) : extract the logic that adds test_tmpdir to writablepaths , and add tmpdir
+todo ( shahan ) : also support fields defined in superclasses if needed .
+todo ( bazel - team ) : we only need queryenvironment # getfunctions , consider refactoring users of
+todo ( aehlig ) : fix bazelbuild / continuous - integration # 149 and reactivate .
+todo ( bazel - team ) : we only need queryenvironment # getfunctions , consider refactoring users of
+todo ( mstaib ) : remove this attribute and the matching flag after some cleanup of users
+todo ( bazel - team ) : remove this check . it should be moved to lvalue . assign
+todo ( cushon ) : stop splitting classpaths once cl / 127006119 is released
+todo ( xingao ) : verify that this filegroup contains exactly what it has to , with
+todo ( xingao ) disabled due to https : / / github . com / bazelbuild / bazel / issues / 2760
+todo ( b / 67853005 ) : remove when all usage of experimental_auto_cpu_environment_group is
+todo ( pcloudy ) : remove this after bazel rule definitions are not used internally anymore .
+todo ( b / 28084560 ) : allow : lipo_context_collector not to be set instead of having a
+todo ( b / 28084560 ) : allow : lipo_context_collector not to be set instead of having a
+todo ( laurentlb ) : add support for negative tests ( e . g . syntax errors ) .
+todo ( laszlocsomor ) : uncomment the line below after i added the
+todo ( b / 31711689 ) : remove this flag from config files and here
+todo ( olaola ) : set buildinfo and input total bytes as well .
+todo ( b / 31711689 ) : remove - - no - optimize and - - no - locals as dexfilemerger no longer needs them
+todo ( ulfjack ) : consider moving these elsewhere ; it ' s not needed for most proto_library tests .
+todo ( b / 33780512 ) : remove once dynamic configurations are used .
+todo ( # 2418 ) : reactivate debian - stretch ( flaky )
+todo ( dmarting ) : windows build zip with " zip - j " , add it to / / packages
+todo : consider using dagger2 to automate this .
+todo ( b / 31547323 ) : avoid stack trace and report errors more user - friendly
+todo ( b / 28637288 ) : remove static_framework_file and merge_zip when they are
+todo ( b / 29152500 ) : enable module map generation .
+todo ( b / 37508376 ) : remove in lieu of default_macos_sdk_version .
+todo ( b / 29338444 ) : write an integration test when xcode num is available .
+todo ( olaola ) : split this into multiple requests if total size is > num mb .
+todo ( laszlocsomor ) : prefix manifest_path with the longpath prefix .
+todo ( b / 28637288 ) : ios_framework is experimental and not fully implemented .
+todo ( b / 64941219 ) : this code should be rewritten to not expand the command line
+todo ( pcloudy ) :
+todo ( pcloudy ) : remove this after wrapper - less crosstool becomes default
+todo ( bazel - team ) : ideally we wouldn ' t need such logic , and we ' d
+todo ( laurentlb ) : remove it .
+todo ( brandjon ) : fix github issue # 3072 and remove the " manual " tag .
+todo ( b / 62060839 ) : identify the mechanism used to add generated headers in c + + , and recycle
+todo ( bazel - team ) : remove this empty feature . https : / / github . com / bazelbuild / bazel / issues / 2868
+todo ( djasper ) : remove once it has been removed from the global blazerc .
+todo ( ahumesky ) : it would be better to put this dependency in / / tools / android somehow
+todo ( gregce ) : make this mode unnecesary by making everything compatible with dynamic
+todo ( bazel - team ) : change to a special representation for unknown objects
+todo ( ulfjack ) : timeout is specified in executerequest , but not passed in yet .
+todo ( bazel - team ) : change to a special representation for unknown objects
+todo ( bazel - team ) : implement a readable representation
+todo ( olaola ) : set sensible local and remote timeouts .
+todo ( olaola ) : set sensible local and remote timouts .
+todo ( olaola ) : set sensible local and remote timouts .
+todo : remove this once bazel can use java num .
+todo ( laszlocsomor ) : remove the " path . empty ( ) | | " clause ; empty paths are
+todo ( katre ) : use @ bazel_tools / / platforms : host_platform when available .
+todo ( katre ) : use @ bazel_tools / / platforms : target_platform when available .
+todo ( bazel - team ) : get rid of the code to append character by character ,
+todo ( bazel - team ) : implement ipipe for windows and use that here .
+todo ( laszlocsomor ) : add file_share_delete , that allows deleting
+todo ( bazel - team ) : remove the - - no_ check when sufficient time has passed for users of
+todo ( b / 33043897 ) - remove this once removed from global blazerc .
+todo ( b / 38132001 ) : return key . hashcode ( ) ;
+todo ( cushon ) : delete
+todo ( cushon ) : delete
+todo ( laszlocsomor ) num - 11 - 21 : remove ` pid_symlink ` and the ` remove ` call
+todo ( laszlocsomor ) num - 11 - 21 : remove kserverpidsymlink after num - 05 - 01
+todo ( buchgr ) : remove once protobuf update complete .
+todo ( b / 37463474 ) : temporary workaround to prevent a split transition with default
+todo ( ulfjack ) : re - enable for ci once https : / / github . com / bazelbuild / bazel / issues / 2891 is fixed .
+todo ( 2848 ) : reenable after fixing breakage
+todo ( 2848 ) : reenable after fixing breakage
+todo ( b / 37425618 ) : this should be attributes . hasresources ( )
+todo ( # 2227 ) : re - enable when the jacoco processor issue is fixed .
+todo ( pcloudy ) : make " whole archive " a feature in crosstool
+todo ( cushon ) : update blaze to set - - bootclasspath directly
+todo ( cushon ) : make bazel pass the individual files instead of inferring a directory and
+todo ( philwo ) find a better way to do this
+todo ( bazel - team ) : implement this .
+todo : remove once blaze stops sending " - - nostrictmerge " ( since this is unused ) .
+todo ( pcloudy ) : re - enable this test case after fixing https : / / github . com / bazelbuild / bazel / issues / 2558
+todo ( bazel - team ) : implement this method properly . we may return true if
+todo ( bazel - team ) : implement this method properly . we may return true if
+todo ( bazel - team ) num - 11 - 18 : implement this .
+todo ( laszlocsomor ) : use isabsolute from file_windows . cc
+todo ( b / 31547323 ) : require bootclasspath once bazel always provides it . using the tool ' s
+todo ( b / 33839914 ) : add dwarf binaries for dsym outputs .
+todo ( bazel - team ) : should we be using testtargetexecutionsettings # getrunfilesdir ( ) here over
+todo ( elenairina ) : remove libalpha - lite . jar from directjars assertion after implementing
+todo ( bazel - team ) : enable once alias protos are supported in the skylark version of
+todo ( bazel - team ) : dict keys should not be sorted , because comparison of objects of
+todo ( bazel - team ) : implement this .
+todo ( bazel - team ) : if this returns null , we unnecessarily recreate the symlink above on the
+todo ( bazel - team ) : decide if we want to implement this , and act accordingly .
+todo ( bazel - team ) : implement this .
+todo ( # 2068 ) : deflake this test or reactivate once # 540 is fixed .
+todo ( dmishe ) : expose this template from native code .
+todo ( b / 33692249 ) : remove conditional once bazel is released .
+todo ( cparsons ) : avoid setting sdk version for macosx . until sdk version is
+todo ( gregce ) : remove this line when no such dependencies exist
+todo ( bazel - team ) : implement all functions in file_windows . cc , use them from
+todo ( bazel - team ) : implement this .
+todo ( bazel - team ) : implement this .
+todo ( b / 29355778 , b / 28403953 ) : use a crosstool for any apple rule , and remove this
+todo ( bazel - team ) : implement this .
+todo ( bazel - team ) : implement this .
+todo ( bazel - team ) : implement this .
+todo ( laszlocsomor ) : add a test for this code path .
+todo ( bazel - team ) : implement this .
+todo ( kchodorow ) : remove this when os x isn ' t as hacky about finding the jvm . our test
+todo ( laszlocsomor ) : add file_share_delete , maybe that allows deleting
+todo ( cparsons ) : remove getattr call once dynamic_framework_dir is stable .
+todo ( laszlocsomor ) : get rid of this method in favor of opendirectory in
+todo ( bazel - team ) : fix the encoding to be consistent , e . g . use utf - 8 everywhere .
+todo ( bazel - team ) : don ' t rely on the platform default charset .
+todo ( bazel - team ) : is this still needed ?
+todo ( b / 30281236 ) : remove the flag after deprecation .
+todo ( # 2227 ) : re - enable when the jacoco processor issue is fixed .
+todo ( laszlocsomor ) : fix https : / / github . com / bazelbuild / bazel / issues / 1735 and use the jni method
+todo ( # 2228 ) : re - enable when the tmpdir creation is fixed .
+todo ( bazel - team ) : implement this .
+todo ( carmi ) : delete this after proto_lang_toolchain ( ) is released in bazel .
+todo ( dzc , jart ) : implement fallback urls when available .
+todo ( dzc , jart ) : implement fallback urls when available .
+todo ( fwe ) : remove this hack once the depot is cleaned up and we no longer have to support
+todo ( bazel - team ) : delete from oss tree
+todo ( bazel - team ) num - 11 - 16 : use the - - output_user_root instead of
+todo ( pcloudy ) :
+todo ( bazel - team ) : add more tests here .
+todo ( ulfjack ) : this is only used to get the local shell environment and to check if coverage is
+todo ( ulfjack ) : fix this !
+todo ( ulfjack ) : fix this !
+todo ( ulfjack ) : fix this !
+todo ( dmishe ) : remove this check when xcode_toolchain is available by default
+todo ( b / 30478247 ) : remove this when new bazel binary is available .
+todo ( bazel - team ) : we should have a boolean attribute instead of the " manual " hack
+todo ( cparsons ) : remove after blaze release .
+todo ( bazel - team ) : this annotation is needed for compatibility with skylark code that expects
+todo ( kchodorow ) : remove once everything we ' re testing on ci contains
+todo ( jmmv ) : integrate init into the startupoptions constructor .
+todo ( dmishe ) : remove this branch when single_arch_platform is available
+todo ( dmishe ) : use platformtype object when available .
+todo ( lberki ) : remove the readlink ( ) call when there is no chance of an old
+todo ( kchodorow ) : remove once everything we ' re testing on ci contains
+todo ( lpino ) :
+todo ( jmmv ) : now that we have per - product main . cc files , inject the
+todo ( bazel - team ) : is this check even necessary ? if someone deletes or
+todo ( b / 28451644 ) : make this option the default behavior .
+todo ( b / 30966418 ) : re - enable when fixed .
+todo ( b / 30966418 ) : fix and re - enable tests .
+todo ( dzc ) : deprecate this in favor of the $ { link static - page # heading } syntax below . common - definitions . generate a link to that page .
+todo ( apell ) : switch to existingpathstringdictionaryconverter . class after argument change
+todo ( bazel - team ) : when using getfilestorun ( ) , the middleman is
+todo ( jimbrooks ) : remove this flag after it is removed from the global blazerc .
+todo ( jimbrooks ) : remove this flag after it is removed from the global blazerc .
+todo ( twerth ) : remove workaround once tap is happy again
+todo ( bazel - team ) : the current version of fullrevision doesn ' t know
+todo ( b / 28005582 ) : instead of including a dir for each dependecy , output to
+todo ( b / 28005753 ) : currently this is not really a library , but an object
+todo ( fwe ) : remove once this cl is part of a blaze release and the depot is clean .
+todo ( fwe ) : remove this branch once this cl is part of a blaze release and the depot
+todo ( bazel - team ) : make doc more clear , wrt late - bound attributes .
+todo ( bazel - team ) : remove filtering once clang - 700 is the base clang we support .
+todo ( bazel - team ) : this can produce dead links for types don ' t show up in the doc .
+todo ( b / 28723643 ) : this dummy is only here to trigger the
+todo ( b / 28723643 ) : this dummy is only here to trigger the
+todo ( b / 28723643 ) : this dummy is only here to trigger the
+todo ( mattmoor ) : nyi
+todo ( ulfjack ) : do we even need this method ? with skyframe , the config creation should
+todo ( kchodorow ) : change this to sdk = $ $ { 0 } . runfiles / % s once runfiles are restructured .
+todo ( kchodorow ) : delete by april num .
+todo ( kchodorow ) : delete by april num .
+todo ( cl / 121390911 ) : remove when this is released .
+todo ( b / 28110492 ) : deprecate this . deprecated . see b / 27942021 for more details .
+todo ( bazel - team ) : add more tests here .
+todo ( b / 28049126 ) : replace this value with apple_toolchain call .
+todo ( cushon ) : switch to hostjavatoolchain after cl / 118829419 makes a blaze release
+todo ( dzc ) : remove this when jgit reports totaltasks correctly in start ( ) .
+todo ( bazel - team ) : make sure cc_fake_binary works with header module support .
+todo ( bazel - team ) : we use ' analyzing ' here so that we print the same message as legacy
+todo ( bazel - team ) : support proto = > proto dependencies too
+todo ( bazel - team ) : we should replace the - lz flag , it is non - hermetic .
+todo ( djasper ) : once clang ' s r264664 is released , this can be removed .
+todo ( lberki ) : remove this method .
+todo ( dmarting ) : stop at cycle and report a more intelligible error than cycle reporting .
+todo ( bazel - team ) : remove objc_binary once it stops exporting xctestappprovider .
+todo ( mschaller ) : fix this flaky assertion .
+todo ( dmarting ) : if a lot of data is sent to stdout , this will use all the memory and
+todo ( bazel - team ) : open - source the script once j2objc support is open - sourced .
+todo ( kchodorow ) : figure out why this doesn ' t exit on a non - zero exit code ,
+todo ( dslomov ) : more fields
+todo ( bazel - team ) : this test is bad , it seems to rely on genrule emitting a warning to make the
+todo ( bazel - team ) : long - term , callers may want to handle exceptions more gracefully .
+todo ( janakr ) : delete this .
+todo ( bazel - team ) : make this public no more .
+todo ( bazel - team ) : delete this function .
+todo ( dslomov ) : experimental , document later .
+todo ( bazel - team ) : support darwin
+todo ( janakr ) : enable this warning when users have been migrated .
+todo ( bazel - team ) : maybe we should get rid of the conditionalstatements and
+todo ( bazel - team ) : use binary search instead of linear search .
+todo : which other library contains guava ?
+todo ( dmarting ) : to make clearer , instead of doing that , we should
+todo ( bazel - team ) : confirm whether this is an internal error .
+todo ( bazel - team ) : ( 2009 ) change exception hierarchy so that duplicatepackageexception is no
+todo ( bazel - team ) : test maps , not just lists , as being non - empty .
+todo ( bazel - team ) : support darwin .
+todo ( dzc ) : remove this hack when jsonnet supports a flag for setting
+todo ( cushon ) : enable by default , then delete the flag
+todo ( bazel - team ) : remove this once we get rid of legacy skyframe synchronization .
+todo ( bazel - team ) : remove this once we do not need to keep legacy in sync with skyframe .
+todo ( bazel - team ) : move jre_emul bazel targets to java , not java_src .
+todo ( mthvedt ) : add support and examples for open - source users .
+todo move to j2objc dir
+todo ( bazel - team ) : see what tuning options make sense in the
+todo ( bazel - team ) : remove ?
+todo ( danielwh ) : do literally anything with this flag . ideally , pass it to xcodegen via a
+todo ( bazel - team ) : this may need to be optional for some clients of this class .
+todo ( philwo ) - this catches buildinfo , which can ' t run in a sandbox . is there a better way ?
+todo ( bazel - team ) : all built - in rules declare fragments , but skylark rules don ' t .
+todo ( bazel - team ) : add " - ddebug = 1 " to fastbuild_copts .
+todo ( bazel - team ) : this can be augmented by an explicit bridging header field in the rule .
+todo ( bazel - team ) : maybe crash here after gathering some data on how common this is .
+todo ( bazel - team ) : add " - ddebug = 1 " to fastbuild_copts .
+todo ( bazel - team ) : getattributecopts should not tokenize the strings .
+todo ( bazel - team ) : make this a no - op once the released version of bazel sends the label to
+todo ( bazel - team ) : support configurable attributes - which value would we want to
+todo ( dmarting ) : remove this and make - client the default once the jvm_opts field is released .
+todo ( dmarting ) . / compile . sh all
+todo ( bazel - team ) : this is overly conservative .
+todo ( bazel - team ) : support choosing which attributes are subject to constraint checking
+todo ( bazel - team ) : we can likely do without middlemen here , but we should filter that at
+todo ( bazel - team ) : once objc_tools have buildfiles , uncomment the if below
+todo ( bazel - team ) : nestedsets are going to be a bit strange with num type info ( validation
+todo ( bazel - team ) filter tools out of input files instead
+todo ( bazel - team ) : match on the list interface , not the actual implementation . for now ,
+todo ( bazel - team ) : use % sdk_version % and % sim_device % when available .
+todo ( bazel - team ) : use % sdk_version % and % sim_device % when available .
+todo ( bazel - team ) : remove this fallback to text format when blaze is ready .
+todo ( bazel - team ) : this should be closed explicitly somewhere .
+todo ( kchodorow ) : right now this is uploading the binary generated by
+todo ( bazel - team ) : maybe having a two - exception argument is better than typing a generic
+todo ( bazel - team ) : eexist does not prove that it ' s a directory !
+todo ( bazel - team ) : remove function when user code has been updated .
+todo ( bazel - team ) : use the proper annotation for clang . gxx_experimental_cxx0x is defined by gcc and clang up to at least
+todo ( bazel - team ) : unify the oss java rules and load from another
+todo ( bazel - team ) : add tools description
+todo ( bazel - team ) : use / / external : objc_proto_lib when bind ( ) support is a little better
+todo ( bazel - team ) : link to an
+todo ( bazel - team ) : maybe this should be part of the skylark docs
+todo ( bazel - team ) : link to exit codes .
+todo ( bazel - team ) : publish this file when windows support is mature enough .
+todo ( bazel - team ) : document this .
+todo ( bazel - team ) : remove this list of languages by separately collecting offline and online
+todo ( bazel - team ) : we treat paths with more then num segments as absolute paths
+todo ( bazel - team ) : remove bundles from this list as they ' re now in the " bundles " attribute
+todo ( bazel - team ) : remap compiler inputs so this is " go / lib1 "
+todo : we shouldn ' t need to double - check !
+todo : remove on next brave update - - >
+todo : note what actually returns top - level " message " because elasticsearch usually doesn ' t
+todo : this only resolves google empty . remove this once using org . apache . zipkin . proto3 - - >
+todo : remove protobuf - java once using org . apache . zipkin . proto3 - - >
+todo : remove google . protobuf . empty once using org . apache . zipkin . proto3 - - >
+todo : this only resolves google empty . remove this once using org . apache . zipkin . proto3 - - >
+todo : this class is not testable at the moment
+todo : this class is not testable at the moment
+todo : to release , setup git config and run ` . / mvnw - s . / . settings . xml release : prepare ` locally .
+todo settle on a propagation format and set statement . setoutgoingpayload
+todo : this is the default maximum size of an elasticsearch result set .
+todo remove ignore when num . 33 . 1 is out
+todo remove ignore when num . 33 . 1 is out
+todo revert to $ { zipkin - scala . version } on num . 18 . 2 - - >
+todo : switch package back after https : / / github . com / openzipkin / brave / pull / 99
+todo " + lexer . info ( ) ) ;
+todo auto - generated method stub
+todo auto - generated catch block
+todo auto - generated method stub
+todo cache the file
+todo " ) ;
+todo ( lowasser ) : consider presizing the builder if values is a collection
+todo ( lowasser ) : consider presizing the builder if values is a collection
+todo ( b / 27479612 ) : remove this
+todo ( b / 27479612 ) : remove this
+todo ( kevinb ) : remove this
+todo ( kevinb ) : remove this
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( kak ) : should we remove this ? some people are using it to prefetch ?
+todo ( kak ) : should we remove this ? some people are using it to prefetch ?
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( kak ) : consider removing this
+todo ( kak ) : consider removing this
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( cpovirk ) : consider being more strict .
+todo ( kevinb ) : decide best return type
+todo ( kevinb ) : decide best return type
+todo ( cpovirk ) : remove checker - compat - qual after we finish migrating to type annotations . - - >
+todo ( cpovirk ) : do not release in this state : i suspect that downstream users of guava - gwt will see their compilation fail from the " missing " cf annotations ( whether because those sources are missing entirely or because they ' re present but without a module descriptor ) . - - >
+todo ( b / 147136275 ) : after adding @ checkfornull below , add @ elementtypesarenonnullbydefault .
+todo ( b / 147136275 ) : after updating callers , add @ checkfornull , and remove @ suppresswarnings .
+todo ( b / 147136275 ) : after updating callers , add @ checkfornull , and remove @ suppresswarnings .
+todo ( b / 147136275 ) : after adding @ checkfornull below , add @ elementtypesarenonnullbydefault .
+todo ( b / 147136275 ) : after updating callers , add @ checkfornull , and remove @ suppresswarnings .
+todo ( b / 147136275 ) : after updating callers , add @ checkfornull , and remove @ suppresswarnings .
+todo ( kak ) : do we want to checknotnull each element in containsall , removeall , and retainall ?
+todo ( kak ) : do we want to checknotnull each element in containsall , removeall , and retainall ?
+todo ( b / 147136275 ) : after adding @ checkfornull below , add @ elementtypesarenonnullbydefault .
+todo ( b / 147136275 ) : after updating callers , add @ checkfornull , and remove @ suppresswarnings .
+todo ( b / 147136275 ) : after adding @ checkfornull below , add @ elementtypesarenonnullbydefault .
+todo ( b / 147136275 ) : after updating callers , add @ checkfornull , and remove @ suppresswarnings .
+todo ( b / 147136275 ) : after adding @ nullable below , add .
+todo ( b / 147136275 ) : add @ nullable . * / object [ ] args )
+todo ( b / 147136275 ) : after adding @ nullable below , add .
+todo ( b / 147136275 ) : add @ nullable . * / object [ ] args )
+todo ( kak ) : use assertthat ( startuptimes . get ( a ) ) . isatleast ( 150 ) ;
+todo ( kak ) : use assertthat ( startuptimes . get ( a ) ) . isatleast ( 150 ) ;
+todo ( kevinb ) : we can probably make these real @ overrides now
+todo ( kevinb ) : we can probably make these real @ overrides now
+todo ( b / 142723300 ) : make this method public
+todo ( b / 142723300 ) : make this method public
+todo ( b / 142723300 ) : make this method public
+todo ( b / 142723300 ) : make this method public
+todo ( b / 142723300 ) : make this method public
+todo ( b / 142723300 ) : make this method public
+todo ( kak ) : @ checkreturnvalue
+todo ( kak ) : @ checkreturnvalue
+todo ( kak ) : remove this
+todo ( kak ) : remove this
+todo ( kak ) : remove this
+todo ( kak ) : remove this
+todo ( kak ) : remove this
+todo ( kak ) : remove this
+todo ( kak ) : consider removing this
+todo ( kak ) : consider removing this
+todo ( kak ) : consider removing this ?
+todo ( kak ) : consider removing this ?
+todo ( kak ) : consider removing this ?
+todo ( kak ) : consider removing this ?
+todo ( kak ) : consider removing this ?
+todo ( kak ) : consider removing this ?
+todo ( cpovirk ) : why is this slow ( > 1m / test ) under gwt when fully optimized ?
+todo ( cpovirk ) : why is this slow ( > 1m / test ) under gwt when fully optimized ?
+todo ( cpovirk ) : why is this slow ( > 1m / test ) under gwt when fully optimized ?
+todo ( cpovirk ) : why is this slow ( > 1m / test ) under gwt when fully optimized ?
+todo ( user ) : replace with code below when jdk5 support is dropped .
+todo ( user ) : replace with code below when jdk5 support is dropped .
+todo ( user ) : replace with code below when jdk5 support is dropped .
+todo ( user ) : replace with code below when jdk5 support is dropped .
+todo ( cpovirk ) : @ foroverride https : / / github . com / google / error - prone / issues / 342
+todo ( cpovirk ) : @ foroverride https : / / github . com / google / error - prone / issues / 342
+todo ( b / 36683218 ) : reenable
+todo ( b / 36683218 ) : reenable
+todo ( b / 36683218 ) : reenable
+todo ( b / 36683218 ) : reenable
+todo ( b / 36683218 ) : reenable
+todo ( kevinb ) : other instance methods to consider if we fork common . primitives :
+todo ( kevinb ) : use equalstester
+todo ( lowasser ) : write an efficient aslist ( ) implementation
+todo ( kak ) : make this method final
+todo ( lowasser ) : identify why this affects gwt tests
+todo ( kevinb ) : restore the
+todo ( b / 31167164 ) : decide which of these constructors to make public .
+todo ( kevinb ) : ?
+todo ( user ) : move to nodeconnections interface once on java num
+todo ( user ) : enable users to specify the expected degree of nodes .
+todo ( user ) : move to nodeconnections interface once on java num
+todo ( user ) : replace this when there is a better way to spawn threads in tests and
+todo ( user ) : try creating an abstract superclass that this and graphbuilder could derive from .
+todo ( b / 28087289 ) : we can remove this restriction when graph supports parallel edges
+todo ( b / 29393648 ) : update tests so we can remove this method ( defer to abstractcollection ) .
+todo ( kak ) : can ' t we ditch this and just use packagesanitytests ?
+todo : use simple class names
+todo ( cpovirk ) : is it ok to bump this from num . 6 to num . 7 ? we need to if we ' re going to use gwt num . 8 . 0 . maybe we should at least revert when cutting a release ? - - >
+todo ( b / 26080783 ) : make public once ready ( including exhaustive tests for edge cases ) .
+todo ( b / 26080783 ) : make public once ready ( including exhaustive tests for edge cases ) .
+todo ( b / 26080783 ) : consider optimizations similar to those in statsaccumulator . addall ( ) . this is a generalized version of the calculation in add ( double , double ) above . note that
+todo ( b / 26080783 ) : decide whether to use naive or knuth formula . consider max_value case .
+todo ( kak ) : @ checkreturnvalue
+todo ( kak ) : @ checkreturnvalue
+todo ( lowasser ) : optimize this instead of decoding and catching the exception .
+todo ( cpovirk ) : surprisingly often has more then num % collisions there .
+todo ( cpovirk ) : surprisingly often has more then num % collisions there .
+todo ( cpovirk ) : surprisingly often has more then num % collisions there .
+todo ( cpovirk ) : zero is found at beginning instead of end . why ? hardcoded because of android problems . see testutf16expected .
+todo ( cpovirk ) : file android bug .
+todo ( cpovirk ) : file android bug .
+todo ( cpovirk ) : file android bug ( different from the two above ) .
+todo ( user ) : ( before guava release ) , validate that this
+todo ( kak ) : @ deprecated use { @ link # from ( e [ ] ) } instead .
+todo ( cpovirk ) : android sees no tests , maybe because the classes are nested ?
+todo ( benyu ) : use labs / reflect / signature if it graduates .
+todo " )
+todo " )
+todo ( kevinb ) : replace this with a more efficient implementation
+todo ( kevinb ) : replace this with a more efficient implementation
+todo ( cgruber ) strip the quotes and patch version and do version comparison .
+todo : work around the reused - entry problem
+todo ( user ) : remove this
+todo ( user ) : remove this
+todo : don ' t set this universally
+todo : don ' t set this universally
+todo ( user ) : get rid of the bytebuffer here ?
+todo ( user ) : these should be < e extends comparable >
+todo ( kevinb ) : make sure it ' s tested , and make it public
+todo : test this logic in listretainalltester
+todo ( user ) : @ deprecated use { @ link stopwatch # createunstarted ( ) } instead .
+todo ( user ) : @ deprecated use { @ link stopwatch # createunstarted ( ticker ) } instead .
+todo ( user ) : @ deprecated use { @ link stopwatch # createunstarted ( ) } instead .
+todo ( user ) : @ deprecated use { @ link stopwatch # createunstarted ( ticker ) } instead .
+todo ( user ) : this should ultimately return an unmodifiablelist
+todo ( kevinb ) : commit in spec to which methods are efficient ?
+todo ( kevinb ) : fix this so that two copies of the entries are not created .
+todo ( kevinb ) : fix this so that two copies of the entries are not created .
+todo ( kevinb ) : this is only a very small start .
+todo : specify this to return the same as name ( ) ; remove name ( )
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : deprecate this
+todo ( user ) : when the murmur ' s shortcuts are implemented , update this code
+todo : remove @ nullable on parameter and add checknotnull ( )
+todo ( user ) : get rid of this switch and use enum methods instead ?
+todo ( benyu ) : here we could avoid toarray ( ) for num or num - element list ,
+todo ( kevinb ) : reconsider if it ' s really worth making feeble attempts at
+todo ( user ) : deprecate this method . see b / 6512852
+todo ( user ) : deprecate this method . see b / 6512852
+todo : change to stringreader in java num . 6
+todo : change to stringreader in java num . 6
+todo ( user ) : make final as soon as util . unsignedlong is migrated over
+todo ( kevinb ) : add matchesanyof ( )
+todo ( user ) : add an @ visiblefortesting invokefinalize method inside
+todo ( chrisn ) : find some way to reliably test finalize functionality
+todo ( fry ) : when we move to jdk num , the changes of cl num can be reverted
+todo ( kevinb ) : isabsent too ?
+todo ( user ) : verify gwt compatibility
+todo ( kevinb ) : why ?
+todo ( kevinb ) : remove these temporary methods after callers are gone
+todo ( kevinb ) : remove
+todo : auto generate this list .
+todo ( user ) : deprecate
+todo ( user ) : deprecate
+todo : auto generate this list .
+todo : auto generate this list .
+todo : auto generate this list .
+todo ( kevinb ) : document why we choose to throw over returning false ?
+todo : need rfc reference .
+todo : need rfc reference .
+todo ( user ) : only do this when a read encounters an expired entry
+todo ( kevinb ) : talk to doug about the possiblity of defining size ( ) and
+todo ( kevinb ) : handle initialcapacity > maximumsize .
+todo ( user ) : reuse partially collected entries ; otherwise we
+todo : convert tests to using mockito to avoid this issue .
+todo : re - enabled until kafka - 13735 is fixed
+todo : re - enable after kafka - 13736 is fixed
+todo : to be re - enabled once we can make it less flaky ( kafka - 7540 )
+todo : fill in information about the metadata topic
+todo : remove this override when the version of jetty for the framework is bumped to
+todo kip - 441 : consider rewriting the test for highavailabilitytaskassignor
+todo core - team - - >
+todo find a way to avoid using these proprietary classes as access to java num will block access by default
+todo : fix these . see
+todo : check if there is a better way to encapsulate this logic , perhaps in defaultrecordbatch
+todo : get rid of cleanshutdownfile in num . 8 . 2 * /
+todo : can ' t do this until the broker side changes are done
+todo : should be no need to catch these exceptions once kafka - 2017 is
+todo : if there are no brokers left , perhaps we should use the bootstrap set
+todo : batch api ?
+todo : this timeout controls how long we should wait before retrying a request . we should be able
+todo : need to be changed after kafka - 1660 is available .
+todo : currently , when there is no topic in a cluster , the controller doesn ' t send any updatemetadatarequest to
+todo : currently , when there is no topic in a cluster , the controller doesn ' t send any updatemetadatarequest to
+todo : do we still need this ?
+todo : what is unknown is why num second or couple num milliseconds didn ' t work ?
+todo : handle this better ( if client doesn ' t know initial offsets )
+todo : double check when back
+todo : maybe make threadlocal cache for context ?
+todo : use release version of banyandb java client - - >
+todo )
+todo timer value config
+todo : remove this submodule because of snapshot dependency . - - >
+todo : need to delete - - >
+todo : don ' t release auto delete feature , yet
+todo iglobaltracedao
+todo iglobaltraceuidao
+todo should this be final ?
+todo this caches the first time it ' s loaded and will thus miss changes to threadpoolkey , properties and eventnotifier
+todo this caches the first time it ' s loaded and will thus miss changes to properties
+todo this caches the first time it ' s loaded and will thus miss changes to properties
+todo put link to wiki for docs on how to tune the threadpool
+todo add property overrides in constructor and set defaults using hystrixproperties with strategy pattern
+todo : remove this until [ flink - 12351 ] is fixed .
+todo : figure out why this fails when ran with other tests
+todo add tableenvironment # create method with environmentsettings as a parameter
+todo : should be fixed in flink - 24800 .
+todo : remove after resolved )
+todo flink - 12295 , ignore exception now
+todo flink - 12295 , ignore exception now
+todo : flink - 17957 : forbidden syntax " create system function " for sql parser
+todo : support calculating managed memory fractions for fine grained resource specs
+todo : add unit test for this
+todo : remove the legacy scheduler message check once legacy scheduler is removed
+todo : remove the legacy scheduler message check once legacy scheduler is removed
+todo parser has problems with " f0 + num " see flink - 18027
+todo remove once all agg functions are internal functions
+todo : expand this section `
+todo : expand this section `
+todo : add `
+todo : add these two sections `
+todo : what is this section about ? do we even need it ? `
+todo : expand this section `
+todo : expand this section `
+todo : add `
+todo : expand this section `
+todo this is just to test if we need to wait longer , or if something has gone wrong and the message will never arrive
+todo : not sure it ' s a good idea to split it into two synchronized blocks , but
+todo we should get proper state reader from getenvironment ( ) . gettaskstatemanager ( ) . getchannelstatereader ( )
+todo this is a temporary fix for the problems described under flink - 13063 at the cost of breaking chains for
+todo : potentially leave out operator state and broadcast state from concepts documentation `
+todo : support to use valueonlywindowedvaluecoder for better performance .
+todo : support port ranges for the am
+todo : flink - 12536 for non credit - based flow control , getnext method is blocking
+todo : revert once flink - 13708 has been fixed
+todo consumers . isempty ( ) only exists for test , currently there has to be exactly one consumer in real jobs !
+todo : because this can be a costly operation ( checking volatile inside completablefuture `
+todo support ' 2016 - 06 - 15 ' . totimestamp
+todo supports dataexchangemode . batch in runtime
+todo : check if proper jar file
+todo : the word_count . py is just a test example for cli .
+todo : temporary fix to circumvent shutdown bug in netty < num . 0 . 33
+todo : nasty workaround : we should get rid of the yarncli and run options coupling
+todo : add support for port ranges
+todo directly deserialize fromnetty ' s buffer directly deserialize fromnetty ' s buffer
+todo : re - enable this when generating the actual num . 2 savepoint
+todo : re - enable this when generating the actual num . 2 savepoint
+todo : flink - 6534
+todo : this test will not pass until flink - 4727 is resolved
+todo : this test will not pass until flink - 4727 is resolved
+todo more tests in cluster mode ?
+todo : does not work because we cannot set the internal socket anymore
+todo : fix using keyselector everywhere
+todo depends on # 315
+todo : consider own flushing mechanism
+todo fix rat plugin & & subs tabs for spaces - - >
+todo : consider a better solution ( data structure ) than iterating
+todo : fix class comparison
+todo : fix class comparison
+todo : refactor component replacing ( remove / put ) , this assumes the ability
+todo : properly convert & amp ; etc
+todo this fill fail due to bug in iterations runtime
+todo change to using combinablegroupreduce with map when the problem with iterations is fixed
+todo generalize
+todo : consider pendingresponses here again
+todo : consider pendingresponses here again
+todo : remove vertices from restart map
+todo : check if num is ok here
+todo : cancel the entire job in this case
+todo auto - generated method stub
+todo implement new arrayschema with tail
+todo implement new arrayschema with tail
+todo implement new arrayschema with tail
+todo implement new arrayschema with tail
+todo find a way to reuse primitives
+todo auto - generated method stub
+todo auto - generated method stub
+todo auto - generated method stub
+todo auto - generated method stub
+todo ( en ) super . gettaskconfig ( ) . setiobuffersize ( 1 ) ;
+todo check
+todo : replace empty set by sensible suggestions
+todo implement me
+todo : implement me
+todo : move this to job manager so it is executed in parallel
+todo : channel is still in set of channels with memory buffers , fix this
+todo : remove output
+todo : uncomment hash map access
+todo : implement broadcast functionality here
+todo : start vertex if in lazy mode
+todo auto - generated method stub
+todo :
+todo : unregister from io manager here
+todo # # # # cached . buffer segments are never release , leak ? ? ( en ) # # #
+todo : implement me
+todo : remove enforced sort - merge strategy
+todo : do we really have to return here ? ( rethink clean up strategy )
+todo : implement me
+todo : enable once pdf417 has passed qa
+todo ( dswitkin ) : not sure which countries google book search has launched in , so for the moment
+todo : i have changed these members to be public so proguard can inline get ( ) and set ( ) . ideally i have changed these members to be public so proguard can inline get ( ) and set ( ) . ideally
+todo : just like bitarray , these need to be public so proguard can inline them . just like bitarray , these need to be public so proguard can inline them .
+todo : it might be worth comparing the brightest and darkest pixels seen , rather than the
+todo ( flyashi ) : determine if row has enough size .
+todo ( vikrama ) : escape the semicolons in ssid and password
+todo ( viki ) : escape semicolons and colons
+todo : compare performance with using system . arraycopy ( ) .
+todo ( dswitkin ) : is this comment still true ? i don ' t see any global variables for example .
+todo ( dswitkin ) : is this still true ?
+todo ( dswitkin ) : is this still true ?
+todo : currently fails on urls . would be nice to handle gracefully and write the output to pwd .
+todo re - enable once data matrix is ready
+todo : add itfreader once it is validated as production ready , and tested for performance .
+todo re - enable multiformatreader here once we ' ve better settled how to handle all these new formats
+todo ( bbrown ) : throw this to junit ?
+todo : include reference to paper with similar ideas < / p >
+todo add manifest - - >
+todo : maybe not add this annotation if cachehashcode is true because we * do * modify a field
+todo : maybe not add this annotation if cachehashcode is true because we * do * modify a field
+todo : add type params
+todo : tostring ( ) should also call super . tostring ( ) , so that it also shows fields from the superclass .
+todo :
+todo check if varargs are copied or otherwise handled correctly .
+todo error
+todo : find link to venners / spoon / odersky ) . if all classes in a hierarchy are a mix of scala case classes
+todo tostring .
+todo check for existence of the getter and skip it ( + warn ) if it ' s already there .
+todo check for existence of the setter and skip it ( + warn ) if it ' s already there .
+todo [ stories ] - need art asset - - >
+todo donation receipts
+todo donation receipts
+todo [ alex ] largescreensupport - - add to a back handler
+todo [ alex ] - - where ' s this go ?
+todo [ alex ] support page
+todo [ alex ] - - where ' s this go ?
+todo [ alex ]
+todo [ greyson ] this sometimes isn ' t working and can instead get stuck on ' loading ' .
+todo [ alan ] phonenumberprivacy : do not set this number
+todo [ alan ] gv2 add share within signal
+todo [ alan ] phonenumberprivacy : do not set this number
+todo [ greyson ] re - enable when we figure out how to invalidate the cache after a system theme change
+todo gv2 remove old one when gv2 can replace all functions - - >
+todo [ greyson ] [ storage ] test this
+todo [ alex ] remove beta prefix
+todo [ alex ] - - add android . beta . pinsforall to sticky set when we remove prefix
+todo [ greyson ] [ attachment ] add these
+todo : switch to num kb to enable long message sending . - - >
+todo : switch to num kb to enable long message sending .
+todo ( greyson ) : re - enable shared contact sending after receiving has been enabled for a few releases
+todo ( greyson ) : re - enable shared contact sending after receiving has been enabled for a few releases
+todo format numbers before comparing .
+todo jake is going to fix this up
+todo jake is going to fill these in
+todo jake is going to fix this up
+todo why does this check the reference ?
+todo : num / 11 / 29
+todo test hook as well . requires https : / / github . com / reactivex / rxjava / pull / 3820 .
+todo : create a jira to fix it ) - - >
+todo : create a jira to fix it ) - - >
+todo # #
+todo auto - generated method stub
+todo : add link once live
+todo : add article links here
+todo : add article links here
+todo )
+todo auto - generated method stub
+todo )
+todo change to num after fixing the project - - >
+todo : auto - generated javadoc
+todo auto - generated method stub
+todo : ci problems - - >
+todo : has a compilation issue - - >
+todo : stop the thread
+todo : use a java num stream with filter and remove the num and num character words ; example : " a " , " of " , " to "
+todo : rename to : spring - security - rest - basic - auth
+todo : the lastest version of ambari - metrics - common is num . 7 . 0 . 0 . 0 , released in july num .
+todo : migrate this to execs after https : / / github . com / druid - io / druid / pull / 984
+todo : upgrade this to bytebuffer once https : / / github . com / jpountz / lz4 - java / issues / 9 is in mainline code for lz4 - java
+todo : upgrade this to bytebuffer once https : / / github . com / jpountz / lz4 - java / issues / 9 is in mainline code for lz4 - java
+todo : have a way to pass the toolbox to firehose , the instance is initialized lazily on connect method . better way to achieve this is to pass toolbox to firehose , the instance is initialized lazily on connect method .
+todo : delete broker
+todo : delete historical
+todo : should we re - establish the connection here ? future : we could try to re - establish the connection here . not done in this version though .
+todo : should we re - establish the connection here ? future : we could try to re - establish the connection here . not done in this version though .
+todo : not exactly sure how we should react to this .
+todo : auto - create the schema if it does not exist .
+todo : will likely be all rewritten once guice introduced
+todo : handle both multiply / division , addition - subtraction
+todo : description ?
+todo : use real strategy before actual deployment
+todo : missing new filehandle ( new file ( " jni / application . mk " ) ) . writestring ( " \napp_stl : = stlport_static\n " , true ) ;
+todo : fix deadlock race condition with quick resume / pause .
+todo auto - generated method stub
+todo auto - generated method stub
+todo : support null regions by parsing scalew / scaleh ?
+todo auto - generated method stub
+todo : decide on what to do with radian / degree conversion values
+todo usually ( always ? ) only the types of the vertices next to the
+todo only do this once ; clipping an ear does not change winding order of the remaining points
+todo the winding order of the triangle is known , so only one of the signs ever occurs . simplify .
+todo ear tips can only be convex ( or maybe tangential ) so don ' t bother checking points - in - triangle unless convex
+todo : check this ) * /
+todo : check this ) * /
+todo :
+todo auto - generated method stub
+todo insert code . . . http : / / stackoverflow . com / questions / 983999 / simple - 3x3 - matrix - inverse - code - c
+todo auto - generated catch block
+todo auto - generated method stub
+todo auto - generated method stub
+todo fix performance issue when calling gethostname
+todo call framework foundation to get the default local cache dir
+todo periodically update config services
+todo remove
+todo alpha not being correctly rendered
+todo ( t105148151 ) : account for image transformation
+todo ( t105148151 ) : properly handle transformations
+todo ( t105148151 ) implement overlays
+todo ( t35949558 ) : add support for external request listeners
+todo ( oprisnik ) : the actual rounding code will be here in a subsequent diff .
+todo ( t12287315 ) : remove the temp method for deleting created preference in next release
+todo num : remove dependency on jfifutil
+todo ( t6181423 ) : this is not working reliably and we cannot afford photos - not - loading issues .
+todo ( t6181423 ) : this is not working reliably and we cannot afford photos - not - loading issues .
+todo ( t6181423 ) : this is not working reliably and we cannot afford photos - not - loading issues .
+todo t6721200 add support for powermocks with robolectric num . 4 @ ignore
+todo ( 5959048 ) : these methods should be taken private
+todo ( 6549690 ) : integrate progress to producers
+todo : consider to remove since tenantid is already defined in the tbcontext .
+todo : @ voba - add possibility to setup edge rule chain as device profile default
+todo : update device credentials
+todo fix bug : " no value at json path " $ . message "
+todo process keys only on suitable slot connection , see getconnection ( byte [ ] rawkey )
+todo : replace if we can notify checkpoint rule nodes about queue changes
+todo fix the test with @ voba
+todo : change default value to " false " before merge
+todo : define the objects ;
+todo : check , maybe device has multiple sessions / registrations ? is this possible according to the standard .
+todo remove after test
+todo reduce verbose after test
+todo : send handle msg
+todo put error msg for other queues implementation except kafka
+todo : voba - double check with igor / vlad regarding this approach to hide aliases
+todo : voba - double check with igor / vlad regarding this approach to hide aliases
+todo why set additionalinfobytes to [ 110 , 117 , 108 , 108 ] if jsonnode is null
+todo : voba - push edge configuration update to edge
+todo : voba - add support for relations deleted
+todo ask if i need . get ( ) here
+todo don ' t we need to delete from attributes ?
+todo check by registration id in entities
+todo : handle direction ;
+todo : is this correct place to log action into sink ?
+todo : handle cleared alarms
+todo : improve this procedure to fetch only changed attributes and support attributes deletion
+todo : in the future when we move to java9 + we should use java . lang . ref . cleaner .
+todo ( buchgr ) : once http2framestream and http2stream are merged this is no longer necessary .
+todo : getting the pid may require reading / sending " ancillary data " via scm_credentials which is not desirable .
+todo : we need to find a better way to handle this .
+todo : we may be able to optimize when we really need to call flush ( . . . ) during channelreadcomplete ( . . . )
+todo : i think this is not really necessary and we should be able to optimize this in the future by
+todo : optimize me .
+todo : use cas to update the list .
+todo : some arbitrary large number - should adjust as we get more production experience .
+todo : add proper implementation
+todo : some arbitrary large number - should adjust as we get more production experience .
+todo : remove this once we fix this test .
+todo : maybe also respect - djava . net . preferipv4stack = true
+todo : determine the protocol using ssl_cipher_get_version ( )
+todo : client mode is not supported yet .
+todo : calculate size as in num . x
+todo : remove the uppercase conversion in num . 1 . 0 as the rfc state it must be http ( uppercase )
+todo : remove me as it seems like chunkwritehandler has a bug which let it hang here
+todo : respond with num request entity too large
+todo : suspend incoming traffic until connected to the remote host .
+todo : begin to accept incoming traffic . connection complete start to auto read data
+todo choose whether to use heap or direct buffer depending on the context ' s buffer type .
+todo : use a weak key map
+todo : use alloc ( ) . heapbuffer ( . . ) but there seems to be a memory - leak , need to investigate
+todo : fix this after oiosctp eventloop done " )
+todo document me .
+todo : optimize me
+todo : this seems wrong !
+todo return false
+todo document me .
+todo return false
+todo document me .
+todo : fix me
+todo : remove the casting stuff
+todo : remove cast
+todo : remove cast
+todo : is this needed ?
+todo : is this needed ?
+todo : is this needed ?
+todo let user choose when the exception should be raised - early or late ?
+todo move the state variable to abstractchannel so that we don ' t need
+todo review the documentation before releasing num . 2 . 0
+todo review the documentation before releasing num . 2 . 0
+todo add httpmessage / httpchunktrailer . removeheader ( name , value )
+todo cf . ensuresuccess ( ) ;
+todo no need to clear the head if called from deflateinit2
+todo : remove myself from the pipeline
+todo add more constructor params for logginghandler
+todo : wrap the future .
+todo documentation
+todo : implement traffic control . unsupported - discard silently .
+todo : implement traffic control unsupported - discard silently .
+todo : add domain , path , maxage , and version ( and perhaps secure and comment ? )
+todo : add domain , path , maxage , and version ( and perhaps secure and comment ? )
+todo : use receivebuffersizepredictor
+todo : do we need to set message to null here ?
+todo - just replacing spaces at the minute , should we check for all characters or leave this to the user ?
+todo code cleanup - what a mess .
+todo make it run faster
+todo decide whether to handle action_headset_plug or not
+todo : open the error activity
+todo show error notification
+todo : move
+todo does it work for large - land layouts ? toggle landscape in order to open directly in fullscreen
+todo : some visual loading indicator
+todo : better than this
+todo fix this . it should not be commented
+todo : fix this urgently
+todo : replace this with propper error reporting
+todo : implement
+todo : this needs to be fixed context . mode_world_readable is obsolet
+todo : implement this
+todo : use video_info for getting timestamp
+todo : make label a translatable string - - >
+todo : release cpu lock
+todo : call mediaplayer . release ( ) as soon as video is complete
+todo : find a better way to convert yyyy - mm - dd to a locale - specific date
+todo : make this more efficient
+todo : make this more efficient
+todo : num . 09 . 15 add auto stream option
+todo fix gettype
+todo fix gettype
+todo replace with nacosdeserializeexception .
+todo replace with nacosserializeexception .
+todo this object will be deleted sometime after version num . 3 . 0
+todo this object will be deleted sometime after version num . 3 . 0
+todo this object will be deleted sometime after version num . 3 . 0
+todo make a maximum count try :
+todo proxy request :
+todo )
+todo hide the disposable as well
+todo the spscarrayqueue isn ' t ready yet so using spmcarrayqueue for now
+todo there is still a known concurrency bug somewhere either in this class , in subscriptionindexedringbuffer or their relationship .
+todo remove this timeout and logging before final release of num . 20
+todo tofuture ( )
+todo move this back to schedulers . computation ( ) again once that is properly using eventloops
+todo not sure what to add it to
+todo reinstate once this is implemented
+todo partition . use window
+todo rename this to timestamped without making scalac crash
+todo this does not yet work as expected !
+todo this test one does not terminate !
+todo decide if instance method mergewith ( ? )
+todo auto - generated catch block
+todo [ @ mairbek ] silly name
+todo support anymous consumer
+todo :
+todo : keep realtime state when switching pages after refactoring the url structure
+todo : add search input box
+todo : handle it considering metric page
+todo jdk num inetsocketaddress . gethoststring ( ) - reflection not needed once we drop jdk num support .
+todo : consider preserving the data during the previous num sec
+todo i think dubbo should return the address of the listen socket
+todo : use properties ' default value instead of using a temp variable .
+todo : open github
+todo asyncid check
+todo is it error ?
+todo auto - generated method stub
+todo add test case for aclass . addinterceptorcallbycontextclassloader
+todo : add header
+todo ( b / 205002913 ) : check the loaded program is consistent with the attributes and uniforms
+todo ( b / 205002913 ) : check the loaded program is consistent with the attributes and uniforms
+todo [ b / 190759307 ] : update constant values and javadoc to use sdk once compile sdk target is set
+todo [ b / 190759307 ] update javadoc to link to audioattributes . builder # setspatializationbehavior
+todo [ b / 190759307 ] : remove reflection once compile sdk target is set to num .
+todo [ b / 190759307 ] use mediaformat . key_max_output_channel_count once the
+todo ( b / 213190310 ) : don ' t create a scaletofitframeprocessor if scale and rotation are unset ,
+todo ( b / 228455984 ) add test that calculates ssim for transcoding to h265 .
+todo ( b / 213190310 ) : don ' t create a scaletofitframeprocessor if scale and rotation are unset ,
+todo ( b / 228455984 ) add test that calculates ssim for transcoding to h265 .
+todo ( b / 214975934 ) : when multiple gl programs are supported by transformer , make sure
+todo ( b / 214975934 ) : once the frame processors are allowed to have different input and output
+todo ( b / 214975934 ) : when multiple gl programs are supported by transformer , make sure
+todo ( b / 214975934 ) : once the frame processors are allowed to have different input and output
+todo ( b / 214975934 ) : write javadoc for fields where the purpose might be unclear to someone less
+todo ( b / 214975934 ) : write javadoc for fields where the purpose might be unclear to someone less
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 223381524 ) : remove analysis failure suppression after ssim calculation doesn ' t fail .
+todo ( b / 221032172 ) : implement this when cdm compatibility issues are resolved .
+todo ( b / 221032172 ) : implement this when cdm compatibility issues are resolved .
+todo ( bachinger ) add code snippet from playeractivity
+todo ( bachinger ) add code snippet from playeractivity
+todo ( bachinger ) add code snippet from playeractivity
+todo ( bachinger ) add code snippet from playeractivity
+todo ( bachinger ) add code snippet from playeractivity
+todo ( bachinger ) add code snippet from playeractivity
+todo ( bachinger ) add code snippet from playeractivity
+todo ( bachinger ) add code snippet from playeractivity
+todo ( b / 214510265 ) : fix these tests on pixel num emulators .
+todo ( b / 214510265 ) : fix these tests on pixel num emulators .
+todo ( b / 214973843 ) : add option to disable fallback .
+todo ( b / 214973843 ) : add option to disable fallback .
+todo ( b / 210593256 ) : remove overriding profile / level ( before api num ) after switching to in - app
+todo ( b / 210593256 ) : remove overriding profile / level ( before api num ) after switching to in - app
+todo ( b / 214012830 ) : use this to check whether the format passed to the factory and actual
+todo ( b / 214012830 ) : use this to check whether the format passed to the factory and actual
+todo ( b / 204869912 ) : make final once deprecated setters are removed .
+todo ( b / 204869912 ) : make final once deprecated setters are removed .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo ( b / 202157117 ) : throw unsupportedoperationexception when all callers are migrated .
+todo : add support for more spans i . e . all those used in androidx . media3 . common . text .
+todo ( claincly ) : enable configuration .
+todo ( internal b / 158191844 ) : add an sdk api to query offload gapless support .
+todo ( internal b / 184262323 ) : assign a proper error code , once we attach that information
+todo ( b / 174297519 ) replace with playbackstatecompat . action_set_playback_speed when released .
+todo ( b / 166765820 ) : see if missing fields would be okay and add them to the bundle otherwise .
+todo ( b / 139174707 ) : delete this class once binaries in wvvp9opusplaybacktest are updated to depend
+todo : do something better with this case .
+todo : do something better with this case .
+todo ( b / 187804381 ) : drop bitmap
+todo : add test for backwards compatibility . backward compatibility tests .
+todo ( b / 172331505 ) remove before release .
+todo ( b / 172331505 ) remove before release .
+todo : remove method .
+todo : it may be possible to define a better mapping onto ima ' s supported language codes . see :
+todo : it may be possible to define a better mapping onto ima ' s supported language codes . see :
+todo ( internal : b / 169937045 ) : for now we don ' t pass the url_safe flag as dataschemedatasource
+todo ( internal : b / 169937045 ) : consider passing base64 . url_safe flag .
+todo : remove when androidx . media2 . session : 1 . 1 . 0 is released without the limitation
+todo ( internal b / 176960595 ) : re - add the v22 & v29 test targets when re - enabling these tests .
+todo : add analyticslistener . onattachedtoplayer and ondetachedfromplayer to auto - release with
+todo ( internal b / 169753382 ) : remove this when we no longer depend on
+todo : add a documentation resource link for drm support in the receiver app [ internal ref :
+todo : add a documentation resource link for drm support in the receiver app [ internal ref :
+todo ( b / 146536708 ) : remove this workaround when the relevant change is released via
+todo ( jaewan ) : remove this workaround when androidx . media num . 2 . 0 is released .
+todo ( jaewan ) : distinguish setmediaitem ( item ) and setplaylist ( { item } )
+todo ( internal : b / 145658993 ) use outputformat for the call from drainoutputbuffer .
+todo ( internal : b / 145658993 ) use outputformat instead .
+todo ( internal : b / 145658993 ) use outputformat instead .
+todo : this code block may be unnecessary , because it ' s probably the case that the buffer will
+todo : revert to @ config ( sdk = config . all_sdks ) once b / 143232359 is resolved
+todo ( internal : b / 145658993 ) use outputformat instead .
+todo - this will need propagating deeper as soon as we start using additional threads .
+todo factor in playback speed . . .
+todo : remove once renderers are migrated [ internal ref : b / 122519809 ] .
+todo : remove once renderers are migrated [ internal ref : b / 122519809 ] .
+todo : remove once all renderers and mediasources have migrated to the new drm model [ internal
+todo : bulk up this check if possible .
+todo : link to specification if available .
+todo : consider sending bytes within min frame size directly from the input to the sample queue
+todo : link to specification if available .
+todo : link to developer guide page / blog post ) .
+todo : update links to point to r2 . 11 . 0 tag ) :
+todo : remove dummy drmsessionmanager check once renderers are migrated [ internal ref :
+todo : remove once renderers are migrated [ internal ref : b / 122519809 ] .
+todo : remove dummy drmsessionmanager check once renderers are migrated [ internal ref :
+todo : remove once renderers are migrated [ internal ref : b / 122519809 ] .
+todo : consider sending bytes within min frame size directly from the input to the sample queue
+todo : enabling session sharing probably doesn ' t do anything useful here . it would only be
+todo : add date ) # # #
+todo : add date ) # # #
+todo : implement reference counting .
+todo ( internal : b / 138703808 ) : uncomment to ensure kotlin issues compiler errors when non - null
+todo ( internal : b / 138703808 ) : uncomment to ensure kotlin issues compiler errors when non - null
+todo : remove once all renderers and mediasources have migrated to the new drm model
+todo : uncomment this when [ internal ref : b / 33627517 ] is clarified or fixed .
+todo : uncomment this when [ internal ref : b / 33627517 ] is clarified or fixed .
+todo : consider adding a handler on which the owner should be called .
+todo : write and link a blog post here .
+todo : write and link a blog post
+todo : write and link a blog post here .
+todo : write and link a blog post
+todo : support customcachekey in dash / hls / ss , for completeness .
+todo : merge these three events into a single msg_state_change that can carry all updates . this
+todo : support profiles num , num and num once we have a way to fall back to avc / hevc decoding .
+todo : support customcachekey in dash / hls / ss , for completeness .
+todo : merge these three events into a single msg_state_change that can carry all updates . this
+todo ( b / 71930387 ) : use vpx_codec_control ( ) , not vpx_codec_control_ ( ) .
+todo ( b / 124903498 ) : incompatible parameter type for savedinstancestate .
+todo : wipe the database .
+todo : the possibility of downloader being null here may prevent the download thread from
+todo : write and link a blog post
+todo isactive needed ?
+todo : do something better with this case .
+todo : do something better with this case .
+todo : remove this when the new api is public .
+todo : add @ override when the next ima release is available .
+todo : make non - default once all datasources implement this method .
+todo ( b / 30792113 ) : implement this properly ( player . gettotalbufferedduration ( ) ) .
+todo : update the expected ad group
+todo : update the expected ad group
+todo check internet connectivity using http : / / clients3 . google . com / generate_204 on api
+todo fix and enable assertdatacached ( cache , test_mpd_uri , testmpdfirstpart ) ;
+todo : it may be necessary to handle timestamp offsets from utc .
+todo : it may be necessary to handle timestamp offsets from utc .
+todo : work out when to call onpositiondiscontinuity on listeners for this case .
+todo : clear gapless playback metadata if a format was read ( if applicable ) .
+todo : support shuffle mode in mediasessionconnector .
+todo : implement this .
+todo : lower minsdkversion as much as possible once this issue in librtmp is fixed :
+todo : for sparse tracks ( e . g . text , metadata ) this may return false when an in - buffer
+todo : make public once it is possible to override audiotrack ' s position calculations .
+todo : fix windowpositioninperiodus when playlist is empty .
+todo : add instructions for other abis .
+todo : move the following three methods nearer to the bottom of the file .
+todo : remove the iseac3 parameter by reading the bsid field .
+todo [ refactor ] : we need to disable this at some point .
+todo add void maybethrowerror ( ) throws ioexception ;
+todo : make this a mediasource
+todo [ playlists ] : consider using trackstreams from the timeline source instead of
+todo [ release ] : this needs to not be octal when it gets bumped to num . x !
+todo : queue the end of stream buffer .
+todo : find out if it ' s possible to supply samples prior to the first sync
+todo : ts_stream_type_dts ;
+todo : infer the mime type from a chunk file extension .
+todo : decide what we want to do with : https : / / github . com / google / exoplayer / issues / 765
+todo : detect and read dvb ac - 3 streams with ac3reader .
+todo : this method should be abstract . this implementation is provided as an interim step only .
+todo : this method should be abstract . this implementation is provided as an interim step only .
+todo : ideally this would be read in onoutputformatchanged , but there doesn ' t seem
+todo : rename to limit .
+todo : for unbounded manifests , we need to enforce that we don ' t try and request chunks
+todo : use utctimingelement where possible .
+todo : uncomment when building against api level num .
+todo : relax this check to also allow non - h264 adaptive decoders .
+todo remove for jdk num . 7 +
+todo auto - generated catch block
+todo try increase timeout
+todo override expire methods
+todo async
+todo refactor
+todo refactor
+todo optimize
+todo shutdown watchdog
+todo move it to redisson as id
+todo optimize - search bulk values at once in range
+todo throw error
+todo : get fifo config from subscriptiongroupmanager
+todo : be carefully
+todo remove main method and test using junit or other methodology
+todo : remove before copying
+todo sparse resources
+todo use new ability of apache - commons - cli to check hasoption for non - prefixed items
+todo : check we haven ' t already filled it with np_color ?
+todo : does dalvik allow switc payloads with no cases ?
+todo handle multiple packages using findpackagewithmostresspecs ( )
+todo remove this file once https : / / github . com / stylelint / stylelint / issues / 6100 is released
+todo : implement this test for windows " , functions . iswindows ( ) ) ;
+todo " )
+todo : https : / / issues . jenkins . io / browse / jenkins - 67681 locallauncher . kill ( ) is excessivly slow on windows , mostly just about works outside ci " , functions . iswindows ( ) & & system . getenv ( " ci " ) ! = null ) ;
+todo : is this test too fragile to run ?
+todo eclipse / jetty . project # 7970 < extraclasspath > $ { project . basedir } / . . / core / src / main / resources , $ { project . basedir } / . . / core / target / classes , $ { project . build . directory } / support - log - formatter . jar < / extraclasspath > - - >
+todo : leverage runtime . version ( ) once on java num +
+todo java num make private
+todo see jenkins - 68805 " )
+todo num . x versions expose " gc overhead limit exceeded " errors in this test suite - - >
+todo : fix sonar plugin that depends on this . that ' s the only plugin that depends on this field .
+todo https : / / github . com / siom79 / japicmp / pull / 266 - - >
+todo : https : / / issues . jenkins . io / browse / jenkins - 53788 ( jdk11 issue on ci ) - - >
+todo ` javadoc , as appropriate .
+todo remove this once it ' s been long enough that users got used to this .
+todo is this even something we want to support , or should all infrastructure callables be exempted from the required role check ?
+todo : abstracttasklistener is empty now , but there are dependencies on that e . g . ruby runtime - jenkins - 48116 )
+todo : abstracttasklistener is empty now , but there are dependencies on that e . g . ruby runtime - jenkins - 48116 )
+todo see comment in { @ code whitelisted - classes . txt } * /
+todo needs triage " )
+todo needs triage " )
+todo needs triage " )
+todo needs triage " )
+todo ; use { @ link string # join ( charsequence , iterable ) }
+todo . use { @ link # save ( ) } instead .
+todo . use { @ link # load ( string ) } instead .
+todo . use { @ link # load ( string ) } instead .
+todo , use { @ code extensionlist . lookupsingleton ( filefingerprintstorage . class ) } instead .
+todo needs triage " )
+todo needs triage
+todo needs triage " )
+todo : restore ' windows ' once https : / / groups . google . com / forum / # ! topic / jenkinsci - dev / v9d - xosop2s is resolved
+todo : send the output to somewhere real
+todo : what to pass as a context ?
+todo : what to pass as a context ?
+todo , but implementations can already implement this with a lower core dependency .
+todo once
+todo it seems to want guava num ; apparently it manages to run against num - - >
+todo it seems to want guava num . 1 ; apparently it manages to run against num . 0 . 1 - - >
+todo finalize version numbers
+todo i18n
+todo : remove once medium level is set in the core ( jenkins - 36716 ) - - >
+todo : jenkins - 36716 - switch to medium once findbugs is cleaned up , num issues on mar num , num - - >
+todo ( oleg - nenashev ) : it will not work well with release drafter which does not recreated releases . asset does not get overwritten , and there is no ready - to - go api for overriding assets
+todo ) .
+todo define property for this and share with war / pom . xml - - >
+todo remove when https : / / github . com / jenkinsci / dependency - check - plugin / pull / 20 is widely adopted
+todo https : / / github . com / stapler / stapler / pull / 211 - - >
+todo define property for this and share with war / pom . xml - - >
+todo or pick up https : / / github . com / jenkinsci / ldap - plugin / pull / 49 - - >
+todo requests num ; apparently works well enough with the num we bundle - - >
+todo exact format changed in num . 0 . 9 ( jdk - 8226809 / jdk - 8252444 )
+todo merge into causetest after release
+todo : when base is an interface , it ' s _possible_ that the class may implement a subinterface of base
+todo : not currently handled by isoverridden ( )
+todo " )
+todo : the implementation has been deprecated due to jenkins - 42861
+todo : use default margin
+todo https : / / github . com / jenkinsci / winstone / pull / 91 - - >
+todo : remove or do something about this when reenabling the unit tests
+todo ( oleg - nenashev ) : use te draft generated by release drafter , not a fixed release
+todo : restore ' windows ' once https : / / groups . google . com / forum / # ! topic / jenkinsci - dev / v9d - xosop2s is resolved
+todo use ! functions . isextensionsavailable ( ) once jenkins - 33377
+todo can use r . waitonline ( slave ) after https : / / github . com / jenkinsci / jenkins - test - harness / pull / 80
+todo : consider merging category or changing emojis
+todo remove the @ ignore
+todo remove the @ ignore
+todo remove the @ ignore
+todo remove the @ ignore
+todo : categories are yagni for now , until we can extract ` type ` somehow
+todo remove and replace privatekeyprovider with securityutils . createfilekeypairprovider ( ) as in sshclient - - >
+todo remove restriction on the weekly after the security fix
+todo : more features
+todo https : / / github . com / jenkinsci / jenkins - test - harness / pull / 127
+todo : expose version about minimum supported remoting version ( jenkins - 48766 )
+todo https : / / github . com / jenkinsci / ssh - cli - auth - module / pull / 6 - - >
+todo : rollback the default for java num when it goes to ga
+todo which method would throw this ?
+todo replace with calls to runtime . version ( ) once we ' re on java num +
+todo being run multiple times , tbd why " )
+todo use new api after jenkinsci / jenkins # 3687 is merged
+todo check java dependency
+todo check java dependency
+todo properly investigate this
+todo properly investigate this
+todo : enable workdir by default in api ? otherwise classes inheriting from jnlplauncher
+todo https : / / github . com / jenkinsci / pom / pull / 30 - - >
+todo : enable workdir by default in api ? otherwise classes inheriting from jnlplauncher
+todo https : / / github . com / jenkinsci / pom / pull / 25 - - >
+todo https : / / github . com / kohsuke / access - modifier / pull / 11 - - >
+todo : actually many issues are being filtered by src / findbugs / findbugs - excludes . xml - - >
+todo https : / / github . com / jenkinsci / remoting / pull / 259 - - >
+todo jenkins - 48467 - better to use modelhyperlinknote . encodeto ( user ) , or user . geturl , since it handles url escaping
+todo to be fixed
+todo : find a way to complete this test
+todo pending release - - >
+todo https : / / github . com / jenkinsci / jenkins - test - harness / pull / 81 - - >
+todo update after split
+todo pending hosting release - - >
+todo https : / / github . com / jenkinsci / jenkins - test - harness / pull / 79 - - >
+todo pick up from command - launcher , so long as that is a dep - - >
+todo at least pending a signature change in jenkinsrule . createcomputerlauncher - - >
+todo could be opened up later
+todo delete in num . 635 +
+todo https : / / github . com / jenkinsci / jenkins - test - harness / pull / 69 - - >
+todo jenkins - 46659 seems to be broken " )
+todo https : / / github . com / jenkinsci / jenkins - test - harness / pull / 66 - - >
+todo num . 3 . 0 requires java num - - >
+todo https : / / github . com / jenkinsci / maven - hpi - plugin / pull / 65 - - >
+todo is an equivalent for run needed ?
+todo num . 19 . x + use loggerrule on clientauthenticationcache
+todo does not seem to work on _either_ overload !
+todo - - >
+todo fails unless ^ java [ . ] security [ . ] signedobject is blacklisted " )
+todo https : / / github . com / jenkinsci / maven - hpi - plugin / pull / 58 - - >
+todo https : / / github . com / jenkinsci / sshd - module / pull / 12 - - >
+todo set skipped once we have a status indicator for it
+todo this can wait indefinitely even after the connection is broken
+todo what is the opposite of locale . tostring ( ) ?
+todo num . 645 + use mockauthorizationstrategy
+todo num . 3 . 0 requires java num - - >
+todo add ' windows '
+todo : add issensitive filtering
+todo : add issensitive filtering
+todo num . 653 + use getinstanceornull
+todo in trunk switch to @ issue ( { " security - 266 " , " security - 304 " } )
+todo in master when using a version taking a string [ ] : @ issue ( { " jenkins - 27055 " , " security - 358 " } )
+todo num . x use systemproperties
+todo build page should mark up param description ; parameters page should mark up param description " )
+todo check if t overrides printstacktrace
+todo : make the update center id configurable
+todo : cleanup code and remove filtering of medium - priority issues - - >
+todo remove - snapshot
+todo should we turn this back after merging jenkins - 36923 ? - - >
+todo remove snapshot - - >
+todo : make the update center id configurable
+todo remove once bouncycastle - api plugin bundles bouncycastle - - >
+todo verify this is the correct way
+todo why false ? use getbyid ?
+todo why false ? use getbyid ? do not create the user - we just want to check if the user already exists but is not a " login " user .
+todo avoid indentation somehow
+todo does not work : font - size : num % ;
+todo : lots more tests ! ! !
+todo : someone that understands what the following logic is about , please add a comment . there could be cases like :
+todo confirm safe to assume non - null and use getinstance ( )
+todo confirm safe to assume non - null and use getinstance ( )
+todo confirm this can never be true
+todo : how to wait for the completion of the last job ?
+todo is it legal for this to be called by a non - executor thread ?
+todo : once https : / / github . com / jenkinsci / packaging / pull / 34 is merged , switch to master branch .
+todo : release - - >
+todo : payload content issue the issue with commonscollections2 does not appear in manual tests on jenkins , but it may be a risk
+todo : uncomment after upgrading to the new core version ( 1 . 580 + )
+todo test - annotations num . 2 + : @ issue ( { " security - 131 " , " security - 155 " } )
+todo replace with < > operator after backporting to num . 609 . 3
+todo jenkins - 28120 restore to num . $ { java . level } - - >
+todo jenkins - 28120 restore to num . $ { java . level } - - >
+todo currently fails : after first configroundtrip , builders list is empty because in newinstancesfromheterolist $ class is builderimpl ( like stapler - class ) , kind = builder - a is ignored , and so d is null " )
+todo currently fails : after first configroundtrip , builders list is empty because in newinstancesfromheterolist $ class is builderimpl ( like stapler - class ) , kind = builder - a is ignored , and so d is null " )
+todo : define a version
+todo convert to bean or builder pattern
+todo jenkins - 23151 ' codemirror - mode ' : ' shell ' is broken
+todo : offline cause seems more reliable here . plus , this misses permission check log . jelly does .
+todo switch saved preferences one time , or add an admin monitor , or just delete the option ( in which case can also delete downloadservicetest and its testpost . jelly and its * installer . json )
+todo : define the version
+todo security - 144 - - >
+todo allow < jobdir > / cobertura /
+todo delete before release
+todo jenkins - 19192 try when released to central :
+todo : define version
+todo : define the version
+todo * /
+todo * /
+todo add variant returning job
+todo deprecate and replace with job
+todo . use { @ link # onoffline ( computer , offlinecause ) } instead .
+todo binary compatibility for abstractbuild
+todo the anchor is meaningless if there is > 1 changelogset / index . jelly for the build - - >
+todo :
+todo : does it make more sense to define a separate permission ?
+todo : use the stored grantedauthorities
+todo : define a version
+todo consider customizedfields - - >
+todo : define a version
+todo working around crappy jenkins - 19446 fix
+todo disabled until this is fixed to not cause errors on ubuntu :
+todo not a { @ link softreference } )
+todo * /
+todo generate an id so we can use this more than once per page - - >
+todo or check useridcause
+todo : shutdown hook to kill off this timer
+todo delete when num . 535 released and matrix - auth can depend on it
+todo jenkins - 19473 workaround ; replace when jzlib fixed
+todo jenkins - 19192 try when released to central :
+todo num . 97 needed to correct encoding on windows - - >
+todo : one would expect - 1 here
+todo : fix
+todo : get rid of this method by making persistedlist derive from list via the use of bridge - method injector
+todo : fix this
+todo : fix this
+todo : obsoleted
+todo : we need a permission to launch a slave - - >
+todo : should we abort the build if the cli is cancelled ?
+todo : needs to pick up animal - sniffer num . 9 for this to take effect at a class ( jenkins - 15426 )
+todo : this should be immutable
+todo : use human - readable id
+todo : shouldn ' t it be suffice to just check the end ?
+todo : try readlink ( 1 ) available on some platforms )
+todo : cli can authenticate as different users , so should record which user here . .
+todo : is there any other task that follows the same pattern ?
+todo : revisit how to expose this
+todo : check cyclic dependency there ' s no need to do cyclic dependency check , because we are deploying one at a time ,
+todo : need to ignore base types run initializers in the added plugin
+todo : there ' s awful inefficiency in htmlunit where it loads the whole binary into one big byte array .
+todo ( kutzi , num / 09 / 06 ) : it should be perfectly save to move all these records to the
+todo ( kutzi , num / 09 / 06 ) : it should be perfectly save to move all these records to the
+todo " ) ;
+todo replace with new link :
+todo replace with new link : div align = right >
+todo : on archive we need to follow the same format as maven repository
+todo : set up a local to remote ping too ?
+todo : what to do ?
+todo : checked on num bit mac os x . is this different on num bit ?
+todo : this could provide some useful details
+todo get exception during mojo execution ? http : / / issues . hudson - ci . org / browse / hudson - 8493
+todo : associate identity after a signup
+todo : resurrect compressed log file support
+todo : moved here as a temporary fix against hudson - 7281 . use yuiloader to fix this problem - - >
+todo : provide useful details
+todo . html " >
+todo : fix this before hudson - 2137 integration
+todo :
+todo : we need a different permission for this page - - >
+todo : report
+todo : new permission ?
+todo : avoid calling schedulemaintenance ( ) if none of the waiting items
+todo once stapler num . 60 is released : @ exported
+todo : pending new winp
+todo : figure out how to reuse test code from the remoting module .
+todo : obsoleted
+todo : this doesn ' t make sense anymore . remove it .
+todo : define this as a separate permission ?
+todo : resurrect
+todo : resurrect
+todo :
+todo : implement this method later
+todo : test permission
+todo : wait for stapler num . 60 to do this : @ exported
+todo refactor the constructors to sort this all out
+todo : find out how to install files on the master
+todo : i18n after the feature is stabilized
+todo : report
+todo : perhaps support downstream build triggering
+todo : move these lists to describablelist
+todo : the ' intern ' semantics requires reference counting for proper unexport op .
+todo : would be nice if we can wait for the completion of pending requests
+todo : wait for completion
+todo : talk about two nodes involved
+todo : don ' t we need the equivalent of ' proc ' here ? to abort it
+todo : this is an ugly abstraction .
+todo : share with all scms - - >
+todo : do this by using the right slave
+todo : locate it on remote node remoting . jar
+todo locate main . jar
+todo : support roaming and etc
+todo : st : include page = " rssheader . jelly " / - - >
+todo : trigger module builds
+todo : move this to { @ link itemgroup } ?
+todo : revisit
+todo : rename to something else .
+todo : debug option to make it verbose
+todo : report why the log is kept in ui
+todo : is there a nice
+todo disabling the debug output for now , as we have not seen the sporadic test
+todo : remove if not used
+todo : actually make this tool
+todo : since this is making a blocking - on - the - network call , it should be supplyasync
+todo : fragile . this depends on the recorder advancing the snap for each thread
+todo remotetransport option ?
+todo verify this returns ' < ' instead of entity refs
+todo : what if action = = null ?
+todo delete this class . . . now !
+todo make these private if the subclass goes away
+todo auto - generated catch block
+todo auto - generated catch block
+todo : should pass in language instead ?
+todo revisit this in terms of external block addresses . also shoul this check
+todo : it ' d be nice if we could use num - bit pointers in the num - bit spec outside of long mode
+todo : check the classpath var for null and return null if it is null
+todo gp - 658
+todo gp - 658
+todo gp - 658
+todo gp - 658
+todo : not sure i can rely on add order where there ' s no dependency
+todo make sure that the - 256 case works
+todo : seems traces do not take delay - slotted instructions well . . .
+todo put this in
+todo : test . java provides test task for nightly junits - setting this
+todo : sub - title instead
+todo : sub - title instead
+todo - manual says that if in predecrement or postincrement mode and the res is the sp , then must inc / dec by num , not by num
+todo : find typed constants via datatypereferences
+todo : figure / fix
+todo : mixed name and integer content
+todo auto - generated constructor stub
+todo : fd - > preserveproperties ( vn , replacement , bytepos ) ;
+todo : handle extras go into extras and process list of chain entries for the same page
+todo : need to address register bank based on rsb
+todo : these two need to address register space
+todo : these two need to address register space
+todo : make sure this folder is cleaned up in every case , especially *
+todo this message doesn ' t make sense in all use cases . if we want this or other messages ,
+todo : just for the record , it seems odd to me that you would want to the frontendtool
+todo auto - generated catch block
+todo " + lexer . tokenname ( ) + " " + lexer . stringval ( ) ) ;
+todo : remove snapshot version when num . 6 stable is released - - >
+todo : add back when num . 6 stable is released
+todo remove when darklaf is properly updated - - >
+todo ear needs to work the same as xapk
+todo read the version output to verify it exists read the version output to verify it exists
+todo fix for java num +
+todo fix for java num +
+todo # # #
+todo auto - generated method stub
+todo : implement complete shutdown of the pool
+todo : implement complete shutdown of the pool
+todo : other types ?
+todo is this useful ?
+todo , should we parse the string to let the user use xml in annotated methods ?
+todo see issue # 165 ( using " value " fails if there is a dynamic variable )
+todo see issue # 524 issue # 524
+todo that was not managed ! ! !
+todo see issue # 464
+todo check this regarding resultcolumncache
+todo see issue # 5
+todo see issue # 5
+todo see issue # 5
+todo : bug . . . this should not be here .
+todo : revert once confirmed the lto fix in core works
+todo : parametric test
+todo : use this after merge to master
+todo update expected values after core ' s fix
+todo : remove try / catch block when compacting encrypted realms is supported
+todo : remove try / catch block when compacting encrypted realms is supported
+todo update expected value after core ' s fix
+todo : remove try / catch block when compacting encrypted realms is supported
+todo example of a project using modules < / a >
+todo this shouldn ' t be needed .
+todo enable once copy to encrypted realm works again
+todo : should we reenable this test ?
+todo : should we reenable this test ?
+todo : the version value should be pulled from a build file
+todo return the proper element not null
+todo refine this
+todo remove object from realm
+todo : check with the core guys
+todo : date
+todo : date
+todo , what about read_write_no_create
+todo : new ! ! !
+todo : new
+todo : new
+todo : new
+todo : new
+todo : new
+todo : new
+todo : new
+todo : new
+todo : new
+todo auto - generated catch block
+todo : enable double rollback ( ) test :
+todo : can close fail ? make exception
+todo : enable
+todo : change to return
+todo : support for case insensitive string matches on linux - currently only supported on windows
+todo : enable move_last_over
+todo : fails ! ! !
+todo ? ? add getsubtablesize ? ?
+todo : check buffer for null ! ! !
+todo : return long
+todo ? ? ?
+todo : cleanup
+todo bs add ` - - pgo - sampling ` here breaks benchmarks with g1
+todo ( gr - 8329 ) : add exclusions
+todo re - enable once gr - 40785 is fixed
+todo re - enable once gr - 40785 is fixed
+todo commented until gr - 41428 is resolved .
+todo : disable before merging
+todo : print perf warning ?
+todo remove ! s3_16_32 when gr - 39450 is fixed ,
+todo remove ! s3_16_32 when gr - 39450 is fixed ,
+todo bs should be private , currently used to compare duplicated host methods .
+todo : implement
+todo : derive from characteristics bitset
+todo bs return to default value of num , num is for debug only
+todo bs make this contains be equals
+todo : replace with varhandle equivalent ( gr - 35129 ) .
+todo gr - 38409 to implement properly hashcode ( ) , it should use getclass ( ) instead of
+todo gr - 38409 to implement properly hashcode ( ) , it should use getclass ( ) instead of
+todo gr - 38409 to implement properly hashcode ( ) , it should use getclass ( ) instead of
+todo ( je ) vzeroupper
+todo : move to ci_common / common . jsonnet once we need ee stuff .
+todo confirm the following are only omitting array boundary tests .
+todo : is this used at runtime or build time ? ? ?
+todo : replace this with is . readallbytes ( ) once java num support is removed
+todo print whatever the helpargis
+todo ( peterssen ) : fix deprecation , gr - 26729
+todo : add comments
+todo : added as a temporary workaround to provide compatibility with jdk8 ( gr - 35238 ) . * /
+todo : remove as part of jdk8 removal ( gr - 35238 ) .
+todo : review why this needs to be held
+todo : review why this needs to be held
+todo : when svm becomes multi - threaded , this should only prevent allocation on a particular
+todo ( peterssen ) : gr - 33781 leaf method assumption cannot be trusted for default
+todo ( peterssen ) : gr - 33781 leaf method assumption cannot be trusted for default
+todo : release unused chunks if there ' s _more_ than space should be available
+todo ( garcia ) perhaps perform access checks ?
+todo remove polyglotexception if gr - 21743 and gr - 21744 is fixed .
+todo expecting polyglotexception is a temporary workaround gr - 21744
+todo : is this check really needed ?
+todo : without this boundary call , the code never runs , and we get stuck in a compile - interpret - deoptimize loop . why ? the boundary call prevents truffle from moving the deopt earlier ,
+todo : add a polling frequency so we don ' t poll compilation on every back edge
+todo : check if frame escaped . if so , abort osr ( do we need to invalidate the target
+todo : unconditionally disable compilation here . we can get into a compile - > execute - > deopt loop and
+todo ( pichristoph ) check if name of base can be found differently / more safely
+todo : write javadoc .
+todo : figure out how to filter source sections with only a root node .
+todo : implement using safepoint stack
+todo ( peterssen ) : substitution required , instead of calling native jvm_clone , to avoid leaking
+todo : gr - 29467 - legacy behaviour , should be removed
+todo : gr - 29467 - legacy behaviour , should be removed
+todo gr - 30833 : at pthread_join , return values need to be cleared from the map of thread
+todo are arrays of unknown value types also unknown ?
+todo are arrays of unknown value types also unknown ?
+todo remove and use fileentry from methodentry
+todo - add logging
+todo : epoch - based constant pool writing should allow for
+todo "
+todo : should be use on darwin too , i . e . , moved to " fastr - > downloads "
+todo : for the time being , build from the sources . . .
+todo ( peterssen ) : do unload the library .
+todo ( peterssen ) : use serviceloader .
+todo ( peterssen ) : allow native - sized words .
+todo ( peterssen ) : we don ' t want interop null passed verbatim to native , but native
+todo ( garcia ) : give substitutions the power of calling the original method they
+todo : ask about ismultithreaded
+todo : no constraint check here jdk - 8244090 introduces constraint check
+todo argtypes . set ( i , . . . )
+todo : prevent using - d flags to set some properties ( / ex : module
+todo : more precise handling ( see
+todo ( peterssen ) : gr - 28704 make substitutions only available for methods on
+todo ( peterssen ) : check the thread is attached , and that the vm pointer matches .
+todo decode name string
+todo why was this using a dedicated lookup ?
+todo : this is neceseryt because the " graal graphs " group is not closed . should be fixed .
+todo check for available aot specializations
+todo : remove - - engine . compilationfailureaction = silent and - - engine . treatperformancewarningsaserrors = none when compilation failures are resolved
+todo replace later by ' target ' calculation )
+todo pichristoph find llvmsourcetype of fp
+todo ( garcia ) : use frame . clear ( ) once available
+todo : remove as soon as the sulong distributions is removed
+todo : legacy distribution . remove as soon as everyone migrated to sulong_native or sulong_core ( gr - 27478 ) .
+todo : remove as soon as the sulong distribution is gone ( gr - 27478 ) .
+todo : figure out if we can support forward references in cases like these
+todo : handle m - c
+todo : support also \ m meta - control escapes .
+todo : possessive quantifiers should not be allowed after range quantification .
+todo : explain why this is needed .
+todo .
+todo ( peterssen ) : profile whether null was hit or not .
+todo ( gregersen ) - is the field name the same on all jdks ?
+todo ( chaeubl ) : overwriting the type is a workaround to avoid type mismatches that occur for
+todo : error report ?
+todo ( goltsova ) : remove this when array bytecodes support foreign arrays
+todo ( goltsova ) : remove ! isstringarray ( klass ) once array bytecodes support foreign arrays
+todo : licence ? this is a copy of the jline method
+todo : checknotlinked ( ) ;
+todo : checknotlinked ( ) ;
+todo : checknotlinked ( ) ;
+todo ( goltsova ) : lookup the constructor , check that it ' s public
+todo should not be default
+todo : link something about language ids ?
+todo :
+todo :
+todo : if the targetblockreturnlength could ever be > num , this would invert the stack
+todo : if the targetblockreturnlength could ever be > num , this would invert the stack
+todo ( garcia ) : introduce some kind of limitation on the size of the encoded string ?
+todo : this should be checked for potential recursion
+todo : gr - 22688 - this could potentially bail out , we shouldn ' t bailout entirely .
+todo ) looks like this :
+todo : remove and replace with llvmasforeignlibrary
+todo ) looks like this :
+todo : check these env vars
+todo : check these env vars
+todo gr - 22184 constant names don ' t match constant values
+todo remove me : test code
+todo ( je ) should we remove this ?
+todo ( peterssen ) : class name is converted to host , then reserialized to guest .
+todo ( peterssen ) : add specialization for primitive arrays .
+todo javadoc .
+todo javadoc .
+todo javadoc .
+todo ( gregersen ) - we will need all classes for which this classloader was the
+todo ( peterssen ) : hotspot verifies that the method is marked as @ callersensitive .
+todo confirm this
+todo : pop values from the stack if necessary . pop values from the stack if in the block - end position .
+todo : maybe move this pop up for consistency .
+todo ( gregersen ) - validate if this is a valid threadgroup
+todo ( gregersen ) - current disabled by capabilities .
+todo ( gregersen ) - generic signature if any
+todo ( gregersen ) - generic signature
+todo ( gregersen ) - get the generic signature
+todo ( gregersen ) - generic signature if any
+todo this needs to be implemented to make the agent happy
+todo ( gregersen ) - generic signature
+todo ( gregersen ) - get the generic signature
+todo ( gregersen ) - handle array and primitive types
+todo : how defensive should i be here ?
+todo ( gregersen ) - call method directly when it becomes available
+todo ( gregersen ) - call method directly when it becomes available
+todo : handle location
+todo ( gregersen ) - implement retrieving threadgroup name
+todo : should this return an initialization function ? or a start function ?
+todo : find a way to capture stdout .
+todo : fix this - dimensions should be num .
+todo ( peterssen ) : defineklass being synchronized is too costly when several threads load
+todo : check that the resources are available .
+todo ( gregersen ) - change to array or even a single listener for now
+todo : ensure
+todo this needs to to know the source file it is coming from
+todo this is not efficient enough as it requires an int array in the size of
+todo : consolidate this with agnostic inlining .
+todo : investigate more , how does this happen ? when is the node optimized away ?
+todo : handle indirect call likely an indirect call , ignore for now
+todo : this for loop should be guarded with :
+todo : accessing the context like this seems to be quite slow .
+todo ( garcia ) implement instruction stack to visit , to avoid stack overflows from recursively
+todo : document this and the * withstatus variant .
+todo ( peterssen ) : what to report here ?
+todo : this should not be necesery becuase of the filter . bug !
+todo : this should not be necessary because of the filter . bug !
+todo : read the context from a thread - local .
+todo : read from the thread - local that holds the context .
+todo : restore check
+todo ( garcia ) fill holes in parent ' s parents .
+todo ( peterssen ) : the protection domain is unused .
+todo : handle narrow oop in finalfalsevalue
+todo : assert localindex exists
+todo : not implemented yet
+todo make none the default if allowallaccess is false gr - 14657
+todo : ` newvalue ` can be null
+todo : ` merge ` could be null
+todo : ` reg ` can be null fortify : suppress null dereference false positive
+todo ( peterssen ) : method lookup is uber - slow and non - spec - compliant .
+todo ( garcia ) cache .
+todo ( garcia ) add type . constructor case .
+todo ) . this document assumes prior knowledge of truffle apis and the use of ` @ specialization ` with the ` @ cached ` annotation .
+todo examples .
+todo we introduced a new concept to truffle called truffle libraries [ 1 ] . truffle libraries are now used for interoperability between languages . this means that all existing interop apis are now deprecated and new apis were provided . this document is intended as a migration guide for language and tool implementers .
+todo ( peterssen ) : set proper location .
+todo ( peterssen ) :
+todo ( peterssen ) : check parameter count .
+todo ( peterssen ) : use truffleexception .
+todo ( peterssen ) : inline this object .
+todo ( peterssen ) : implement check cast for arrays and primitive arrays .
+todo : check with asserts that these character classes are closed on case folding ,
+todo ( peterssen ) : throw guest exception .
+todo ( peterssen ) : array store check .
+todo ( peterssen ) : remove , only for hellojni tests
+todo : javadoc
+todo javadoc
+todo : add low tier compilation to substrate .
+todo ( peterssen ) : do not use system bcl .
+todo remove if deprecated contains api is removed .
+todo remove if deprecated api was removed .
+todo value . getmetaobject ( ) should call hostlanguage . findmetaobject instead
+todo : promotion failure ! * /
+todo : javadoc
+todo : dragonegg uses incompatibe builtins !
+todo : remove old - style validatestdout after updating downstream suites .
+todo copying the graph is only necessary if it is modified or if it contains any invokes
+todo what to do if child was not found ?
+todo what to do if child was not found ?
+todo check for double - free ?
+todo : remove once all . properties files use lowercase * /
+todo temporary disabled gr - 8034
+todo temporary disabled gr - 8034
+todo temporary allow proxies as host objects gr - 8034
+todo temporary allow proxies as host objects gr - 8034
+todo temporary disabled gr - 8034
+todo temporary disabled gr - 8034
+todo temporary allow proxies as host objects gr - 8034
+todo temporary allow proxies as host objects gr - 8034
+todo : tests
+todo use getuninitializednodecount
+todo remove this
+todo : javadoc .
+todo consider better approaches . fifo ? lifo ?
+todo : what if compiled ?
+todo support more number types ?
+todo : macro nodes , add marker interface .
+todo : re - enable gr - 6632
+todo " , category = optioncategory . user ) static final optionkey < cpusampler . mode > mode = new optionkey < > ( cpusampler . mode . compiled , cli_mode_type ) ;
+todo : currently , we need to load the bitcode libraries first . otherwise , sulong is
+todo add support for real charsequence sources .
+todo : this should fail at image generation time
+todo : print jvm options help " ) ;
+todo either throw an assertion error , as it is done for double or float or do something like this
+todo implement
+todo implement
+todo ( alexpro ) : temporarily disable this fix for gr - 4454 until this is tested .
+todo should return null polyglotengineprofile is changed to return null again after
+todo logic is temporarily disabled due to behavior that depends on it
+todo use node based api to call into javainterop . astrufflevalue
+todo does this need a picastnode to the positive range ?
+todo : required by llvm ir parser , should be removed when no longer needed
+todo remove this together with unknown
+todo this does not work for blobs of arbitrary size
+todo : after migration of lta tests to new infrastructure , these num tests fail .
+todo : also allow other extensions , best introduce a command " compile " that compiles c , c + + , fortran and other files
+todo : don ' t compare strings here
+todo ( zapster ) document me !
+todo : symbol table ?
+todo we need to set the global variables for . bc files
+todo ( mlvdv ) change api to frame number
+todo ( mlvdv ) export this information to suspendedevent for client use
+todo implement
+todo implement
+todo ( zapster ) document me !
+todo auto - generated method stub
+todo ( je ) remove this requirement
+todo cs num - feb - 16 assertion failure at the moment - should it raise an exception ?
+todo ( gd ) change when inversion is available
+todo ( mlvdv ) remove the static hack when we no longer have the static demo variables
+todo ( mlvdv ) first step , based on a suggestion from netbeans
+todo ( mlvdv ) command line options
+todo ( je ) : fix
+todo ( jeisl ) this is a hack to be able to replace the composite value with the register . * /
+todo ( zapster ) document me !
+todo : ( sa ) make this relocation shorter ( right now it takes always num instructions )
+todo ( je ) check if we can remove this
+todo ( je ) check if this can be removed
+todo ( je ) we are currently skipping lirframestates because there are problems with
+todo ( gd ) detect
+todo ( chaeubl ) : why should an invoke not have a state after ?
+todo : saving callee saved registers as well seems unneccessary , however as of now it does
+todo ( lstadler , gduboscq ) createtarget might not be safe at this position ,
+todo unfortunately we cannot yet use interface typed fields as child fields .
+todo general description
+todo ( je ) : we can not yet deal with default methods
+todo resolve transitive contains
+todo auto - generated method stub
+todo remove this annotation after we moved to jdk num and use sun . invoke . stable instead
+todo auto - generated method stub
+todo ( chaeubl ) : copying the graph is only necessary if it is modified or if it contains
+todo auto - generated method stub
+todo auto - generated method stub
+todo this used to be a bug
+todo move this check to downcast ( )
+todo : change to iterator ?
+todo auto - generated method stub
+todo assertion does not hold for substrate vm ( in general for all
+todo auto - generated method stub
+todo auto - generated method stub
+todo auto - generated method stub
+todo auto - generated method stub
+todo : instead of any_location we should actually
+todo ( mlvdv ) does this need to extend controlflowexception ? it was originally part of the ruby shell .
+todo ( mlvdv ) does this need to extend controlflowexception ? it was originally part of the ruby execution environment .
+todo : this should go away , we want all nodes connected with a
+todo ( cs ) : remove this - shouldn ' t be fiddling with nodes from the outside
+todo return forceunreachable | |
+todo : fix the problem and
+todo : replace this with correct handling of after_bci frame states in the runtime .
+todo : add graph state for floatingreadphase
+todo : need bitmap for just within a block
+todo : may overwrite property " name " ? ( currently allowed )
+todo : add exception probability information to invokes
+todo ( ds ) the counter read is ok but the write causes a segv - find out why
+todo disallow loadindexednode for word arrays ?
+todo error message here ! ?
+todo ( ls ) re - evaluate this limitation after changes to the lock representation and
+todo ( gdub ) remove this when floatingread can handle this case
+todo : test roundoff behavior
+todo ( cwimmer ) currently , a block can also end with an xir operation .
+todo ( cwimmer ) why check for null here - what is a shift with no left operand ?
+todo ( chaeubl ) : add more test cases
+todo ( aw ) : i think this is unnecessary for a tail call .
+todo implement a better growth policy
+todo ( thomaswue ) : do not allow to replace with null .
+todo ( cwimmer ) implement xchg operation for lir
+todo ( cwimmer ) : we want to get rid of a generally reserved scratch register .
+todo ( cwimmer ) : we want to get rid of a generally reserved scratch register .
+todo : move this directly to position where use - kind is computed
+todo ( thomaswue ) : record that assumption correctly .
+todo : configure with param once sparc port exists
+todo ( ds ) make true once aes stubs are working
+todo ( ds ) make default " false " once refill issue is resolved
+todo ( ds ) remove once scheduling issue ( sometimes ) triggered by compiling org . eclipse . jdt . core . tests . util . util : : unzip is fixed .
+todo ( ds ) shouldn ' t non - null framestate be evacutated as well ?
+todo this should go away when xir goes away , and the logic be part of the vm - specific lowering .
+todo shouldn ' t be hard coded
+todo ( gd ) maybe there should be a max number of unswitching per loop
+todo ( ds ) disabled as jdk num u6 + graal breaks this for some as yet unknown reason )
+todo ( gd ) tune
+todo merge with emitcalltoruntime ( ) method above .
+todo : here the ordering is hard coded . . . we should query ritype . fields ( ) and act accordingly
+todo ( dnsimon ) this is temp workaround that will be removed
+todo ( thomaswue ) : look if we can use bci to get the line number .
+todo ( ch ) it happens sometimes that we have a framestate . after_exception_bci but no stateatexceptionedge
+todo ( ch ) if types do not fit , profiling is skipped for typechecks
+todo : these moves should not be part of the tailcall opcode , but emitted as separate move instructions before .
+todo currently empty class , so check if it can be deleted .
+todo ( gd ) ifnode . compare ( ) . hassideeffets ( ) ?
+todo ( gd ) check that negate impl for floating point is really faster / better than num . 0 - x
+todo ls : this needs some thorough testing . . .
+todo ( tw ) : fixme
+todo ( tw ) : fixme
+todo ( tw ) : fixme
+todo : this is suboptimal because it may result in an unnecessary move
+todo : add support for fine grain specification of where / when extensions are to be called
+todo , this will generate empty release notes
+todo : add step for gradle wrapper validation and remove the other workflow
+todo remove - m
+todo : enable num . 0 . 0 release
+todo sf perhaps store the results after invocation ?
+todo x - concurrent scenario ?
+todo x dedicated unit tests
+todo x deleted listener
+todo # 793 - onstubbinglookup ( ) should not be called if stubbingfound is null .
+todo review coverage once again , it still misses some .
+todo delete , replace with { @ link org . mockitoutil . async . asynctesting }
+todo x explain
+todo num - do we need to have the strictness check here ? in case the mock is strict but the stubbing is lenient ,
+todo this is not quite right
+todo num , strictness . lenient - > we want to do the same thing for getunusedstubbingsbylocation ( )
+todo num rename all iongoingstubbing - > ongoingstubbing
+todo " )
+todo " )
+todo below does not seem right return null in the num nd and subsequent invocations .
+todo sf enable when # 154 is implemented
+todo ! " > spring boot < / a > .
+todo ! javadoc < / a > < br / >
+todo ! use valueprinter to print the object that was passed ( also add coverage )
+todo ! detect invalid type of object - it ' s when setmock ( ) in the listener is setting some rubbish
+todo ! - the javadoc above does not seem to be true . i see that the underlying store is an array list .
+todo sz - finish off , group
+todo sz
+todo sz + document on main page
+todo sz
+todo sz
+todo sz document example use and why this interface was introduced .
+todo document why we are using real user name here and for bintray user , too
+todo replace with when building mockito num :
+todo temporary
+todo sf move to matchers . text
+todo below is not used yet
+todo find out if we really need javadocexclude . why don ' t we just exclude internal packages using gradle api ( javadoc . exclude ) ?
+todo rename below
+todo rename to internalrunner
+todo why do we still ship the main jar with sources ?
+todo rename to defaultinternalrunner and the parent to
+todo update other tests that validate rule error handling so that they use this class .
+todo strict avoid num very similar constructors
+todo we should start passing mocksettings object to the creation listener in future , we should start passing mocksettings object to the creation listener
+todo add tests for safety removing listeners that were not added
+todo , not yet implemented
+todo allow only one of those
+todo when this step fails don ' t run the rollback ! ! !
+todo put version
+todo num javadoc + move to public package
+todo num don ' t do any sorting here , don ' t wrap the collection ( it is more flexible this way at the expense of safety )
+todo num javadoc , document what happens when user manipulates the collection , also document this in getinvocations ( )
+todo num remove ,
+todo num
+todo sf potentially not needed
+todo rework the documentation , write about hamcrest .
+todo num move to mockingdetails
+todo num it would be nice to make the string look good if x goes multiple digits ( padding )
+todo num it would be nice to make the string look good if x goes multiple digits ( padding )
+todo num , decide how to handle it and ensure the there is a top level integ test for the mockingdetails ( ) . getinvocations ( )
+todo make this working with mockitojunitrunner with opt - out unnecessary stubs validation
+todo implement
+todo implement
+todo invoke with regular exception
+todo invoke with regular exception
+todo we should remove all dependencies to checked - in jars
+todo regarding javadoc
+todo use gradle osgi plugin at some point * /
+todo , perhaps instead of duplicated argthat method we should provide a method that adapts existing matcher into
+todo sf make sure it makes sense to receive an object here instead of t and document it .
+todo sf integrate with hamcrest
+todo return empty iterable ; see issue num
+todo : i don ' t like this
+todo sf refactor
+todo consider adding a separate source set or project
+todo sf , spy is determined by default answer
+todo sf find out if it is useful
+todo sf - borrowed code , not very nice , should not write to system out and should throw decent exceptions
+todo sf document and cover
+todo we could guess the best author from the ones associated with given email
+todo we could guess the best author from the ones associated with given email
+todo sf
+todo sf
+todo sf
+todo : mza : can it be done easier with groovy num . 7 . 6 ?
+todo sf only release a new version if :
+todo we don ' t need this , we infer changes from tags
+todo version file will have - snapshot name but travis with remove - snapshot during the build
+todo sf custom exception
+todo sf change the package name in bintray from ' mockito ' to ' org . mockito '
+todo sf release notes automation is in progress
+todo tag should contain updated release notes . update notes on tag ( use head as ' toversion ' ) and cherry - pick to master .
+todo link to github
+todo don ' t use ' allprojects '
+todo push out
+todo duplicated with file
+todo change version
+todo place logic in mockutil
+todo this should be more specific exception
+todo this is invocationcontainerimpl test
+todo split into separate
+todo this should be emptyregisteredinvocation , e . g . it should not store anything
+todo get filter out of listfilter
+todo refactor # processannotationon methods out of defaultannotationengine
+todo update documentation to parameters
+todo : after num . 8 add functionality of printing params
+todo add more tests and scenarios that print decent stuff when nothing is verified or there are no verifications at all
+todo : all runners have an issue : they don ' t filter the stack trace correctly
+todo add test to demonstrate usage
+todo : do we need this ? asked the author of the patch if he doesn ' t come back we will delete it ( 17 - 02 - 2010 )
+todo should also inject spies
+todo unsupported combinations of annotations ( spy - captor , spy - mock )
+todo should be answersenum ?
+todo : after num . 8 - not yet implemented
+todo : add more info & examples .
+todo : warnings printer is not consistent with debug ( ) . printinvocations ( )
+todo : warnings printer is not consistent with debug ( ) . printinvocations ( )
+todo : shitty name
+todo : should do a tag at the end "
+todo : javadoc
+todo : tune
+todo : do the right thing with eq ( ) matcher and arrays
+todo before final num . 8
+todo - autoproperies in svn ?
+todo : make osgi bundles core & all
+todo : rename to iongoingstubbing and move to exported packages .
+todo : needs to go to exported package
+todo : needs to go to exported package
+todo : needs to go to exported package
+todo : after num . 8 consider writing a warning when someone tries to mock a
+todo : null checks
+todo : mention partial mocks warning
+todo : javadoc
+todo : call it invokereal or something along
+todo : javadoc
+todo this can throw illegalstateexception if interfaces is a bad parameter
+todo : check out if this runner is still recommended in junit num . 6
+todo : after num . 7 nice instanceof check here ?
+todo decide on messagecontains matcher or assertcontains
+todo in some tests this is not necessary do to latest changes
+todo perhaps we should maintain previous returnvalues ?
+todo validate performance
+todo does it have to return null ?
+todo make sure tests for mockito run quickly on slower machines
+todo is it possible to dynamically create array ?
+todo is synchronized here necessary ? see threadssharegenerouslystubbedmocktest
+todo make sure you don ' t break line when no args are given !
+todo check email of mockito group
+todo copy - paste stuff from web here
+todo below should be different test method
+todo change from undesiredinvocation
+todo stubbinginprogress is somehow duplicated with stubbedinvocations
+todo dummy & duplicated
+todo check if this is any useful
+todo checkers should not be verifiers
+todo verify this test makes sense
+todo check coverage
+todo verify all methods are used
+todo change to nomoreinteractionsmodetest
+todo move to factory
+todo is this class necessary ?
+todo remove no_more_wanted
+todo duplicated
+todo regexp
+todo we have now runners in mockito
+todo fix the message
+todo call it accordingly
+todo shall i bother deprecating @ mockitoannotations . mock and refactor annotation to own file ?
+todo why ?
+todo lengthy method
+todo review
+todo allow other classloaders here
+todo reorder args
+todo move to org . mockito . stubbing
+todo add isnotnull ( ) matcher
+todo remove me
+todo think about a test that can cover this scenario
+todo name of this class is stupid
+todo auto - generated method stub
+todo add javadoc how to do junit runner here and in mockito annotations
+todo fix it so that i can have different base classes with common convention ( like : testbase )
+todo for every case when wanted and actual are shown , the arg list has to be consistently printed
+todo this should be generic
+todo can i somehow cache mocks created for some classes ?
+todo add documentation that names are cool
+todo can ' t you use matchers from hamcrest ?
+todo hasonlythosemethods stuff
+todo unit
+todo some unit testing please
+todo duplicated , unordered
+todo can i use arrays . x ?
+todo use appendvalue from description to print values
+todo " )
+todo it should only show method of the same name ( or even nothing )
+todo what if interface has equals ( ) method to stub ?
+todo tests ! - do you like the message ?
+todo think about interfacing this class so it ' s not exposed
+todo refactor to vm
+todo move message to exceptions
+todo cover the arg = = null scenario
+todo don ' t use matchers to do printing args . there should be separate thing to print that stuff
+todo do we need nice message when wanted number of invocations = num ?
+todo still . . . why is this needed ?
+todo get rid of following test : and move that testing to mockitostacktracefiltertest
+todo shouldn ' t verify take only invocationwithmatchers . getinvocation ( ) ; ?
+todo replace occurences of raw creation with builder
+todo let ' s not allow expectedinvocation to accept null matchers
+todo : investigate and cleanup
+todo : it should not be necessary to check evac - in - progress here .
+todo : support intel syntax
+todo : consider performing a similar calculation for commit size instead
+todo : not implemented yet
+todo : properly check for ipv4 support on windows * /
+todo : change libjvm . so to libjvm . dylib on macos , before adding " @ requires os . family = = mac "
+todo : revert default rendering pipeline to opengl
+todo : check if _name [ mutex_name_len ] should better get replaced by const char * .
+todo : either support matching decodenklass ( heap - based ) in operand
+todo : this is a transitional interface that bridges the gap between
+todo : this is essential . needs to be protocol impl
+todo - restore code to download or copy jtreg . jar
+todo - restore code to download or copy jtreg . jar
+todo : it should find these oops through
+todo : find and replace all relevant uses of - 1 with a reasonably named constant .
+todo find a better way to get jdks
+todo : this can be fixed after degen - traversal stops dropping cset .
+todo : should be done in unregister_nmethod , during the " unlink " phase .
+todo : implement ghash intrinsics
+todo : please remove after tls num . 3 draft interop testing
+todo : check these values
+todo : remove as soon as jib supports concurrent installations
+todo : the file it is trying to read , out / out / package - list , warrants investigation
+todo : decide about " open browser " buttons ( value was num originally )
+todo : add @ jls to module section
+todo : add jls to module statement
+todo : clean - out code depending on ' has_fast_fxtof ' .
+todo : openness of the module not currently exposed
+todo : the $ ( firstword call is part of a workaround for using different
+todo : need to decide when the plugin api is ready to publish as experimental api .
+todo num
+todo num
+todo ( chaeubl ) : in fact , jvmci should also increment the count for failed type checks to mimic the c1 / c2 behavior count is decremented for failed type checks
+todo num
+todo num
+todo : uncomment / update after num fix
+todo : find modules that directly and indirectly depend on upgradeable
+todo : remove , modify , or move to edit
+todo : add bug no .
+todo num
+todo : replace getclass ( ) with reachabilityfence when it is available
+todo : replace getclass ( ) with reachabilityfence when it is available
+todo : replace getclass ( ) with reachabilityfence when it is available
+todo : introduce caching of namedoperation
+todo :
+todo ( asmundak ) : calculation is incorrect . num instword per call for the blr instruction .
+todo change to try compile
+todo change to try compile
+todo : in vertical direction we could do better job and adjust metrics
+todo : why ?
+todo : this is the physically correct answer , but we probably want
+todo : this is the physically correct answer , but we probably want
+todo auto - generated method stub flush the ogl pipeline ( this is a no - op if ogl is not enabled )
+todo : this null - check is only needed for an obscure
+todo : investigate whether default methods should be
+todo : issue error ?
+todo - fixme : convert ( x * num ) into the equiv shift - add
+todo replace with x_flags / x_libs
+todo ) ;
+todo set disable_intree_ec in configure if src / share / native / sun / security / ec / impl
+todo : build - infra , move this to spec
+todo : remove dependency ?
+todo auto - generated method stub
+todo : check if this is what they really want . . . a zip containing a symlink
+todo : check if this is what they really want . . . a zip containing a symlink
+todo : is this necessary ?
+todo : do we bail out on bgblits ?
+todo : accelerated image
+todo : default cursor for modal blocked windows
+todo : bg this class is really a noop right now , but should be filled in if needed .
+todo : it would be nice to use idom ( ) here .
+todo - get real value
+todo ext_model = = cpu_model_ivybridge_ep | |
+todo : when a choice ' s list is dropped down and we ' re scrolling in
+todo : gc leak ? where to
+todo : we need to find rules for invokedynamic and ea . for now ,
+todo : could not encode with security manager
+todo : could not encode with security manager
+todo auto - generated method stub
+todo : . expectheader ( ) . doesnotexist ( httpheaders . access_control_allow_origin ) ;
+todo . expectheader ( ) . doesnotexist ( httpheaders . access_control_allow_credentials ) ;
+todo : remove this line once spr - 13749 is fixed
+todo : maybe we don ' t really need this ( and it has lifecycle implications )
+todo : remove this once all milestone dependencies are removed - - >
+todo add configuration for domain name
+todo : add the management role . . .
+todo : fix this so it doesn ' t need to be excluded
+todo : numbers maybe ?
+todo : add support for other packages as args
