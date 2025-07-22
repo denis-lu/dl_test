@@ -37,7 +37,13 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
     elif model_type == "transformer":
         model_name = "transformer"
         model = bert_trans_model(config).to(config.device)
-    model = nn.DataParallel(model, device_ids=[0, 1])
+    
+    # 只在CUDA可用且有多个GPU时使用DataParallel
+    if torch.cuda.is_available() and torch.cuda.device_count() > 1:
+        model = nn.DataParallel(model, device_ids=list(range(torch.cuda.device_count())))
+        print(f"使用 {torch.cuda.device_count()} 个GPU进行训练")
+    else:
+        print(f"使用 {config.device} 进行训练")
 
     logger.info("============begin %s training......" % model_name)
     train_dt = Data_processor(modelcard_data, train_y, config.batch_size)
