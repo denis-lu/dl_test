@@ -90,7 +90,6 @@ class Config(object):
         self.filter_num = 64
         self.filter_sizes = (2,3,4)
 
-# 可能需校对
 class bert_trans_model(nn.Module):
     def __init__(self, config):
         super(bert_trans_model, self).__init__()
@@ -101,7 +100,8 @@ class bert_trans_model(nn.Module):
             param.requires_grad = True
         self.transformer_layer=nn.TransformerEncoderLayer(config.hidden_size, 8)
         self.transformer_encoder=nn.TransformerEncoder(self.transformer_layer, 6)
-        self.fc0 = nn.Linear(config.hidden_size * 512, 2)
+        # self.fc0 = nn.Linear(config.hidden_size * 512, 2)
+        self.fc0 = None
 
     def forward(self, modelcard_input):
         modelcard_ids, modelcard_mask = modelcard_input[0], modelcard_input[1]
@@ -109,10 +109,15 @@ class bert_trans_model(nn.Module):
         features = modelcard_outputs[0]
         out = self.transformer_encoder(features)
         out = out.view(out.shape[0],-1)
+
+        # 如果线性层还未创建，则根据当前展平后的维度动态创建
+        if self.fc0 is None:
+            input_dim = out.shape[1]
+            self.fc0 = nn.Linear(input_dim, 2)
+
         out = self.fc0(out)
         return out
 
-# 修改为单输入
 class bilstm_model(nn.Module):
     def __init__(self, config):
         super(bilstm_model, self).__init__()

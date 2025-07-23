@@ -2,7 +2,10 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+current_dir = os.getcwd()
+parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
+sys.path.insert(0, parent_dir)
+# sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 os.environ["CUDA_VISIBLE_DEVICES"] = '0,1'
 
 import pandas as pd
@@ -15,7 +18,7 @@ warnings.filterwarnings("ignore")
 
 
 def save_model(epoch, model, training_stats, info, model_name):
-    base_dir = './todo_'+ info + '_'+ model_name + '/epoch_' + str(epoch) + '/'
+    base_dir = './modelcard_'+ info + '_'+ model_name + '/epoch_' + str(epoch) + '/'
     out_dir = base_dir + 'model.ckpt'
     if not os.path.exists(base_dir):
         os.makedirs(base_dir)
@@ -236,13 +239,14 @@ def main(file_path, model_type):
         fold_num += 1
 
     ## calculate 10-fold metrics at last
-    mylogger.info("==================Todo comment good_bad classifers=============")
+    mylogger.info("==================modelcard high_low classifers=============")
     cal_last_metrics(mylogger, model_type, "score")
 
 
 if __name__ == '__main__':
     file_path = "./modelcard_data (update).json"
     # type 1: bi-lstm 2: textcnn 3: transformer
-    model_list = ["textcnn", "bi-lstm"]
+    # model_list = ["textcnn", "bi-lstm", "transformer"]
+    model_list = ["transformer"]
     for model_type in model_list:
         main(file_path, model_type)
