@@ -113,7 +113,7 @@ class bert_trans_model(nn.Module):
         # 如果线性层还未创建，则根据当前展平后的维度动态创建
         if self.fc0 is None:
             input_dim = out.shape[1]
-            self.fc0 = nn.Linear(input_dim, 2)
+            self.fc0 = nn.Linear(input_dim, 2).to(device=out.device)
 
         out = self.fc0(out)
         return out
