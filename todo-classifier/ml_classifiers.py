@@ -11,6 +11,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.svm import SVC
+from xgboost import XGBClassifier
 from sklearn.model_selection import KFold, GridSearchCV
 from sklearn.metrics import make_scorer, f1_score, recall_score, precision_score, accuracy_score, confusion_matrix, roc_curve, auc, \
     roc_auc_score
@@ -176,6 +179,76 @@ def mlp_classifier(train_x, train_y, logger):
     model = model_mlp.fit(train_x, train_y)
     return model
 
+def dt_classifier(train_x, train_y, logger):
+    parameters = {
+        'max_depth': [None, 5, 10, 15, 20],
+        'min_samples_split': [2, 5, 10],
+        'min_samples_leaf': [1, 2, 4]
+    }
+    model_g = DecisionTreeClassifier()
+    fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    grid.fit(train_x, train_y)
+    logger.info("dt_ para: %s " % (grid.best_params_))
+    best_para = grid.best_params_
+    model_dt = DecisionTreeClassifier(
+        max_depth=best_para['max_depth'],
+        min_samples_split=best_para['min_samples_split'],
+        min_samples_leaf=best_para['min_samples_leaf'],
+        random_state=3407
+    )
+    model = model_dt.fit(train_x, train_y)
+    return model
+
+def svm_classifier(train_x, train_y, logger):
+    parameters = {
+        'C': [0.1, 1, 10, 100],
+        'kernel': ['linear', 'rbf'],
+        'gamma': ['scale', 'auto', 0.1, 1]
+    }
+    model_g = SVC(probability=True)
+    fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    grid.fit(train_x, train_y)
+    logger.info("svm_ para: %s " % (grid.best_params_))
+    best_para = grid.best_params_
+    model_svm = SVC(
+        C=best_para['C'],
+        kernel=best_para['kernel'],
+        gamma=best_para['gamma'],
+        probability=True,
+        random_state=3407
+    )
+    model = model_svm.fit(train_x, train_y)
+    return model
+
+def xgb_classifier(train_x, train_y, logger):
+    parameters = {
+        'n_estimators': [50, 100, 200],
+        'max_depth': [3, 6, 9],
+        'learning_rate': [0.01, 0.1, 0.2],
+        'subsample': [0.8, 0.9, 1.0],
+        'colsample_bytree': [0.8, 0.9, 1.0]
+    }
+    model_g = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+    fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    grid.fit(train_x, train_y)
+    logger.info("xgb_ para: %s " % (grid.best_params_))
+    best_para = grid.best_params_
+    model_xgb = XGBClassifier(
+        n_estimators=best_para['n_estimators'],
+        max_depth=best_para['max_depth'],
+        learning_rate=best_para['learning_rate'],
+        subsample=best_para['subsample'],
+        colsample_bytree=best_para['colsample_bytree'],
+        use_label_encoder=False,
+        eval_metric='logloss',
+        random_state=3407
+    )
+    model = model_xgb.fit(train_x, train_y)
+    return model
+
 def min_max_normalization(np_array):
     min_max_scaler = preprocessing.MinMaxScaler()
     res = min_max_scaler.fit_transform(np_array)
@@ -216,6 +289,21 @@ def methods_container(train_x, train_y, test_x, test_y, logger, class_type):
     mlp_model = mlp_classifier(train_x, train_y, logger)
     evaluate_method(mlp_model, "mlp", logger, test_x, test_y, class_type)
     calculate_scores(logger, "mlp", class_type)
+    
+    logger.info("==================Decision Tree================")
+    dt_model = dt_classifier(train_x, train_y, logger)
+    evaluate_method(dt_model, "dt", logger, test_x, test_y, class_type)
+    calculate_scores(logger, "dt", class_type)
+    
+    logger.info("==================Support Vector Machine================")
+    svm_model = svm_classifier(train_x, train_y, logger)
+    evaluate_method(svm_model, "svm", logger, test_x, test_y, class_type)
+    calculate_scores(logger, "svm", class_type)
+    
+    logger.info("==================XGBoost================")
+    xgb_model = xgb_classifier(train_x, train_y, logger)
+    evaluate_method(xgb_model, "xgb", logger, test_x, test_y, class_type)
+    calculate_scores(logger, "xgb", class_type)
 
     logger.info("================================DummyClassifier==============================")
     model_g = DummyClassifier(strategy="stratified")

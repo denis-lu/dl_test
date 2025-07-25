@@ -1,6 +1,7 @@
 # encoding=utf-8
 import os
 import sys
+import json
 
 current_dir = os.getcwd()
 parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
@@ -164,8 +165,28 @@ def cal_last_metrics(logger, model_name, info):
     # (acc_res, precision_res, recall_res, f1_res, weighted_precision, weighted_recall, weighted_f1)
     res = np.array([0.0] * 10)
     keylist = [model_name + '_' + info + '_' + str(fold_num) for fold_num in range(0,10)]
+    
+    # 创建字典来保存每个fold的详细指标
+    fold_metrics = {}
+    
     for k in keylist:
         metrics = glo.get_val(k)
+        fold_num = int(k.split('_')[-1])
+        
+        # 保存每个fold的详细指标
+        fold_metrics[f'fold_{fold_num}'] = {
+            'accuracy': float(metrics[0]),
+            'precision_positive': float(metrics[1][1]),
+            'precision_negative': float(metrics[1][0]),
+            'recall_positive': float(metrics[2][1]),
+            'recall_negative': float(metrics[2][0]),
+            'f1_positive': float(metrics[3][1]),
+            'f1_negative': float(metrics[3][0]),
+            'weighted_precision': float(metrics[4]),
+            'weighted_recall': float(metrics[5]),
+            'weighted_f1': float(metrics[6])
+        }
+        
         res[0] += metrics[0]
         res[1] += metrics[1][1]
         res[2] += metrics[1][0]
@@ -176,6 +197,31 @@ def cal_last_metrics(logger, model_name, info):
         res[7] += metrics[4]
         res[8] += metrics[5]
         res[9] += metrics[6]
+    
+    # 添加平均指标
+    fold_metrics['mean'] = {
+        'accuracy': float(res[0]/10.0),
+        'precision_positive': float(res[1]/10.0),
+        'precision_negative': float(res[2]/10.0),
+        'recall_positive': float(res[3]/10.0),
+        'recall_negative': float(res[4]/10.0),
+        'f1_positive': float(res[5]/10.0),
+        'f1_negative': float(res[6]/10.0),
+        'weighted_precision': float(res[7]/10.0),
+        'weighted_recall': float(res[8]/10.0),
+        'weighted_f1': float(res[9]/10.0)
+    }
+    
+    # 保存详细指标到文件
+    output_dir = f'./results_{model_name}_{info}/'
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    with open(f'{output_dir}fold_metrics.json', 'w') as f:
+        json.dump(fold_metrics, f, indent=4)
+    
+    logger.info(f"Detailed fold metrics saved to {output_dir}fold_metrics.json")
+    
     info_res = "\n flod " + str(10) + "\tAccuaryMean: " + str(res[0]/10.0) \
           + "\tWeightedPrecisionMean: " + str(res[7]/10.0) + "\tWeightedRecallMean: " \
           + str(res[8]/10.0) + "\t WeightedF1Mean： " + str(res[9]/10.0) \
