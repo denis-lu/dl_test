@@ -100,21 +100,19 @@ class bert_trans_model(nn.Module):
             param.requires_grad = True
         self.transformer_layer=nn.TransformerEncoderLayer(config.hidden_size, 8)
         self.transformer_encoder=nn.TransformerEncoder(self.transformer_layer, 6)
-        # self.fc0 = nn.Linear(config.hidden_size * 512, 2)
-        self.fc0 = None
+        # 使用平均池化降维而不是展平整个序列
+        self.pool = nn.AdaptiveAvgPool1d(1)
+        # 在初始化时创建固定大小的fc0层
+        self.fc0 = nn.Linear(config.hidden_size, 2)
 
     def forward(self, modelcard_input):
         modelcard_ids, modelcard_mask = modelcard_input[0], modelcard_input[1]
         modelcard_outputs = self.bert(input_ids=modelcard_ids, attention_mask=modelcard_mask)
         features = modelcard_outputs[0]
-        out = self.transformer_encoder(features)
-        out = out.view(out.shape[0],-1)
-
-        # 如果线性层还未创建，则根据当前展平后的维度动态创建
-        if self.fc0 is None:
-            input_dim = out.shape[1]
-            self.fc0 = nn.Linear(input_dim, 2).to(device=out.device)
-
+        out = self.transformer_encoder(features)        
+        out = out.transpose(1, 2)
+        out = self.pool(out)
+        out = out.squeeze(2)        
         out = self.fc0(out)
         return out
 
