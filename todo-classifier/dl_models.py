@@ -22,7 +22,8 @@ warnings.filterwarnings('ignore')
 
 def load_BERT():
     # TODO change the model_path of CodeBERT to fit your environment
-    model_path = './models/roberta-base'
+    # model_path = './models/roberta-base'
+    model_path = '/kaggle/input/dl-test/what-makes-a-good-TODO-comment/package/todo-classifier/models/roberta-base'
     tokenizer = RobertaTokenizer.from_pretrained(model_path)
     model = RobertaModel.from_pretrained(model_path)
     if torch.cuda.is_available():
