@@ -77,7 +77,8 @@ class Config(object):
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.num_classes = 2
         # TODO change the model_path of CodeBERT to fit your environment
-        self.bert_path = './models/roberta-base'
+        # self.bert_path = './models/roberta-base'
+        self.bert_path = '/kaggle/input/dl-test/what-makes-a-good-TODO-comment/package/todo-classifier/models/roberta-base'
         self.tokenizer = RobertaTokenizer.from_pretrained(self.bert_path)
         self.hidden_size = 768
         self.batch_size = 16
