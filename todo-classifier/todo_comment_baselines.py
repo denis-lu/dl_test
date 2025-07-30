@@ -42,5 +42,5 @@ def main(file_path):
 
 
 if __name__ == '__main__':
-    file_path = "D:/Research/RQ2/classifier/data.json"
+    file_path = "what-makes-a-good-TODO-comment/package/data.json"
     main(file_path)
