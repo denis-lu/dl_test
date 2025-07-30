@@ -34,10 +34,9 @@ def main(file_path):
 
     # kf = KFold(n_splits=10, random_state=3408, shuffle=True)
     kf = StratifiedKFold(n_splits=10, random_state=3408, shuffle=True)
-    for train_index, test_index in kf.split(labeled_data):
+    for train_index, test_index in kf.split(labeled_data, high_low_labels):
         train_x, train_y = np.array(labeled_data.iloc[train_index]), np.array(high_low_labels.iloc[train_index])
         test_x, test_y = np.array(labeled_data.iloc[test_index]), np.array(high_low_labels.iloc[test_index])
-        # Logistic Regression, Random Forest, Gradient Boosting, KNN, Decision Tree, MLP, MultinomialNB
         mylogger.info("==================modelcard high_low classifers=============")
         methods_container(train_x, train_y, test_x, test_y, mylogger, "score")
 

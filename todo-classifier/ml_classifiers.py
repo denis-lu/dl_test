@@ -14,7 +14,7 @@ from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.svm import SVC
 from xgboost import XGBClassifier
-from sklearn.model_selection import KFold, GridSearchCV
+from sklearn.model_selection import KFold, GridSearchCV, StratifiedKFold
 from sklearn.metrics import make_scorer, f1_score, recall_score, precision_score, accuracy_score, confusion_matrix, roc_curve, auc, \
     roc_auc_score
 import glo
@@ -78,192 +78,148 @@ def evaluate_method(model, method_name, logger, test_x, test_y, method_info):
         glo.set_val(tmp_key, temp_predict)
 
 
+# Logistic Regression
 def lr_classifier(train_x, train_y, logger):
-    parameters = {'C': np.linspace(0.0001, 20, 20),
-                  'solver': ["newton-cg", "lbfgs", "liblinear", "sag"],
-                  'multi_class': ['ovr'],
-                  'dual': [False],
-                  'verbose': [False],
-                  'max_iter': [500]
-                  }
-    model_g = LogisticRegression()
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    parameters = {
+        'C': np.linspace(0.0001, 20, 20),
+        'solver': ["newton-cg", "lbfgs", "liblinear", "sag"],
+        'dual': [False],
+        'verbose': [False],
+        'max_iter': [500]
+    }
+    model_g = LogisticRegression(random_state=3407)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("lr_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_lr = LogisticRegression(C=best_para['C'], random_state=3407,
-                               solver=best_para['solver'], multi_class='ovr', dual=False, verbose=False,
-                               max_iter=500)
-    model = model_lr.fit(train_x, train_y)
-    return model
+    logger.info("lr_para: %s", grid.best_params_)
+    best_model = grid.best_estimator_
+    return best_model
 
 
+# Random Forest
 def rf_classifier(train_x, train_y, logger):
     parameters = {
-                  'n_estimators': list(range(10, 110, 10))
-                  }
-    model_g = RandomForestClassifier()
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+        'n_estimators': list(range(10, 110, 10))
+    }
+    model_g = RandomForestClassifier(random_state=3407)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("rf_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_rf = RandomForestClassifier(n_estimators=best_para['n_estimators'], random_state=3407)
-    model = model_rf.fit(train_x, train_y)
-    return model
+    logger.info("rf_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
 
 
+# KNN
 def knn_classifier(train_x, train_y, logger):
     parameters = {
-                'n_neighbors': np.arange(1, 11, 1),
-                'algorithm': ['auto']
-                  }
+        'n_neighbors': np.arange(1, 11, 1),
+        'algorithm': ['auto']
+    }
     model_g = KNeighborsClassifier()
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("knn_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_knn = KNeighborsClassifier(n_neighbors=best_para['n_neighbors'], algorithm='auto')
-    model = model_knn.fit(train_x, train_y)
-    return model
+    logger.info("knn_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
 
 
+# Gradient Boosting
 def gb_classifier(train_x, train_y, logger):
-    parameters = {"loss": ["deviance"],
+    parameters = {"loss": ["log_loss"],
                  "learning_rate": [0.1],
-                 "min_samples_split": np.linspace(0.1, 0.4, 5),
-                 "min_samples_leaf": np.linspace(0.1, 0.3, 5),
-                 "max_depth": [3, 8, 16],
-                 "max_features": ["auto"],
+                 "min_samples_split": np.linspace(0.1, 0.4, 3),
+                 "min_samples_leaf": np.linspace(0.1, 0.3, 3),
+                 "max_depth": [3, 8],
+                 "max_features": ["sqrt"],
                  "criterion": ["friedman_mse"],
                  "subsample": [0.95],
-                 "n_estimators": [100]
+                 "n_estimators": [50, 100, 150]
                  }
-    model_g = GradientBoostingClassifier()
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    model_g = GradientBoostingClassifier(random_state=3407)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("gb_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_gb = GradientBoostingClassifier(loss="deviance",
-                                       learning_rate=best_para['learning_rate'],
-                                       min_samples_split=best_para['min_samples_split'],
-                                       min_samples_leaf=best_para['min_samples_leaf'],
-                                       max_depth=best_para['max_depth'],
-                                       max_features=best_para['max_features'],
-                                       criterion=best_para['criterion'],
-                                       subsample=best_para['subsample'],
-                                       n_estimators=10)
-    model = model_gb.fit(train_x, train_y)
-    return model
+    logger.info("gb_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
 
 
+# MLP
 def mlp_classifier(train_x, train_y, logger):
     parameters = {
-                "hidden_layer_sizes": [(100,), (100, 50), (100, 100), (100, 75), (100, 25)],
-                  "activation": ["logistic"],
-                  "solver": ['adam']
-                  }
-    model_g = MLPClassifier()
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+        "hidden_layer_sizes": [(50,), (50, 25), (25,)],
+        "activation": ["relu", "logistic"],
+        "solver": ['adam']
+    }
+    model_g = MLPClassifier(random_state=3407)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("mlp_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_mlp = MLPClassifier(hidden_layer_sizes=best_para['hidden_layer_sizes'],
-                          activation=best_para['activation'],
-                          solver=best_para['solver'],
-                          verbose=False)
-    model = model_mlp.fit(train_x, train_y)
-    return model
+    logger.info("mlp_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
 
+
+# Decision Tree
 def dt_classifier(train_x, train_y, logger):
     parameters = {
-        'max_depth': [None, 5, 10, 15, 20],
+        'max_depth': [3, 5, 7, 10],
         'min_samples_split': [2, 5, 10],
-        'min_samples_leaf': [1, 2, 4]
+        'min_samples_leaf': [5, 10, 15]
     }
-    model_g = DecisionTreeClassifier()
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    model_g = DecisionTreeClassifier(random_state=3407)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("dt_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_dt = DecisionTreeClassifier(
-        max_depth=best_para['max_depth'],
-        min_samples_split=best_para['min_samples_split'],
-        min_samples_leaf=best_para['min_samples_leaf'],
-        random_state=3407
-    )
-    model = model_dt.fit(train_x, train_y)
-    return model
+    logger.info("dt_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
 
+# Support Vector Machine
 def svm_classifier(train_x, train_y, logger):
     parameters = {
-        'C': [0.1, 1, 10, 100],
+        'C': [0.1, 1, 10, 50],
         'kernel': ['linear', 'rbf'],
         'gamma': ['scale', 'auto', 0.1, 1]
     }
-    model_g = SVC(probability=True)
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    model_g = SVC(random_state=3407, probability=True)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("svm_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_svm = SVC(
-        C=best_para['C'],
-        kernel=best_para['kernel'],
-        gamma=best_para['gamma'],
-        probability=True,
-        random_state=3407
-    )
-    model = model_svm.fit(train_x, train_y)
-    return model
+    logger.info("svm_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
 
+
+# XGBoost
 def xgb_classifier(train_x, train_y, logger):
     parameters = {
-        'n_estimators': [50, 100, 200],
-        'max_depth': [3, 6, 9],
-        'learning_rate': [0.01, 0.1, 0.2],
-        'subsample': [0.8, 0.9, 1.0],
-        'colsample_bytree': [0.8, 0.9, 1.0]
+        'n_estimators': [50, 100],
+        'max_depth': [3, 6],
+        'learning_rate': [0.1, 0.2],
+        'subsample': [0.9],
+        'colsample_bytree': [0.9]
     }
-    model_g = XGBClassifier(use_label_encoder=False, eval_metric='logloss')
-    fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=25)
+    model_g = XGBClassifier(use_label_encoder=False, eval_metric='logloss', random_state=3407)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
     grid.fit(train_x, train_y)
-    logger.info("xgb_ para: %s " % (grid.best_params_))
-    best_para = grid.best_params_
-    model_xgb = XGBClassifier(
-        n_estimators=best_para['n_estimators'],
-        max_depth=best_para['max_depth'],
-        learning_rate=best_para['learning_rate'],
-        subsample=best_para['subsample'],
-        colsample_bytree=best_para['colsample_bytree'],
-        use_label_encoder=False,
-        eval_metric='logloss',
-        random_state=3407
-    )
-    model = model_xgb.fit(train_x, train_y)
-    return model
-
-def min_max_normalization(np_array):
-    min_max_scaler = preprocessing.MinMaxScaler()
-    res = min_max_scaler.fit_transform(np_array)
-    return res
+    logger.info("xgb_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
 
 
 def methods_container(train_x, train_y, test_x, test_y, logger, class_type):
-    # dump the model?
-    # Logistic Regression, Random Forest, Gradient Boosting, KNN, MLP
-
-    logger.info("==================MultinomialNB==============")
-    model_g = MultinomialNB()
-    mnb_model = model_g.fit(min_max_normalization(train_x), train_y)
-    evaluate_method(mnb_model, "mnb", logger, min_max_normalization(test_x), test_y, class_type)
-    calculate_scores(logger, "mnb", class_type)
     
     logger.info("==================Logistic Regression==============")
     lr_model = lr_classifier(train_x, train_y, logger)
@@ -280,7 +236,7 @@ def methods_container(train_x, train_y, test_x, test_y, logger, class_type):
     evaluate_method(knn_model, "knn", logger, test_x, test_y, class_type)
     calculate_scores(logger, "knn", class_type)
 
-    logger.info("==================Boosting================")
+    logger.info("==================Gradient Boosting================")
     gb_model = gb_classifier(train_x, train_y, logger)
     evaluate_method(gb_model, "gb", logger, test_x, test_y, class_type)
     calculate_scores(logger, "gb", class_type)
@@ -304,9 +260,3 @@ def methods_container(train_x, train_y, test_x, test_y, logger, class_type):
     xgb_model = xgb_classifier(train_x, train_y, logger)
     evaluate_method(xgb_model, "xgb", logger, test_x, test_y, class_type)
     calculate_scores(logger, "xgb", class_type)
-
-    logger.info("================================DummyClassifier==============================")
-    model_g = DummyClassifier(strategy="stratified")
-    dummy_model = model_g.fit(train_x, train_y)
-    evaluate_method(dummy_model, "dummy", logger, test_x, test_y, class_type)
-    calculate_scores(logger, "dummy", class_type)
