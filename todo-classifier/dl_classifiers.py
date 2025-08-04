@@ -15,28 +15,7 @@ import glo
 from dl_models import *
 from utils import *
 import re
-from sklearn.utils.class_weight import compute_class_weight
-from imbens.sampler._under_sampling import RandomUnderSampler
 warnings.filterwarnings("ignore")
-
-
-class FocalLoss(nn.Module):
-    def __init__(self, alpha=1, gamma=2, weight=None, size_average=True):
-        super(FocalLoss, self).__init__()
-        self.alpha = alpha
-        self.gamma = gamma
-        self.weight = weight
-        self.size_average = size_average
-
-    def forward(self, inputs, targets):
-        ce_loss = F.cross_entropy(inputs, targets, weight=self.weight, reduction='none')
-        pt = torch.exp(-ce_loss)
-        focal_loss = self.alpha * (1-pt)**self.gamma * ce_loss
-
-        if self.size_average:
-            return focal_loss.mean()
-        else:
-            return focal_loss.sum()
 
 
 def save_model(epoch, model, training_stats, info, model_name):
@@ -77,8 +56,7 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
     testdata_loader = test_dt.processed_dataloader
     print("model created.")
     epochs = config.num_epochs
-    # 降低学习率以提高训练稳定性
-    optimizer = AdamW(model.parameters(), lr=1e-5, eps=1e-8)
+    optimizer = AdamW(model.parameters(), lr=2e-5, eps=1e-8)
     total_steps = len(traindata_loader) * epochs
 
     scheduler = get_linear_schedule_with_warmup(optimizer,
@@ -90,45 +68,11 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
     torch.manual_seed(seed_val)
     torch.cuda.manual_seed_all(seed_val)
 
-    # # 计算类别权重来处理不平衡问题
-    # # 计算类别权重，但限制最大权重避免过度补偿
-    # classes = np.unique(train_y)
-    # class_weights = compute_class_weight('balanced', classes=classes, y=train_y)
-    
-    # # 限制正类权重最大为3.0，避免过度补偿
-    # max_weight = 3.0
-    # if class_weights[1] > max_weight:
-    #     ratio = max_weight / class_weights[1]
-    #     class_weights = class_weights * ratio
-    
-    # class_weights = torch.tensor(class_weights, dtype=torch.float).to(config.device)
-    
-    # print(f"类别权重: {class_weights}")
-    print(f"正样本数量: {np.sum(np.array(train_y) == 1)}")
-    print(f"负样本数量: {np.sum(np.array(train_y) == 0)}")
-
     training_stats = []
     total_t0 = time.time()
     model.eval()
     loss_fn = F.cross_entropy
-
-    # # 选择损失函数 (可以在这里切换)
-    # use_focal_loss = True  # 设置为False使用加权交叉熵，设置为True使用Focal Loss
-    
-    # if use_focal_loss:
-    #     # 使用Focal Loss (对困难样本给予更多关注)，降低gamma值提高稳定性
-    #     loss_fn = FocalLoss(alpha=1, gamma=1, weight=class_weights)
-    #     print("使用Focal Loss")
-    # else:
-    #     # 使用加权交叉熵损失函数
-    #     loss_fn = nn.CrossEntropyLoss(weight=class_weights)
-    #     print("使用加权交叉熵损失函数")
-
     best_epoch_acc = 0.0
-    # 添加预测监控
-    epochs_without_positive_prediction = 0
-    max_epochs_without_positive = 3  # 连续3个epoch不预测正类就调整
-    
     print("Begin training...")
     progress_bar = tqdm(range(total_steps))
     for epoch_i in range(0, epochs):
@@ -197,25 +141,7 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
         test_counts = np.bincount(test_y)
         print(f"测试集标签分布: 负类={test_counts[0]}, 正类={test_counts[1] if len(test_counts) > 1 else 0}")
         print(f"预测结果分布: 负类={pred_counts[0]}, 正类={pred_counts[1] if len(pred_counts) > 1 else 0}")
-        
-        # # 监控正类预测情况
-        # positive_predictions = pred_counts[1] if len(pred_counts) > 1 else 0
-        # if positive_predictions == 0:
-        #     epochs_without_positive_prediction += 1
-        #     print(f"⚠️  连续{epochs_without_positive_prediction}个epoch未预测正类")
-            
-        #     # 如果连续多个epoch不预测正类，动态调整权重
-        #     if epochs_without_positive_prediction >= max_epochs_without_positive:
-        #         print("🔧 动态增加正类权重")
-        #         class_weights[1] = class_weights[1] * 1.5  # 增加50%权重
-        #         if use_focal_loss:
-        #             loss_fn = FocalLoss(alpha=1, gamma=1, weight=class_weights)
-        #         else:
-        #             loss_fn = nn.CrossEntropyLoss(weight=class_weights)
-        #         epochs_without_positive_prediction = 0  # 重置计数器
-        # else:
-        #     epochs_without_positive_prediction = 0  # 重置计数器
-        
+
         avg_val_accuracy = total_eval_accuracy / len(testdata_loader)
         print("  Accuracy: {0:.3f}".format(avg_val_accuracy))
         # Calculate the average loss over all of the batches.
@@ -231,17 +157,13 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
             'Training Time': training_time,
             'Validation Time': test_time
             })
-        # evulates each epohc, save the metrics with the best F1 score instead of accuracy.
+        # evulates each epohc, save the metrics with the best accuracy.
         metrics_ = cal_metrics(test_y, all_pre_label)
         glo_key = model_name + '_' + info + '_' + str(fold_num)
-        
-        # 使用加权F1分数作为评估指标，而不是准确率
-        current_weighted_f1 = metrics_[6]  # weighted_f1
-        if current_weighted_f1 >= best_epoch_acc:
-            best_epoch_acc = current_weighted_f1
+        if metrics_[0] >= best_epoch_acc:
+            best_epoch_acc = metrics_[0]
             glo.set_val(glo_key, metrics_)
             save_model(epoch_i + 1, model, training_stats, info, model_name)
-            print(f"保存模型！当前最佳加权F1: {best_epoch_acc:.4f}")
     logger.info("============all epoches of %s trained finished......" % model_name)
     return
 
@@ -365,12 +287,6 @@ def main(file_path, model_type):
     for train_index, test_index in kf.split(labeled_data, high_low_labels):
         train_x, train_y = list(labeled_data.iloc[train_index, 1]), list(high_low_labels.iloc[train_index])
         test_x, test_y = list(labeled_data.iloc[test_index, 1]), list(high_low_labels.iloc[test_index])
-        
-        # 欠采样
-        rus = RandomUnderSampler(random_state=3407)
-        train_x, train_y = rus.fit_resample(train_x, train_y)
-
-        
         # Use single input models (CNN, bi-lstm, transformer)
         dl_container(train_x, train_y, test_x, test_y, mylogger, "score", fold_num, model_type)
         fold_num += 1
@@ -384,6 +300,6 @@ if __name__ == '__main__':
     file_path = "./modelcard_data (update).json"
     # type 1: bi-lstm 2: textcnn 3: transformer
     # model_list = ["textcnn", "bi-lstm", "transformer"]
-    model_list = ["transformer"]
+    model_list = ["textcnn"]
     for model_type in model_list:
         main(file_path, model_type)
