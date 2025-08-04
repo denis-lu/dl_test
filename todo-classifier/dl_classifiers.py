@@ -123,7 +123,7 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
     #     # 使用加权交叉熵损失函数
     #     loss_fn = nn.CrossEntropyLoss(weight=class_weights)
     #     print("使用加权交叉熵损失函数")
-    
+
     best_epoch_acc = 0.0
     # 添加预测监控
     epochs_without_positive_prediction = 0
@@ -363,8 +363,8 @@ def main(file_path, model_type):
     kf = StratifiedKFold(n_splits=10, random_state=3407, shuffle=True)
     # for train_index, test_index in kf.split(labeled_data):
     for train_index, test_index in kf.split(labeled_data, high_low_labels):
-        train_x, train_y = list(labeled_data.iloc[train_index, 2]), list(high_low_labels.iloc[train_index])
-        test_x, test_y = list(labeled_data.iloc[test_index, 2]), list(high_low_labels.iloc[test_index])
+        train_x, train_y = list(labeled_data.iloc[train_index, 1]), list(high_low_labels.iloc[train_index])
+        test_x, test_y = list(labeled_data.iloc[test_index, 1]), list(high_low_labels.iloc[test_index])
         
         # 欠采样
         rus = RandomUnderSampler(random_state=3407)
