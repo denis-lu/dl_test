@@ -68,22 +68,19 @@ def main(file_path):
     print(pos_num)
     glo._init()
 
-    # 定义类别特征
+    # Categorical feature
     categorical_columns = ['what-license', 'what-library', 'what-task']
 
     # kf = KFold(n_splits=10, random_state=3407, shuffle=True)
     kf = StratifiedKFold(n_splits=10, random_state=3407, shuffle=True)
 
     for train_index, test_index in kf.split(labeled_data, high_low_labels):
-        # 2. 在每一折内部进行数据预处理
+        
         train_data_raw = labeled_data.iloc[train_index]
         test_data_raw = labeled_data.iloc[test_index]
-        
-        # 安全的预处理
         train_data_processed, test_data_processed = preprocessing(
             train_data_raw, test_data_raw, categorical_columns
         )
-        
         train_x = np.array(train_data_processed)
         test_x = np.array(test_data_processed)
         train_y = np.array(high_low_labels.iloc[train_index])
