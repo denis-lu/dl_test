@@ -16,8 +16,6 @@ from dl_models import *
 from utils import *
 import re
 
-from imbens.sampler._under_sampling import RandomUnderSampler
-
 warnings.filterwarnings("ignore")
 
 
@@ -33,7 +31,7 @@ def save_model(epoch, model, training_stats, info, model_name):
     df_stats.to_json(base_dir + "training_stats.json")
 
 
-def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, info, fold_num, model_type):
+def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, info, fold_num, model_type, use_imbalanced_sampler=True):
     config = Config()
     if model_type == "bi-lstm":
         model_name = "bi-lstm"
@@ -53,9 +51,13 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
         print(f"使用 {config.device} 进行训练")
 
     logger.info("============begin %s training......" % model_name)
-    train_dt = Data_processor(modelcard_data, train_y, config.batch_size)
+    # 训练数据使用不平衡采样器（如果启用）
+    train_dt = Data_processor(modelcard_data, train_y, config.batch_size, 
+                             use_imbalanced_sampler=use_imbalanced_sampler, is_training=True)
     traindata_loader = train_dt.processed_dataloader
-    test_dt = Data_processor(test_modelcard_data, test_y, config.batch_size)
+    # 测试数据不使用采样器，按顺序处理
+    test_dt = Data_processor(test_modelcard_data, test_y, config.batch_size, 
+                            use_imbalanced_sampler=False, is_training=False)
     testdata_loader = test_dt.processed_dataloader
     print("model created.")
     epochs = config.num_epochs
@@ -276,12 +278,19 @@ def tmp_label_process(labeled_data):
 
 
 
-def main(file_path, model_type):
+def main(file_path, model_type, use_imbalanced_sampler=True):
     mylogger = logger.mylog("dl")
     labeled_data = load_all_data(file_path)
     high_low_labels = tmp_label_process(labeled_data)
     pos_num = np.sum(high_low_labels == 1)
-    print("Positive samples:", pos_num)
+    neg_num = np.sum(high_low_labels == 0)
+    print(f"数据集统计: 正样本={pos_num}, 负样本={neg_num}, 比例={pos_num/neg_num:.3f}")
+    
+    if use_imbalanced_sampler:
+        print("将使用 ImbalancedDatasetSampler 处理数据不平衡问题")
+    else:
+        print("使用标准的数据加载方式")
+    
     glo._init()
     fold_num = 0
     # kf = KFold(n_splits=10, random_state=3407, shuffle=True)
@@ -291,11 +300,8 @@ def main(file_path, model_type):
         train_x, train_y = list(labeled_data.iloc[train_index, 1]), list(high_low_labels.iloc[train_index])
         test_x, test_y = list(labeled_data.iloc[test_index, 1]), list(high_low_labels.iloc[test_index])
 
-        rus = RandomUnderSampler(random_state=3407)
-        train_x, train_y = rus.fit_resample(train_x, train_y)
-
         # Use single input models (CNN, bi-lstm, transformer)
-        dl_container(train_x, train_y, test_x, test_y, mylogger, "score", fold_num, model_type)
+        dl_container(train_x, train_y, test_x, test_y, mylogger, "score", fold_num, model_type, use_imbalanced_sampler)
         fold_num += 1
 
     ## calculate 10-fold metrics at last
@@ -305,8 +311,13 @@ def main(file_path, model_type):
 
 if __name__ == '__main__':
     file_path = "./modelcard_data (update).json"
+    
+    # 配置选项
+    USE_IMBALANCED_SAMPLER = True  # 设置为 False 可禁用不平衡采样器
+    
     # type 1: bi-lstm 2: textcnn 3: transformer
     # model_list = ["textcnn", "bi-lstm", "transformer"]
     model_list = ["textcnn"]
     for model_type in model_list:
-        main(file_path, model_type)
+        print(f"\n开始训练 {model_type} 模型...")
+        main(file_path, model_type, use_imbalanced_sampler=USE_IMBALANCED_SAMPLER)

@@ -9,7 +9,7 @@ from sklearn.model_selection import StratifiedKFold
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
+from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler, Dataset
 from transformers import BertModel, BertTokenizer
 from transformers import RobertaTokenizer, RobertaConfig, RobertaModel
 # from transformers import AdamW, BertConfig
@@ -17,7 +17,41 @@ from torch.optim import AdamW
 from transformers import get_linear_schedule_with_warmup
 import collections
 import warnings
+
+# 尝试导入 ImbalancedDatasetSampler
+IMBALANCED_SAMPLER_AVAILABLE = False
+try:
+    from torchsampler import ImbalancedDatasetSampler  # type: ignore
+    IMBALANCED_SAMPLER_AVAILABLE = True
+    print("ImbalancedDatasetSampler 可用")
+except ImportError:
+    IMBALANCED_SAMPLER_AVAILABLE = False
+    print("警告: ImbalancedDatasetSampler 不可用。请安装 torchsampler: pip install torchsampler")
+
 warnings.filterwarnings('ignore')
+
+
+class CustomDataset(Dataset):
+    """自定义数据集类，支持 ImbalancedDatasetSampler"""
+    
+    def __init__(self, input_ids, attention_masks, labels):
+        self.input_ids = input_ids
+        self.attention_masks = attention_masks
+        self.labels = labels
+    
+    def __len__(self):
+        return len(self.labels)
+    
+    def __getitem__(self, idx):
+        return {
+            'input_ids': self.input_ids[idx],
+            'attention_mask': self.attention_masks[idx],
+            'labels': self.labels[idx]
+        }
+    
+    def get_labels(self):
+        """返回所有标签，ImbalancedDatasetSampler 需要这个方法"""
+        return self.labels.numpy() if torch.is_tensor(self.labels) else self.labels
 
 
 def load_BERT():
@@ -33,8 +67,11 @@ def load_BERT():
 
 class Data_processor(object):
 
-    def __init__(self, modelcard_data, label_data, batch_size):
+    def __init__(self, modelcard_data, label_data, batch_size, use_imbalanced_sampler=True, is_training=True):
         self.batch_size = batch_size
+        self.use_imbalanced_sampler = use_imbalanced_sampler and IMBALANCED_SAMPLER_AVAILABLE and is_training
+        self.is_training = is_training
+        
         print("Loading BERT model...")
         self.bert_model, self.tokenizer = load_BERT()
         print('BERT loaded')
@@ -64,10 +101,45 @@ class Data_processor(object):
         return train_data
 
     def make_loader(self):
-        tensor_data = TensorDataset(self.train_modelcard[0],
-                                    self.train_modelcard[1], self.train_modelcard[2])
-        dataloader = DataLoader(tensor_data, batch_size=self.batch_size)
+        if self.use_imbalanced_sampler:
+            # 使用自定义数据集以支持 ImbalancedDatasetSampler
+            custom_dataset = CustomDataset(
+                self.train_modelcard[0], 
+                self.train_modelcard[1], 
+                self.train_modelcard[2]
+            )
+            
+            # 打印类别分布信息
+            unique, counts = np.unique(self.labels, return_counts=True)
+            print(f"类别分布: {dict(zip(unique, counts))}")
+            
+            # 创建采样器
+            sampler = ImbalancedDatasetSampler(custom_dataset)
+            
+            # 创建数据加载器（使用采样器时不能使用 shuffle）
+            dataloader = DataLoader(
+                custom_dataset, 
+                sampler=sampler,
+                batch_size=self.batch_size,
+                collate_fn=self._collate_fn
+            )
+            print("使用 ImbalancedDatasetSampler 处理数据不平衡")
+        else:
+            # 使用原始的 TensorDataset
+            tensor_data = TensorDataset(self.train_modelcard[0],
+                                        self.train_modelcard[1], self.train_modelcard[2])
+            shuffle = self.is_training  # 只在训练时打乱数据
+            dataloader = DataLoader(tensor_data, batch_size=self.batch_size, shuffle=shuffle)
+            print("使用标准 DataLoader")
+        
         return dataloader
+    
+    def _collate_fn(self, batch):
+        """自定义 collate 函数，将字典格式的 batch 转换为元组格式"""
+        input_ids = torch.stack([item['input_ids'] for item in batch])
+        attention_masks = torch.stack([item['attention_mask'] for item in batch])
+        labels = torch.stack([item['labels'] for item in batch])
+        return input_ids, attention_masks, labels
 
 
 class Config(object):
