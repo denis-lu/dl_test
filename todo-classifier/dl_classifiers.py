@@ -15,7 +15,27 @@ import glo
 from dl_models import *
 from utils import *
 import re
+from sklearn.utils.class_weight import compute_class_weight
 warnings.filterwarnings("ignore")
+
+
+class FocalLoss(nn.Module):
+    def __init__(self, alpha=1, gamma=2, weight=None, size_average=True):
+        super(FocalLoss, self).__init__()
+        self.alpha = alpha
+        self.gamma = gamma
+        self.weight = weight
+        self.size_average = size_average
+
+    def forward(self, inputs, targets):
+        ce_loss = F.cross_entropy(inputs, targets, weight=self.weight, reduction='none')
+        pt = torch.exp(-ce_loss)
+        focal_loss = self.alpha * (1-pt)**self.gamma * ce_loss
+
+        if self.size_average:
+            return focal_loss.mean()
+        else:
+            return focal_loss.sum()
 
 
 def save_model(epoch, model, training_stats, info, model_name):
@@ -68,10 +88,30 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
     torch.manual_seed(seed_val)
     torch.cuda.manual_seed_all(seed_val)
 
+    # 计算类别权重来处理不平衡问题
+    # 计算类别权重
+    classes = np.unique(train_y)
+    class_weights = compute_class_weight('balanced', classes=classes, y=train_y)
+    class_weights = torch.tensor(class_weights, dtype=torch.float).to(config.device)
+    
+    print(f"类别权重: {class_weights}")
+    print(f"正样本数量: {np.sum(np.array(train_y) == 1)}")
+    print(f"负样本数量: {np.sum(np.array(train_y) == 0)}")
+
     training_stats = []
     total_t0 = time.time()
     model.eval()
-    loss_fn = F.cross_entropy
+    # 选择损失函数 (可以在这里切换)
+    use_focal_loss = False  # 设置为False使用加权交叉熵，设置为True使用Focal Loss
+    
+    if use_focal_loss:
+        # 使用Focal Loss (对困难样本给予更多关注)
+        loss_fn = FocalLoss(alpha=1, gamma=2, weight=class_weights)
+        print("使用Focal Loss")
+    else:
+        # 使用加权交叉熵损失函数
+        loss_fn = nn.CrossEntropyLoss(weight=class_weights)
+        print("使用加权交叉熵损失函数")
     best_epoch_acc = 0.0
     print("Begin training...")
     progress_bar = tqdm(range(total_steps))
@@ -135,6 +175,13 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
             total_eval_accuracy += flat_accuracy(preds, labels)
         prob_result = np.vstack(prob_result_lst)
         print("prob_result:", type(prob_result), prob_result.shape)
+        
+        # 打印预测情况统计
+        pred_counts = np.bincount(all_pre_label)
+        test_counts = np.bincount(test_y)
+        print(f"测试集标签分布: 负类={test_counts[0]}, 正类={test_counts[1] if len(test_counts) > 1 else 0}")
+        print(f"预测结果分布: 负类={pred_counts[0]}, 正类={pred_counts[1] if len(pred_counts) > 1 else 0}")
+        
         avg_val_accuracy = total_eval_accuracy / len(testdata_loader)
         print("  Accuracy: {0:.3f}".format(avg_val_accuracy))
         # Calculate the average loss over all of the batches.
@@ -150,13 +197,17 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
             'Training Time': training_time,
             'Validation Time': test_time
             })
-        # evulates each epohc, save the metrics with the best accuracy.
+        # evulates each epohc, save the metrics with the best F1 score instead of accuracy.
         metrics_ = cal_metrics(test_y, all_pre_label)
         glo_key = model_name + '_' + info + '_' + str(fold_num)
-        if metrics_[0] >= best_epoch_acc:
-            best_epoch_acc = metrics_[0]
+        
+        # 使用加权F1分数作为评估指标，而不是准确率
+        current_weighted_f1 = metrics_[6]  # weighted_f1
+        if current_weighted_f1 >= best_epoch_acc:
+            best_epoch_acc = current_weighted_f1
             glo.set_val(glo_key, metrics_)
             save_model(epoch_i + 1, model, training_stats, info, model_name)
+            print(f"保存模型！当前最佳加权F1: {best_epoch_acc:.4f}")
     logger.info("============all epoches of %s trained finished......" % model_name)
     return
 

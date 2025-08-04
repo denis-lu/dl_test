@@ -4,8 +4,7 @@ from collections import Counter
 
 import numpy as np
 
-from sklearn.dummy import DummyClassifier
-from sklearn import preprocessing
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
@@ -19,6 +18,8 @@ from sklearn.metrics import make_scorer, f1_score, recall_score, precision_score
     roc_auc_score
 import glo
 
+from imbens.ensemble import SelfPacedEnsembleClassifier
+
 SCORING = {'accuracy': 'accuracy', 'precision': make_scorer(precision_score), 'recall': make_scorer(recall_score),
            'f1': make_scorer(f1_score),
            'AUC': make_scorer(roc_auc_score)}
@@ -29,19 +30,30 @@ warnings.simplefilter("ignore")
 def calculate_scores(logger, method_name, method_info):
     tmp_key = method_info + "_" + method_name
     temp_predict = glo.get_val(tmp_key)
-    res = "\n flod " + str(temp_predict[6]) + "\tAccuaryMean: " + str(temp_predict[5] / temp_predict[6]) \
+    res = "\n fold " + str(temp_predict[6]) + "\tAccuracyMean: " + str(temp_predict[5] / temp_predict[6]) \
           + "\tWeightedPrecisionMean: " + str(temp_predict[2] / temp_predict[6]) + "\tWeightedRecallMean: " \
-          + str(temp_predict[3] / temp_predict[6]) + "\t WeightedF1Mean： " + str(temp_predict[4] / temp_predict[6]) \
-          + "\tPrecisonMean: " + str(temp_predict[0] / temp_predict[6]) + "\t NegativePrecisionMean： " + str(
+          + str(temp_predict[3] / temp_predict[6]) + "\t WeightedF1Mean: " + str(temp_predict[4] / temp_predict[6]) \
+          + "\tPrecisionMean: " + str(temp_predict[0] / temp_predict[6]) + "\t NegativePrecisionMean: " + str(
         temp_predict[1] / temp_predict[6]) \
-          + "\tRecallMean: " + str(temp_predict[7] / temp_predict[6]) + "\t NegativeRecallMean： " + str(temp_predict[8] / temp_predict[6]) \
-          + "\tF1Mean: " + str(temp_predict[9] / temp_predict[6]) + "\t NegativeF1Mean： " + str(temp_predict[10] / temp_predict[6])
+          + "\tRecallMean: " + str(temp_predict[7] / temp_predict[6]) + "\t NegativeRecallMean: " + str(temp_predict[8] / temp_predict[6]) \
+          + "\tNegativeF1Mean: " + str(temp_predict[9] / temp_predict[6]) + "\t F1Mean: " + str(temp_predict[10] / temp_predict[6]) \
+          + "\tAUCMean: " + str(temp_predict[11] / temp_predict[6])
     print(res)
     logger.info(res)
 
 
 def evaluate_method(model, method_name, logger, test_x, test_y, method_info):
-    logger.info("test data distrubution: " + str(sorted(Counter(test_y).items())))
+    logger.info("test data distribution: " + str(sorted(Counter(test_y).items())))
+
+    # # 假设 test_x 是你的测试集
+    # y_proba = model.predict_proba(test_x)[:, 1]  # 取正类（类别1）的概率
+
+    # # 手动设置阈值
+    # threshold = 0.13  # 举例：你想更敏感，降低阈值以提高召回率
+
+    # # 手动判断：概率 >= 阈值 → 预测为 1，否则为 0
+    # y_pred = (y_proba >= threshold).astype(int)
+
     y_pred = model.predict(test_x)
     y_score = model.predict_proba(test_x)[:, 1]
 
@@ -53,15 +65,14 @@ def evaluate_method(model, method_name, logger, test_x, test_y, method_info):
     weighted_precision = precision_score(test_y, y_pred, average="weighted")
     weighted_recall = recall_score(test_y, y_pred, average="weighted")
     weighted_f1 = f1_score(test_y, y_pred, average="weighted")
-    fpr, tpr, thresholds = roc_curve(test_y, y_score, pos_label=0)
-    aucArea = auc(fpr, tpr)
+    # AUC
     aucScore = roc_auc_score(y_true=test_y, y_score=y_score)
     
     tmp_key = method_info + "_" + method_name
     if glo.get_val(tmp_key) is None:
         glo.set_val(tmp_key, [precision_res[1], precision_res[0], weighted_precision, weighted_recall,
                                       weighted_f1, acc_res, 1, recall_res[1], recall_res[0], f1_res[0],
-                                      f1_res[1]])
+                                      f1_res[1], aucScore])
     else:
         temp_predict = glo.get_val(tmp_key)
         temp_predict[0] += precision_res[1]
@@ -73,13 +84,17 @@ def evaluate_method(model, method_name, logger, test_x, test_y, method_info):
         temp_predict[6] += 1
         temp_predict[7] += recall_res[1]
         temp_predict[8] += recall_res[0]
-        temp_predict[9] += f1_res[1]
-        temp_predict[10] += f1_res[0]
+        temp_predict[9] += f1_res[0]
+        temp_predict[10] += f1_res[1]
+        temp_predict[11] += aucScore
         glo.set_val(tmp_key, temp_predict)
 
 
 # Logistic Regression
 def lr_classifier(train_x, train_y, logger):
+
+    # 参数搜索
+    '''
     parameters = {
         'C': np.linspace(0.0001, 20, 20),
         'solver': ["newton-cg", "lbfgs", "liblinear", "sag"],
@@ -94,11 +109,20 @@ def lr_classifier(train_x, train_y, logger):
     grid.fit(train_x, train_y)
     logger.info("lr_para: %s", grid.best_params_)
     best_model = grid.best_estimator_
+
     return best_model
+    '''
+
+    model_g = LogisticRegression(random_state=3407)
+    clf = SelfPacedEnsembleClassifier(random_state=3407, estimator=model_g)
+    clf.fit(train_x, train_y)
+
+    return clf
 
 
 # Random Forest
 def rf_classifier(train_x, train_y, logger):
+    '''
     parameters = {
         'n_estimators': list(range(10, 110, 10))
     }
@@ -110,23 +134,53 @@ def rf_classifier(train_x, train_y, logger):
     logger.info("rf_para: %s" % (grid.best_params_))
     best_model = grid.best_estimator_
     return best_model
+    '''
+
+    '''
+    # 调参
+    parameters = {
+        'n_estimators': [10, 20, 30, 50, 100],
+        'estimator__n_estimators': list(range(10, 110, 10)),      # RandomForest树的数量
+    }
+    model_g = RandomForestClassifier(random_state=3407)
+    clf = SelfPacedEnsembleClassifier(random_state=3407, estimator=model_g)
+    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    fold = StratifiedKFold(n_splits=5, random_state=5, shuffle=True)
+    grid = GridSearchCV(clf, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
+    grid.fit(train_x, train_y)
+    logger.info("rf_para: %s" % (grid.best_params_))
+    best_model = grid.best_estimator_
+    return best_model
+    '''
+
+    model_g = RandomForestClassifier(random_state=3407)
+    clf = SelfPacedEnsembleClassifier(random_state=3407, estimator=model_g, n_estimators=60)
+    # clf = RandomForestClassifier(random_state=3407)
+    clf.fit(train_x, train_y)
+
+    return clf
 
 
 # KNN
 def knn_classifier(train_x, train_y, logger):
-    parameters = {
-        'n_neighbors': np.arange(1, 11, 1),
-        'algorithm': ['auto']
-    }
-    model_g = KNeighborsClassifier()
-    # fold = KFold(n_splits=10, random_state=5, shuffle=True)
-    fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
-    grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
-    grid.fit(train_x, train_y)
-    logger.info("knn_para: %s" % (grid.best_params_))
-    best_model = grid.best_estimator_
-    return best_model
+    # parameters = {
+    #     'n_neighbors': np.arange(1, 11, 1),
+    #     'algorithm': ['auto']
+    # }
+    # model_g = KNeighborsClassifier()
+    # # fold = KFold(n_splits=10, random_state=5, shuffle=True)
+    # fold = StratifiedKFold(n_splits=10, random_state=5, shuffle=True)
+    # grid = GridSearchCV(model_g, parameters, scoring=SCORING, refit="accuracy", cv=fold, n_jobs=-1)
+    # grid.fit(train_x, train_y)
+    # logger.info("knn_para: %s" % (grid.best_params_))
+    # best_model = grid.best_estimator_
+    # return best_model
 
+    model_g = KNeighborsClassifier()
+    clf = SelfPacedEnsembleClassifier(random_state=3407, estimator=model_g)
+    clf.fit(train_x, train_y)
+
+    return clf
 
 # Gradient Boosting
 def gb_classifier(train_x, train_y, logger):
@@ -169,6 +223,8 @@ def mlp_classifier(train_x, train_y, logger):
 
 # Decision Tree
 def dt_classifier(train_x, train_y, logger):
+
+    '''
     parameters = {
         'max_depth': [3, 5, 7, 10],
         'min_samples_split': [2, 5, 10],
@@ -182,6 +238,13 @@ def dt_classifier(train_x, train_y, logger):
     logger.info("dt_para: %s" % (grid.best_params_))
     best_model = grid.best_estimator_
     return best_model
+    '''
+
+    model_g = DecisionTreeClassifier(random_state=3407)
+    clf = SelfPacedEnsembleClassifier(random_state=3407, estimator=model_g)
+    clf.fit(train_x, train_y)
+
+    return clf
 
 # Support Vector Machine
 def svm_classifier(train_x, train_y, logger):
@@ -220,20 +283,30 @@ def xgb_classifier(train_x, train_y, logger):
 
 
 def methods_container(train_x, train_y, test_x, test_y, logger, class_type):
-    
-    logger.info("==================Logistic Regression==============")
-    lr_model = lr_classifier(train_x, train_y, logger)
-    evaluate_method(lr_model, "lr", logger, test_x, test_y, class_type)
-    calculate_scores(logger, "lr", class_type)
 
-    # logger.info("==================Random Forest==============")
-    # rf_model = rf_classifier(train_x, train_y, logger)
-    # evaluate_method(rf_model, "rf", logger, test_x, test_y, class_type)
-    # calculate_scores(logger, "rf", class_type)
+    # Standardization
+    scaler1 = StandardScaler()
+    train_x_scaled1 = scaler1.fit_transform(train_x)
+    test_x_scaled1 = scaler1.transform(test_x)
+
+    # Normalization
+    scaler2 = MinMaxScaler()
+    train_x_scaled2 = scaler2.fit_transform(train_x)
+    test_x_scaled2 = scaler2.transform(test_x)
+
+    # logger.info("==================Logistic Regression==============")
+    # lr_model = lr_classifier(train_x_scaled1, train_y, logger)
+    # evaluate_method(lr_model, "lr", logger, test_x_scaled1, test_y, class_type)
+    # calculate_scores(logger, "lr", class_type)
+
+    logger.info("==================Random Forest==============")
+    rf_model = rf_classifier(train_x, train_y, logger)
+    evaluate_method(rf_model, "rf", logger, test_x, test_y, class_type)
+    calculate_scores(logger, "rf", class_type)
 
     # logger.info("==================KNN================")
-    # knn_model = knn_classifier(train_x, train_y, logger)
-    # evaluate_method(knn_model, "knn", logger, test_x, test_y, class_type)
+    # knn_model = knn_classifier(train_x_scaled2, train_y, logger)
+    # evaluate_method(knn_model, "knn", logger, test_x_scaled2, test_y, class_type)
     # calculate_scores(logger, "knn", class_type)
 
     # logger.info("==================Gradient Boosting================")
