@@ -15,6 +15,9 @@ import glo
 from dl_models import *
 from utils import *
 import re
+
+from imbens.sampler._under_sampling import RandomUnderSampler
+
 warnings.filterwarnings("ignore")
 
 
@@ -287,6 +290,10 @@ def main(file_path, model_type):
     for train_index, test_index in kf.split(labeled_data, high_low_labels):
         train_x, train_y = list(labeled_data.iloc[train_index, 1]), list(high_low_labels.iloc[train_index])
         test_x, test_y = list(labeled_data.iloc[test_index, 1]), list(high_low_labels.iloc[test_index])
+
+        rus = RandomUnderSampler(random_state=3407)
+        train_x, train_y = rus.fit_resample(train_x, train_y)
+
         # Use single input models (CNN, bi-lstm, transformer)
         dl_container(train_x, train_y, test_x, test_y, mylogger, "score", fold_num, model_type)
         fold_num += 1
