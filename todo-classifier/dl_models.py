@@ -18,15 +18,8 @@ from transformers import get_linear_schedule_with_warmup
 import collections
 import warnings
 
-# 尝试导入 ImbalancedDatasetSampler
-IMBALANCED_SAMPLER_AVAILABLE = False
-try:
-    from torchsampler import ImbalancedDatasetSampler  # type: ignore
-    IMBALANCED_SAMPLER_AVAILABLE = True
-    print("ImbalancedDatasetSampler 可用")
-except ImportError:
-    IMBALANCED_SAMPLER_AVAILABLE = False
-    print("警告: ImbalancedDatasetSampler 不可用。请安装 torchsampler: pip install torchsampler")
+
+from torchsampler import ImbalancedDatasetSampler
 
 warnings.filterwarnings('ignore')
 
@@ -69,7 +62,7 @@ class Data_processor(object):
 
     def __init__(self, modelcard_data, label_data, batch_size, use_imbalanced_sampler=True, is_training=True):
         self.batch_size = batch_size
-        self.use_imbalanced_sampler = use_imbalanced_sampler and IMBALANCED_SAMPLER_AVAILABLE and is_training
+        self.use_imbalanced_sampler = use_imbalanced_sampler and is_training
         self.is_training = is_training
         
         print("Loading BERT model...")
