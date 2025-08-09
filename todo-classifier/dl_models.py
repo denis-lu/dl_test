@@ -44,7 +44,10 @@ class CustomDataset(Dataset):
     
     def get_labels(self):
         """返回所有标签，ImbalancedDatasetSampler 需要这个方法"""
-        return self.labels.numpy() if torch.is_tensor(self.labels) else self.labels
+        if torch.is_tensor(self.labels):
+            return self.labels.cpu().numpy()
+        else:
+            return self.labels
 
 
 def load_BERT():
@@ -84,12 +87,15 @@ class Data_processor(object):
         return encoded_input
 
     def make_data(self, encoded_data):
+        # 获取模型所在的设备，确保数据和模型在同一设备上
+        device = next(self.bert_model.parameters()).device
         input_ids, attention_masks = encoded_data['input_ids'], encoded_data['attention_mask']
-        # Convert to Pytorch Data Types
-        inputs = torch.tensor(input_ids)
-        masks = torch.tensor(attention_masks)
+        
+        # Convert to Pytorch Data Types and move to same device as model
+        inputs = torch.tensor(input_ids).to(device)
+        masks = torch.tensor(attention_masks).to(device)
         # labels = torch.tensor(self.labels)
-        labels = torch.tensor(self.labels, dtype=torch.long)
+        labels = torch.tensor(self.labels, dtype=torch.long).to(device)
         train_data = (inputs, masks, labels)
         return train_data
 

@@ -15,6 +15,7 @@ import glo
 from dl_models import *
 from utils import *
 import re
+from sklearn.metrics import accuracy_score, recall_score, precision_score, f1_score, average_precision_score, roc_auc_score
 
 warnings.filterwarnings("ignore")
 
@@ -163,119 +164,114 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
             'Validation Time': test_time
             })
         # evulates each epohc, save the metrics with the best accuracy.
-        metrics_ = cal_metrics(test_y, all_pre_label)
+        acc_res = accuracy_score(test_y, all_pre_label)
+        recall_res = recall_score(test_y, all_pre_label, average=None)
+        precision_res = precision_score(test_y, all_pre_label, average=None)
+        f1_res = f1_score(test_y, all_pre_label, average=None)
+        
+        y_score = prob_result[:, 1]
+        aucScore = average_precision_score(y_true=test_y, y_score=y_score)
+        rocAucScore = roc_auc_score(y_true=test_y, y_score=y_score)
+        
+        metrics_data = [precision_res[1], precision_res[0], acc_res, 1, recall_res[1], recall_res[0], f1_res[0], f1_res[1], aucScore, rocAucScore]
+        
         glo_key = model_name + '_' + info + '_' + str(fold_num)
-        if metrics_[0] >= best_epoch_acc:
-            best_epoch_acc = metrics_[0]
-            glo.set_val(glo_key, metrics_)
+        if acc_res >= best_epoch_acc:
+            best_epoch_acc = acc_res
+            glo.set_val(glo_key, metrics_data)
             save_model(epoch_i + 1, model, training_stats, info, model_name)
     logger.info("============all epoches of %s trained finished......" % model_name)
     return
 
 
 def cal_last_metrics(logger, model_name, info):
-    # (acc_res, precision_res, recall_res, f1_res, weighted_precision, weighted_recall, weighted_f1)
-    res = np.array([0.0] * 10)
+
     keylist = [model_name + '_' + info + '_' + str(fold_num) for fold_num in range(0,10)]
     
-    # 创建字典来保存每个fold的详细指标
+    # 创建字典来保存每个fold的详细指标 
     fold_metrics = {}
+    overall_results = {}
+    results_per_fold = {}
     
     for k in keylist:
         metrics = glo.get_val(k)
+        if metrics is None:
+            continue
+            
         fold_num = int(k.split('_')[-1])
         
         # 保存每个fold的详细指标
         fold_metrics[f'fold_{fold_num}'] = {
-            'accuracy': float(metrics[0]),
-            'precision_positive': float(metrics[1][1]),
-            'precision_negative': float(metrics[1][0]),
-            'recall_positive': float(metrics[2][1]),
-            'recall_negative': float(metrics[2][0]),
-            'f1_positive': float(metrics[3][1]),
-            'f1_negative': float(metrics[3][0]),
-            'weighted_precision': float(metrics[4]),
-            'weighted_recall': float(metrics[5]),
-            'weighted_f1': float(metrics[6])
+            'accuracy': float(metrics[2]),
+            'precision_positive': float(metrics[0]),
+            'precision_negative': float(metrics[1]),
+            'recall_positive': float(metrics[4]),
+            'recall_negative': float(metrics[5]),
+            'f1_positive': float(metrics[7]),
+            'f1_negative': float(metrics[6]),
+            'pr_auc': float(metrics[8]),
+            'roc_auc': float(metrics[9])
         }
         
-        res[0] += metrics[0]
-        res[1] += metrics[1][1]
-        res[2] += metrics[1][0]
-        res[3] += metrics[2][1]
-        res[4] += metrics[2][0]
-        res[5] += metrics[3][1]
-        res[6] += metrics[3][0]
-        res[7] += metrics[4]
-        res[8] += metrics[5]
-        res[9] += metrics[6]
+        # 用于计算平均值
+        if f'fold_{fold_num}' not in results_per_fold:
+            results_per_fold[f'fold_{fold_num}'] = fold_metrics[f'fold_{fold_num}']
     
-    # 添加平均指标
-    fold_metrics['mean'] = {
-        'accuracy': float(res[0]/10.0),
-        'precision_positive': float(res[1]/10.0),
-        'precision_negative': float(res[2]/10.0),
-        'recall_positive': float(res[3]/10.0),
-        'recall_negative': float(res[4]/10.0),
-        'f1_positive': float(res[5]/10.0),
-        'f1_negative': float(res[6]/10.0),
-        'weighted_precision': float(res[7]/10.0),
-        'weighted_recall': float(res[8]/10.0),
-        'weighted_f1': float(res[9]/10.0)
-    }
-    
-    # 保存详细指标到文件
-    output_dir = f'./results_{model_name}_{info}/'
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-    
-    with open(f'{output_dir}fold_metrics.json', 'w') as f:
-        json.dump(fold_metrics, f, indent=4)
-    
-    logger.info(f"Detailed fold metrics saved to {output_dir}fold_metrics.json")
-    
-    info_res = "\n flod " + str(10) + "\tAccuaryMean: " + str(res[0]/10.0) \
-          + "\tWeightedPrecisionMean: " + str(res[7]/10.0) + "\tWeightedRecallMean: " \
-          + str(res[8]/10.0) + "\t WeightedF1Mean： " + str(res[9]/10.0) \
-          + "\tPrecisonMean: " + str(res[1]/10.0) + "\t NegativePrecisionMean： " + str(
-        res[2]/10.0) \
-          + "\tRecallMean: " + str(res[3]/10.0) + "\t NegativeRecallMean： " + str(res[4]/10.0) \
-          + "\tF1Mean: " + str(res[5]/10.0) + "\t NegativeF1Mean： " + str(res[6]/10.0)
-    logger.info(info_res)
-    print(info_res)
-
-
-# def clean_todo_comment(todo_data):
-#     #  # 123123123, todo ( b / 111289526 ) : sadasdsada
-#     re1 = r"#\s*\d+"
-#     re2 = r"todo\s*\(\s*[^()]+\s*\)"
-#     data_processed = []
-#     for todo in todo_data:
-#         new = re.sub(re2, "todo <info_tag>", todo)
-#         new = re.sub(re1, "<link_id>", new)
-#         data_processed.append(new)
-#     return data_processed
-
-
-# def read_file(path):
-#     """load lines from a file"""
-#     sents = []
-#     with open(path, 'r') as f:
-#         for line in f:
-#             sents.append(str(line.strip()))
-#     return sents
+    # 计算平均指标
+    if results_per_fold:
+        num_folds = len(results_per_fold)
+        avg_metrics = {
+            'accuracy': sum([v['accuracy'] for v in results_per_fold.values()]) / num_folds,
+            'precision_positive': sum([v['precision_positive'] for v in results_per_fold.values()]) / num_folds,
+            'precision_negative': sum([v['precision_negative'] for v in results_per_fold.values()]) / num_folds,
+            'recall_positive': sum([v['recall_positive'] for v in results_per_fold.values()]) / num_folds,
+            'recall_negative': sum([v['recall_negative'] for v in results_per_fold.values()]) / num_folds,
+            'f1_positive': sum([v['f1_positive'] for v in results_per_fold.values()]) / num_folds,
+            'f1_negative': sum([v['f1_negative'] for v in results_per_fold.values()]) / num_folds,
+            'pr_auc': sum([v['pr_auc'] for v in results_per_fold.values()]) / num_folds,
+            'roc_auc': sum([v['roc_auc'] for v in results_per_fold.values()]) / num_folds
+        }
+        
+        overall_results = avg_metrics
+        
+        # 保存结果到文件（与ml_classifiers.py格式一致）
+        output_dir = f'./Deep_Learning_Models/'
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
+        
+        with open(f'{output_dir}overall_results.json', 'w') as f:
+            json.dump(overall_results, f, indent=4)
+        
+        with open(f'{output_dir}results_per_fold.json', 'w') as f:
+            json.dump(results_per_fold, f, indent=4)
+        
+        logger.info(f"Results saved to {output_dir}")
+        
+        # 输出结果信息
+        info_res = f"\n fold {num_folds}" \
+                  f"\tAccuracyMean: {avg_metrics['accuracy']:.4f}" \
+                  f"\tPrecisionMean: {avg_metrics['precision_positive']:.4f}" \
+                  f"\tNegativePrecisionMean: {avg_metrics['precision_negative']:.4f}" \
+                  f"\tRecallMean: {avg_metrics['recall_positive']:.4f}" \
+                  f"\tNegativeRecallMean: {avg_metrics['recall_negative']:.4f}" \
+                  f"\tNegativeF1Mean: {avg_metrics['f1_negative']:.4f}" \
+                  f"\tF1Mean: {avg_metrics['f1_positive']:.4f}" \
+                  f"\tPR-AUCMean: {avg_metrics['pr_auc']:.4f}" \
+                  f"\tROC-AUCMean: {avg_metrics['roc_auc']:.4f}"
+        
+        logger.info(info_res)
+        print(info_res)
 
 
 def load_all_data(file_path):
     data = pd.read_json(file_path, orient='records', lines=True)
-    data = data.iloc[0:765,:4]
+    data = data.iloc[:758,:4]
     return data
 
 
 def tmp_label_process(labeled_data):
     high_low_labels = labeled_data['quality'].apply(lambda x:1 if x == 1 else 0)
     return high_low_labels
-
 
 
 def main(file_path, model_type, use_imbalanced_sampler=True):
@@ -293,18 +289,16 @@ def main(file_path, model_type, use_imbalanced_sampler=True):
     
     glo._init()
     fold_num = 0
-    # kf = KFold(n_splits=10, random_state=3407, shuffle=True)
-    kf = StratifiedKFold(n_splits=10, random_state=3407, shuffle=True)
-    # for train_index, test_index in kf.split(labeled_data):
+    # kf = KFold(n_splits=10, random_state=3408, shuffle=True)
+    kf = StratifiedKFold(n_splits=10, random_state=3408, shuffle=True)
     for train_index, test_index in kf.split(labeled_data, high_low_labels):
         train_x, train_y = list(labeled_data.iloc[train_index, 1]), list(high_low_labels.iloc[train_index])
         test_x, test_y = list(labeled_data.iloc[test_index, 1]), list(high_low_labels.iloc[test_index])
 
-        # Use single input models (CNN, bi-lstm, transformer)
         dl_container(train_x, train_y, test_x, test_y, mylogger, "score", fold_num, model_type, use_imbalanced_sampler)
         fold_num += 1
 
-    ## calculate 10-fold metrics at last
+    # calculate 10-fold metrics at last
     mylogger.info("==================modelcard high_low classifers=============")
     cal_last_metrics(mylogger, model_type, "score")
 
@@ -312,10 +306,9 @@ def main(file_path, model_type, use_imbalanced_sampler=True):
 if __name__ == '__main__':
     file_path = "./modelcard_data (update).json"
     
-    # 配置选项
     USE_IMBALANCED_SAMPLER = True  # 设置为 False 可禁用不平衡采样器
     
-    # type 1: bi-lstm 2: textcnn 3: transformer
+    # type 1: textcnn 2: bi-lstm 3: transformer
     # model_list = ["textcnn", "bi-lstm", "transformer"]
     model_list = ["textcnn"]
     for model_type in model_list:

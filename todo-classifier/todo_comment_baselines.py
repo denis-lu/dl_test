@@ -30,31 +30,29 @@ def tmp_label_process(labeled_data):
 
 
 def preprocessing(train_data, test_data, categorical_columns):
-
     train_processed = train_data.copy()
     test_processed = test_data.copy()
     
+    for col in categorical_columns:
+        train_processed[col] = train_processed[col].fillna("unknown").astype(str)
+        test_processed[col] = test_processed[col].fillna("unknown").astype(str)
+
     label_encoders = {}
     for column in categorical_columns:
         if column in train_processed.columns:
-            label_encoders[column] = LabelEncoder()
-            train_processed[column] = label_encoders[column].fit_transform(
-                train_processed[column].astype(str)
+            le = LabelEncoder()
+            le.fit(train_processed[column])
+            label_encoders[column] = le
+
+            train_processed[column] = le.transform(train_processed[column])
+            
+            test_processed[column] = test_processed[column].map(
+                lambda x: le.transform([x])[0] if x in le.classes_ else len(le.classes_)
             )
-            
-            test_categories = test_processed[column].astype(str)
-            processed_test = []
-            
-            for cat in test_categories:
-                if cat in label_encoders[column].classes_:
-                    processed_test.append(label_encoders[column].transform([cat])[0])
-                else:
-                    processed_test.append(-1)
-            
-            test_processed[column] = processed_test
     
-    train_processed = train_processed.fillna(-1)
-    test_processed = test_processed.fillna(-1)
+    num_cols = train_processed.select_dtypes(include=['number']).columns
+    train_processed[num_cols] = train_processed[num_cols].fillna(train_processed[num_cols].median())
+    test_processed[num_cols] = test_processed[num_cols].fillna(train_processed[num_cols].median())
     
     return train_processed, test_processed
 
@@ -71,8 +69,8 @@ def main(file_path):
     # Categorical feature
     categorical_columns = ['what-license', 'what-library', 'what-task']
 
-    # kf = KFold(n_splits=10, random_state=3407, shuffle=True)
-    kf = StratifiedKFold(n_splits=10, random_state=3407, shuffle=True)
+    # kf = KFold(n_splits=10, random_state=3408, shuffle=True)
+    kf = StratifiedKFold(n_splits=10, random_state=3408, shuffle=True)
 
     for train_index, test_index in kf.split(labeled_data, high_low_labels):
         
