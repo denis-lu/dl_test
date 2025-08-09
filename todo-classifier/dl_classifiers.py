@@ -78,7 +78,7 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
     total_t0 = time.time()
     model.eval()
     loss_fn = F.cross_entropy
-    best_epoch_acc = 0.0
+    best_epoch_f1 = 0.0  # 改为追踪最佳F1分数
     print("Begin training...")
     progress_bar = tqdm(range(total_steps))
     for epoch_i in range(0, epochs):
@@ -169,6 +169,13 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
         precision_res = precision_score(test_y, all_pre_label, average=None)
         f1_res = f1_score(test_y, all_pre_label, average=None)
         
+        # 输出详细的验证指标
+        print(f"\n====== Epoch {epoch_i + 1} 验证结果 ======")
+        print(f"准确率: {acc_res:.4f}")
+        print(f"精确率 (正/负): {precision_res[1]:.4f} / {precision_res[0]:.4f}")
+        print(f"召回率 (正/负): {recall_res[1]:.4f} / {recall_res[0]:.4f}")
+        print(f"F1分数 (正/负): {f1_res[1]:.4f} / {f1_res[0]:.4f}")
+        
         y_score = prob_result[:, 1]
         aucScore = average_precision_score(y_true=test_y, y_score=y_score)
         rocAucScore = roc_auc_score(y_true=test_y, y_score=y_score)
@@ -176,10 +183,16 @@ def dl_container(modelcard_data, train_y, test_modelcard_data, test_y, logger, i
         metrics_data = [precision_res[1], precision_res[0], acc_res, 1, recall_res[1], recall_res[0], f1_res[0], f1_res[1], aucScore, rocAucScore]
         
         glo_key = model_name + '_' + info + '_' + str(fold_num)
-        if acc_res >= best_epoch_acc:
-            best_epoch_acc = acc_res
+        # 使用正类F1分数作为保存模型的标准
+        current_f1 = f1_res[1]  # 正类（类别1）的F1分数
+        if current_f1 >= best_epoch_f1:
+            best_epoch_f1 = current_f1
+            print(f"\n*** 新的最佳F1分数: {current_f1:.4f} (Epoch {epoch_i + 1}) ***")
+            print(f"    准确率: {acc_res:.4f}, 召回率: {recall_res[1]:.4f}, 精确率: {precision_res[1]:.4f}")
             glo.set_val(glo_key, metrics_data)
             save_model(epoch_i + 1, model, training_stats, info, model_name)
+        else:
+            print(f"    当前F1分数: {current_f1:.4f} (最佳: {best_epoch_f1:.4f})")
     logger.info("============all epoches of %s trained finished......" % model_name)
     return
 
